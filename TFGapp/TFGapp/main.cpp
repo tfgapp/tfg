@@ -17,6 +17,8 @@ int main()
 		crearTablaAlumno(db);
 		sqlite3_exec(db, "DROP TABLE profesores", 0, 0, 0);
 		crearTablaProfesor(db);
+		sqlite3_exec(db, "DROP TABLE horarios", 0, 0, 0);
+		crearTablaHorario(db);
 	}
 
 	char path[] = "../datos_alumno.csv";
