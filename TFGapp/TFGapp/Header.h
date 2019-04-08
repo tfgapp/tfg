@@ -25,7 +25,7 @@ void BBDD insertarHorarios(list<Horario> lista, sqlite3 * db);
 
 #define CSV
 
-int CSV leerHeader(ifstream* file, string * header = NULL);
+int CSV leerHeader(ifstream* file, string* header);
 list<Alumno> CSV importarAlumnos(char path[]);
 list<Profesor> CSV importarProfesores(char path[]);
 list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores);

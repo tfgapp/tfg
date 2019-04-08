@@ -1,6 +1,6 @@
 #include "Header.h"
 
-int CSV leerHeader(ifstream* file, string * header = NULL)
+int CSV leerHeader(ifstream* file, string * header=NULL)
 {
 	if (header == NULL)
 	{
