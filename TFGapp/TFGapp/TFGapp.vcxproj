@@ -123,12 +123,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BBDD.cpp" />
+    <ClCompile Include="CSV.cpp" />
     <ClCompile Include="Horario.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Alumno.cpp" />
     <ClCompile Include="Profesor.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="sqlite3\sqlite3.c" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alumno.h" />
