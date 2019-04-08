@@ -12,8 +12,8 @@ INSERT INTO alumnos (nombre,apellido1,apellido2,correo,grado)
 VALUES ( 'Nombre1',Apellido11,Apellido2,Correo1gmail.com,1);
 
 CREATE TABLE IF NOT EXISTS profesores(
-	nombreCompleto TEXT,
-	octor INT
+	nombreCompleto TEXT  PRIMARY KEY NOT NULL,
+	doctor INT
 );
 
 CREATE TABLE IF NOT EXISTS horarios(
