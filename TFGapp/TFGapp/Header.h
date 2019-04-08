@@ -7,6 +7,7 @@
 #include "Profesor.h"
 #include "Alumno.h"
 #include "Horario.h"
+
 using namespace std;
 
 #define BBDD
@@ -28,7 +29,9 @@ int CSV leerHeader(ifstream* file);
 list<Alumno> CSV importarAlumnos(char path[]);
 list<Profesor> CSV importarProfesores(char path[]);
 list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores);
+
 #define UTILITY
 
 Profesor * UTILITY existeProfesor(list<Profesor> *lista, string correo);
+Horario * UTILITY existeHorario(list<Horario> *lista, string nombre, string dia);
 

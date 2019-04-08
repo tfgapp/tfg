@@ -8,6 +8,7 @@ static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName)
 	printf("\n");
 	return 0;
 }
+
 void BBDD crearTablaHorario(sqlite3 *bd) {
 	char sql[] = "CREATE TABLE IF NOT EXISTS horarios(" \
 		"nombre VARCHAR  PRIMARY KEY NOT NULL,"\
@@ -32,6 +33,7 @@ void BBDD crearTablaHorario(sqlite3 *bd) {
 	}
 
 }
+
 void BBDD crearTablaAlumno(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS alumnos(" \
@@ -73,6 +75,7 @@ void BBDD crearTablaProfesor(sqlite3 *bd)
 	}
 
 }
+
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO horarios(nombre,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7,dia) VALUES ('";
@@ -94,6 +97,7 @@ void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 		sqlite3_free(error);
 	}
 }
+
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno)
 {
 	string sql = "INSERT OR REPLACE INTO alumnos (nombre,apellido1,apellido2,correo,grado) VALUES ('";
@@ -129,6 +133,7 @@ void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor)
 		sqlite3_free(error);
 	}
 }
+
 void BBDD insertarHorarios(list<Horario> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarHorario(db, dummy);
@@ -210,7 +215,8 @@ list<Profesor> CSV importarProfesores(char path[])
 	return lista;
 }
 
-list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores) {
+list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores) 
+{
 	ifstream csv;
 	csv.open(path);
 

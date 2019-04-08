@@ -1,7 +1,9 @@
 #pragma once
-#include "Header.h"
+
+
 class Horario
 {
+private:
 	int dia;
 	bool sloots[7];
 	Profesor *profesor;
