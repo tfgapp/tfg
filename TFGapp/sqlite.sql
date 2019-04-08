@@ -1,4 +1,4 @@
-.cd C:/Users/Ulises/Desktop/TFGapp/TFGapp .open test.db
+.cd C:/Users/Ulises/Desktop/tfg/TFGapp/TFGapp .open test.db
 
 CREATE TABLE IF NOT EXISTS alumnos(
 	nombre TEXT,
@@ -17,4 +17,16 @@ CREATE TABLE IF NOT EXISTS profesores(
 	apellido2 TEXT,
 	correo TEXT PRIMARY KEY NOT NULL,
 	doctor INT
+);
+
+CREATE TABLE IF NOT EXISTS horarios(
+		nombre TEXT PRIMARY KEY NOT NULL,
+		dia INT,
+		sloot1 INT,
+		sloot2 INT,
+		sloot3 INT,
+		sloot4 INT,
+		sloot5 INT,
+		sloot6 INT,
+		sloot7 INT 
 );

@@ -7,17 +7,20 @@ using namespace std;
 
 class Profesor
 {
-public:
-	string nombre;
-	string apellido1;
-	string apellido2;
-	string correo;
-	list<pair<int,int>> grado;
+private:
+	string nombreCompleto;
 	bool doctor;
-
-	Profesor(string, string, string, string, string);
+	list<pair<int, int>> grado;
+public:
+	Profesor(string, string);
 	~Profesor();
 	void printProfesor();
 	void addGrado(string grado, string nTFG);
+
+	string getNombre();
+	void setNombre(string);
+
+	bool getDoctor();
+	void setDoctor(bool);
 };
 

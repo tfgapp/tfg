@@ -17,6 +17,8 @@ int main()
 		crearTablaAlumno(db);
 		sqlite3_exec(db, "DROP TABLE profesores", 0, 0, 0);
 		crearTablaProfesor(db);
+		sqlite3_exec(db, "DROP TABLE horarios", 0, 0, 0);
+		crearTablaHorario(db);
 	}
 
 	char path[] = "../datos_alumno.csv";
@@ -25,11 +27,15 @@ int main()
 	char path2[] = "../datos_profesor.csv";
 	list<Profesor> lista2 = importarProfesores(path2);
 
-	for (auto dummy : lista) dummy.printAlumno();
-	for (auto dummy : lista2) dummy.printProfesor();
+	char path3[] = "../datos_disponibilidad.csv";
+	list<Horario> lista3 = importarHorarios(path3, lista2);
+
+	//for (auto dummy : lista) dummy.printAlumno();
+	// for (auto dummy : lista2) dummy.printProfesor();
 
 	insertarProfesores(lista2, db);
 	insertarAlumnos(lista, db);
+	insertarHorarios(lista3, db);
 
 	sqlite3_close(db);
 

@@ -90,6 +90,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -120,15 +123,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BBDD.cpp" />
+    <ClCompile Include="CSV.cpp" />
+    <ClCompile Include="Horario.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Alumno.cpp" />
     <ClCompile Include="Profesor.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="sqlite3\sqlite3.c" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alumno.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="Horario.h" />
     <ClInclude Include="Profesor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
