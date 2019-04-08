@@ -8,6 +8,7 @@ Alumno::Alumno(string nombre, string apellido1, string apellido2, string correo,
 	this->correo = correo;
 	this->grado = stoi(grado);
 }
+
 void Alumno::printAlumno()
 {
 
