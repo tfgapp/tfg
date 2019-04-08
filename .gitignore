@@ -2,7 +2,5 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/TFGapp/.vs/*
-/TFGapp/.vs/TFGapp/v15/Browse.VC.db
-/TFGapp/.vs/TFGapp/v15/Browse.VC.opendb
-.vs/*
+/TFGapp/.vs/
+.vs/
