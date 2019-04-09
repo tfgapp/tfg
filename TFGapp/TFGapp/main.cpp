@@ -21,14 +21,17 @@ int main()
 		crearTablaHorario(db);
 	}
 
+	vector<Grado> lista_G;
+	Grado dummy("IDCD"); lista_G.push_back(dummy);
+
 	char path[] = "../datos_alumno.csv";
-	list<Alumno> lista = importarAlumnos(path);
+	vector<Alumno> lista = importarAlumnos(path, &lista_G);
 
 	char path2[] = "../datos_profesor.csv";
-	list<Profesor> lista2 = importarProfesores(path2);
+	vector<Profesor> lista2 = importarProfesores(path2 , &lista_G);
 
 	char path3[] = "../datos_disponibilidad.csv";
-	list<Horario> lista3 = importarHorarios(path3, lista2);
+	vector<Horario> lista3 = importarHorarios(path3, &lista2);
 
 	//for (auto dummy : lista) dummy.printAlumno();
 	// for (auto dummy : lista2) dummy.printProfesor();

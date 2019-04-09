@@ -38,10 +38,9 @@ void BBDD crearTablaAlumno(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS alumnos(" \
 		"nombre TEXT,"\
-		"apellido1 TEXT,"\
-		"apellido2 TEXT,"\
-		"correo TEXT PRIMARY KEY NOT NULL,"\
-		"grado INT);";
+		"apellido TEXT,"\
+		"ID TEXT PRIMARY KEY NOT NULL,"\
+		"grado TEXT);";
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
 
@@ -98,12 +97,11 @@ void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno)
 {
-	string sql = "INSERT OR REPLACE INTO alumnos (nombre,apellido1,apellido2,correo,grado) VALUES ('";
-	sql += alumno.nombre; sql += "', '";
-	sql += alumno.apellido1; sql += "', '";
-	sql += alumno.apellido2; sql += "', '";
-	sql += alumno.correo; sql += "', ";
-	sql += to_string(alumno.grado); sql += ");";
+	string sql = "INSERT OR REPLACE INTO alumnos (nombre,apellido,ID,grado) VALUES ('";
+	sql += alumno.getNombre(); sql += "', '";
+	sql += alumno.getApellido(); sql += "', '";
+	sql += alumno.getID(); sql += "',');";
+	//sql += alumno.getGrado(); sql += "');";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
@@ -129,17 +127,17 @@ void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor)
 	}
 }
 
-void BBDD insertarHorarios(list<Horario> lista, sqlite3 * db)
+void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarHorario(db, dummy);
 }
 
-void BBDD insertarAlumnos(list<Alumno> lista, sqlite3 * db)
+void BBDD insertarAlumnos(vector<Alumno> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarAlumno(db, dummy);
 }
 
-void BBDD insertarProfesores(list<Profesor> lista, sqlite3 * db)
+void BBDD insertarProfesores(vector<Profesor> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarProfesor(db, dummy);
 }

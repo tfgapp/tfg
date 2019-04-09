@@ -3,10 +3,12 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <vector>
 #include <list>
 #include "Profesor.h"
 #include "Alumno.h"
 #include "Horario.h"
+#include "Grado.h"
 
 using namespace std;
 
@@ -19,20 +21,20 @@ void BBDD crearTablaHorario(sqlite3 *bd);
 void BBDD insertarHorario(sqlite3 * bd, Horario horario);
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno);
 void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor);
-void BBDD insertarAlumnos(list<Alumno> lista, sqlite3 * db);
-void BBDD insertarProfesores(list<Profesor> lista, sqlite3 * db);
-void BBDD insertarHorarios(list<Horario> lista, sqlite3 * db);
+void BBDD insertarAlumnos(vector<Alumno> lista, sqlite3 * db);
+void BBDD insertarProfesores(vector<Profesor> lista, sqlite3 * db);
+void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db);
 
 #define CSV
 
 int CSV leerHeader(ifstream* file, string* header);
-list<Alumno> CSV importarAlumnos(char path[]);
-list<Profesor> CSV importarProfesores(char path[]);
-list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores);
+vector<Alumno> CSV importarAlumnos(char path[], vector<Grado>* grados);
+vector<Profesor> CSV importarProfesores(char path[], vector<Grado>* grados);
+vector<Horario> CSV importarHorarios(char path[], vector<Profesor> *listaProfesores);
 
 #define UTILITY
 
-Profesor * UTILITY existeProfesor(list<Profesor> *lista, string correo);
-Horario * UTILITY existeHorario(list<Horario> *lista, string nombre, string dia);
+Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string correo);
+Horario * UTILITY existeHorario(vector<Horario> *lista, string nombre, string dia);
 
-//soy ulises, el otro es un mentiroso
+

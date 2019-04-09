@@ -126,6 +126,7 @@
     <ClCompile Include="BBDD.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CSV.cpp" />
+    <ClCompile Include="Grado.cpp" />
     <ClCompile Include="Horario.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Alumno.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Alumno.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="Grado.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Horario.h" />
     <ClInclude Include="Profesor.h" />

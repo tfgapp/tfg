@@ -21,13 +21,21 @@ int CSV leerHeader(ifstream* file, string * header=NULL)
 	return count + 1;
 }
 
-list<Alumno> CSV importarAlumnos(char path[])
+vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
 {
 	ifstream csv;
 	csv.open(path);
 
+	string grado;
+	cout << "A que grado perteneces los alumnos del CSV?\n";
+	cin >> grado;
+	int i;
+	for (i = 0; i < grados->size(); i ++)
+		if ((*grados)[i].getNombre() == grado)
+			break;
+	Grado * dummy_G = &(*grados)[i];
 	int nColumnas = leerHeader(&csv);
-	list<Alumno> lista;
+	vector<Alumno> lista;
 	string * dummy = new string[nColumnas];
 
 	while (csv.good())
@@ -36,7 +44,7 @@ list<Alumno> CSV importarAlumnos(char path[])
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		Alumno dummy_P(dummy[0], dummy[1], dummy[2], dummy[3], dummy[4]);
+		Alumno dummy_P(dummy[0], dummy[1], dummy[2], dummy_G);
 		lista.push_back(dummy_P);
 	}
 
@@ -45,13 +53,13 @@ list<Alumno> CSV importarAlumnos(char path[])
 	return lista;
 }
 
-list<Profesor> CSV importarProfesores(char path[])
+vector<Profesor> CSV importarProfesores(char path[], vector<Grado> * grados)
 {
 	ifstream csv;
 	csv.open(path);
 	string header;
 	int nColumnas = leerHeader(&csv, &header);
-	list<Profesor> lista;
+	vector<Profesor> lista;
 	string * dummy = new string[nColumnas];
 
 	while (csv.good())
@@ -64,11 +72,11 @@ list<Profesor> CSV importarProfesores(char path[])
 		if (aux == NULL)
 		{
 			Profesor dummy_P(dummy[0], dummy[1]);
-			dummy_P.addGrado(dummy[4], dummy[6]);
+			dummy_P.addGrado(&(*grados)[0]);
 			lista.push_back(dummy_P);
 		}
 		else
-			aux->addGrado(dummy[4], dummy[6]);
+			aux->addGrado(&(*grados)[0]);
 
 	}
 
@@ -77,13 +85,13 @@ list<Profesor> CSV importarProfesores(char path[])
 	return lista;
 }
 
-list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores)
+vector<Horario> CSV importarHorarios(char path[], vector<Profesor> *listaProfesores)
 {
 	ifstream csv;
 	csv.open(path);
 
 	int nColumnas = leerHeader(&csv);
-	list<Horario> lista;
+	vector<Horario> lista;
 	string * dummy = new string[nColumnas];
 
 	while (csv.good())
@@ -92,13 +100,13 @@ list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores)
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && existeProfesor(&listaProfesores, dummy[0]) != NULL)
+		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && existeProfesor(listaProfesores, dummy[0]) != NULL)
 		{
 			bool sloots[7];
 			for (int i = 2, j = 0; j < 7; i++, j++) sloots[j] = stoi(dummy[i]);
 			Horario dummy_H(stoi(dummy[1]), sloots);
 
-			dummy_H.setProfesor(existeProfesor(&listaProfesores, dummy[0]));
+			dummy_H.setProfesor(existeProfesor(listaProfesores, dummy[0]));
 
 			lista.push_back(dummy_H);
 		}
