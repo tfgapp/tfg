@@ -21,23 +21,23 @@ int main()
 		crearTablaHorario(db);
 	}
 
-	vector<Grado> lista_G;
+	vector<Grado> listaGrados;
 
 	char path2[] = "../datos_profesor.csv";
-	vector<Profesor> lista2 = importarProfesores(path2 , &lista_G);
+	vector<Profesor> listaProfesores = importarProfesores(path2 , &listaGrados);
 
 	char path[] = "../datos_alumno.csv";
-	vector<Alumno> lista = importarAlumnos(path, &lista_G);
+	vector<Alumno> listaAlumnos = importarAlumnos(path, &listaGrados);
 
 	char path3[] = "../datos_disponibilidad.csv";
-	vector<Horario> lista3 = importarHorarios(path3, &lista2);
+	vector<Horario> listaHorarios = importarHorarios(path3, &listaProfesores);
 
 	//for (auto dummy : lista) dummy.printAlumno();
 	// for (auto dummy : lista2) dummy.printProfesor();
 
-	insertarProfesores(lista2, db);
-	insertarAlumnos(lista, db);
-	insertarHorarios(lista3, db);
+	insertarProfesores(listaProfesores, db);
+	insertarAlumnos(listaAlumnos, db);
+	insertarHorarios(listaHorarios, db);
 
 	sqlite3_close(db);
 
