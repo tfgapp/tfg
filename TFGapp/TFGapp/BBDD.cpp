@@ -9,6 +9,14 @@ static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName)
 	return 0;
 }
 
+void BBDD checkError(int resultado, char * error)
+{
+	if (resultado != SQLITE_OK) {
+		printf("SQL error: %s\n", error);
+		sqlite3_free(error);
+	}
+}
+
 void BBDD crearTablaHorario(sqlite3 *bd) {
 	char sql[] = "CREATE TABLE IF NOT EXISTS horarios(" \
 		"nombre TEXT  PRIMARY KEY NOT NULL,"\
@@ -23,15 +31,7 @@ void BBDD crearTablaHorario(sqlite3 *bd) {
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
-
-	if (resultado != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", error);
-		sqlite3_free(error);
-	}
-	else {
-		fprintf(stdout, "Table created successfully\n");
-	}
-
+	checkError(resultado, error);
 }
 
 void BBDD crearTablaAlumno(sqlite3 *bd)
@@ -41,17 +41,10 @@ void BBDD crearTablaAlumno(sqlite3 *bd)
 		"apellido TEXT,"\
 		"ID TEXT PRIMARY KEY NOT NULL,"\
 		"grado TEXT);";
+
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
-
-	if (resultado != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", error);
-		sqlite3_free(error);
-	}
-	else {
-		fprintf(stdout, "Table created successfully\n");
-	}
-
+	checkError(resultado, error);
 }
 
 void BBDD crearTablaProfesor(sqlite3 *bd)
@@ -62,14 +55,7 @@ void BBDD crearTablaProfesor(sqlite3 *bd)
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
-
-	if (resultado != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", error);
-		sqlite3_free(error);
-	}
-	else {
-		fprintf(stdout, "Table created successfully\n");
-	}
+	checkError(resultado, error);
 
 }
 
@@ -85,14 +71,10 @@ void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 	sql += to_string(horario.getSloot(6)); sql += ", ";
 	sql += to_string(horario.getSloot(7)); sql += ", ";
 	sql += to_string(horario.getSloot(8)); sql += ");";
+
 	char * error = NULL;
-
 	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
-
-	if (resultado != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", error);
-		sqlite3_free(error);
-	}
+	checkError(resultado, error);
 }
 
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno)
@@ -100,16 +82,12 @@ void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno)
 	string sql = "INSERT OR REPLACE INTO alumnos (nombre,apellido,ID,grado) VALUES ('";
 	sql += alumno.getNombre(); sql += "', '";
 	sql += alumno.getApellido(); sql += "', '";
-	sql += alumno.getID(); sql += "',');";
-	//sql += alumno.getGrado(); sql += "');";
+	sql += alumno.getID(); sql += "','";
+	sql += alumno.getGrado()->getNombre(); sql += "');";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
-
-	if (resultado != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", error);
-		sqlite3_free(error);
-	}
+	checkError(resultado, error);
 }
 
 void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor)
@@ -120,11 +98,7 @@ void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor)
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
-
-	if (resultado != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", error);
-		sqlite3_free(error);
-	}
+	checkError(resultado, error);
 }
 
 void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db)

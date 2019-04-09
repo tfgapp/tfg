@@ -30,7 +30,7 @@ vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
 	cout << "A que grado perteneces los alumnos del CSV?\n";
 	cin >> grado;
 	int i;
-	for (i = 0; i < grados->size(); i ++)
+	for (i = 0; i < (int)grados->size(); i ++)
 		if ((*grados)[i].getNombre() == grado)
 			break;
 	Grado * dummy_G = &(*grados)[i];
