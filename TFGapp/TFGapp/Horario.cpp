@@ -1,7 +1,7 @@
 #include "Header.h"
 
 
-//Los tres constructores
+//Los tres constructores 
 Profesor Horario::getProfesor() {
 	return *profesor;
 }
