@@ -27,13 +27,17 @@ vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
 	csv.open(path);
 
 	string grado;
-	cout << "A que grado perteneces los alumnos del CSV?\n";
-	cin >> grado;
-	int i;
-	for (i = 0; i < grados->size(); i ++)
-		if ((*grados)[i].getNombre() == grado)
-			break;
-	Grado * dummy_G = &(*grados)[i];
+	Grado * dummy_G = NULL;
+
+	while (dummy_G == NULL)
+	{
+		cout << "A que grado perteneces los alumnos del CSV?\n";
+		cin >> grado;
+		dummy_G = existeGrado(grados, grado);
+		if (dummy_G == NULL)
+			cout << "No existe ese grado\n";
+	}
+
 	int nColumnas = leerHeader(&csv);
 	vector<Alumno> lista;
 	string * dummy = new string[nColumnas];
