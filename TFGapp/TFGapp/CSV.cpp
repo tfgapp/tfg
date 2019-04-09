@@ -27,7 +27,7 @@ vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
 	csv.open(path);
 
 	string grado;
-	Grado * dummy_G;
+	Grado * dummy_G = NULL;
 
 	while (dummy_G == NULL)
 	{
