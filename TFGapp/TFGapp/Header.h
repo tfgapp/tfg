@@ -28,7 +28,7 @@ void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db);
 
 #define CSV
 
-int CSV leerHeader(ifstream* file, string* header);
+int CSV leerHeader(ifstream* file);
 vector<Alumno> CSV importarAlumnos(char path[], vector<Grado>* grados);
 vector<Profesor> CSV importarProfesores(char path[], vector<Grado>* grados);
 vector<Horario> CSV importarHorarios(char path[], vector<Profesor> *listaProfesores);
@@ -38,5 +38,3 @@ vector<Horario> CSV importarHorarios(char path[], vector<Profesor> *listaProfeso
 Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string correo);
 Horario * UTILITY existeHorario(vector<Horario> *lista, string nombre, string dia);
 Grado* UTILITY existeGrado(vector<Grado> *grados, string ID);
-
-

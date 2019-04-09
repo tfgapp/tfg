@@ -1,24 +1,16 @@
 #include "Header.h"
 
-int CSV leerHeader(ifstream* file, string * header=NULL)
+int CSV leerHeader(ifstream* file)
 {
-	if (header == NULL)
-	{
-		string dummy;
 
-		getline((*file), dummy, '\n');
+	string dummy;
 
-		int count = 0;
-		for (auto iter : dummy)		if (iter == ',') count++;
-		return count + 1;
-	}
-	else
-
-	getline((*file), *header, '\n');
+	getline((*file), dummy, '\n');
 
 	int count = 0;
-	for (auto iter : *header)		if (iter == ',') count++;
+	for (auto iter : dummy)		if (iter == ',') count++;
 	return count + 1;
+
 }
 
 vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
@@ -59,12 +51,30 @@ vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
 
 vector<Profesor> CSV importarProfesores(char path[], vector<Grado> * grados)
 {
-	ifstream csv;
-	csv.open(path);
-	string header;
-	int nColumnas = leerHeader(&csv, &header);
-	vector<Profesor> lista;
+	ifstream csv; //Variable para manejar el CSV
+	vector<Profesor> lista; //Lista de profesores ordenada que devuelvo
+	string header; // Variable para leer el header
+
+	csv.open(path); //Abro el CSV por primera vez
+	getline(csv, header, '\n');
+	int nColumnas = 1;
+
+	for (auto iter : header) { if (iter == ',') nColumnas++; } //Cuento el numero de columnas
+
+	csv.close();
+	csv.open(path); //Lo abro de nuevo para volver al principio y extraer los nombre de grados
 	string * dummy = new string[nColumnas];
+	vector<string> nombresGrado;
+	for (int i = 0; i < nColumnas - 1; i++)	getline(csv, dummy[i], ','); //Guardo cada nombre del header por separado
+	getline(csv, dummy[nColumnas - 1], '\n');
+
+	for (int i = 2; i < nColumnas; i++)
+	{
+		Grado* dummy_G = existeGrado(grados, dummy[i]);
+		if (existeGrado(grados, dummy[i]) == NULL)
+			grados->push_back(Grado(dummy[i]));
+		nombresGrado.push_back(dummy[i]);
+	}
 
 	while (csv.good())
 	{
@@ -72,15 +82,15 @@ vector<Profesor> CSV importarProfesores(char path[], vector<Grado> * grados)
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		Profesor * aux = existeProfesor(&lista, dummy[3]);
+		Profesor * aux = existeProfesor(&lista, dummy[0]);
 		if (aux == NULL)
 		{
 			Profesor dummy_P(dummy[0], dummy[1]);
-			dummy_P.addGrado(&(*grados)[0]);
+			for (int i = 2; i < nColumnas; i++) dummy_P.addGrado(existeGrado(grados, nombresGrado[i - 2]), stoi(dummy[i]));
 			lista.push_back(dummy_P);
 		}
 		else
-			aux->addGrado(&(*grados)[0]);
+			cout << "El profesor con ID: " << aux->getNombre() << " ya existe. IMPLEMENTAR SOLUCIÓN\n";
 
 	}
 

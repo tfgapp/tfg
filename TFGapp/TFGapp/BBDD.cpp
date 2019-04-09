@@ -17,9 +17,21 @@ void BBDD checkError(int resultado, char * error)
 	}
 }
 
+void BBDD crearTablaProfesor(sqlite3 *bd)
+{
+	char sql[] = "CREATE TABLE IF NOT EXISTS profesores(" \
+		"nombreCompleto TEXT,"\
+		"doctor INT);";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
+	checkError(resultado, error);
+
+}
+
 void BBDD crearTablaHorario(sqlite3 *bd) {
 	char sql[] = "CREATE TABLE IF NOT EXISTS horarios(" \
-		"nombre TEXT  PRIMARY KEY NOT NULL,"\
+		"nombre TEXT NOT NULL,"\
 		"dia INT,"\
 		"sloot1 INT,"\
 		"sloot2 INT,"\
@@ -27,7 +39,8 @@ void BBDD crearTablaHorario(sqlite3 *bd) {
 		"sloot4 INT,"\
 		"sloot5 INT,"\
 		"sloot6 INT,"\
-		"sloot7 INT);";
+		"sloot7 INT,"\
+		"FOREIGN KEY(nombre) REFERENCES profesores(nombreCompleto) ON UPDATE CASCADE ON DELETE CASCADE );";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
@@ -47,30 +60,18 @@ void BBDD crearTablaAlumno(sqlite3 *bd)
 	checkError(resultado, error);
 }
 
-void BBDD crearTablaProfesor(sqlite3 *bd)
-{
-	char sql[] = "CREATE TABLE IF NOT EXISTS profesores(" \
-		"nombreCompleto TEXT,"\
-		"doctor INT);";
-
-	char * error = NULL;
-	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
-	checkError(resultado, error);
-
-}
-
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) VALUES ('";
 	sql += horario.getProfesor().getNombre(); sql += "',";
 	sql += to_string(horario.getDia()); sql += ",";
+	sql += to_string(horario.getSloot(0)); sql += ", ";
+	sql += to_string(horario.getSloot(1)); sql += ", ";
 	sql += to_string(horario.getSloot(2)); sql += ", ";
 	sql += to_string(horario.getSloot(3)); sql += ", ";
 	sql += to_string(horario.getSloot(4)); sql += ", ";
 	sql += to_string(horario.getSloot(5)); sql += ", ";
-	sql += to_string(horario.getSloot(6)); sql += ", ";
-	sql += to_string(horario.getSloot(7)); sql += ", ";
-	sql += to_string(horario.getSloot(8)); sql += ");";
+	sql += to_string(horario.getSloot(6)); sql += ");";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);

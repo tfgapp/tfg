@@ -43,7 +43,20 @@ void Profesor::setDoctor(bool doctor)
 	this->doctor = doctor;
 }
 
-void Profesor::addGrado(Grado* grado)
+void Profesor::addGrado(Grado* grado, int nTFG)
 {
 	this->grados.push_back(grado);
+	this->nTFG.push_back(nTFG);
+}
+
+void Profesor::delGrado(string id)
+{
+	for (int i = 0; i < (int)this->grados.size(); i++)
+	{
+		if (this->grados[i]->getNombre() == id)
+		{
+			this->grados.erase(this->grados.begin() + i);
+			this->nTFG.erase(this->nTFG.begin() + i);
+		}
+	}
 }

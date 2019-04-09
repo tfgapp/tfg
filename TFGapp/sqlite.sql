@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS profesores(
 );
 
 CREATE TABLE IF NOT EXISTS horarios(
-		nombre TEXT PRIMARY KEY NOT NULL,
+		nombre TEXT NOT NULL,
 		dia INT,
 		sloot1 INT,
 		sloot2 INT,
@@ -25,5 +25,7 @@ CREATE TABLE IF NOT EXISTS horarios(
 		sloot4 INT,
 		sloot5 INT,
 		sloot6 INT,
-		sloot7 INT 
+		sloot7 INT,
+		FOREIGN KEY(nombre) REFERENCES profesores(nombreCompleto)
+		ON UPDATE CASCADE ON DELETE CASCADE
 );

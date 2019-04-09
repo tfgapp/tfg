@@ -12,6 +12,7 @@ private:
 	string nombreCompleto;
 	bool doctor;
 	vector<Grado *> grados;
+	vector<int> nTFG;
 
 public:
 	Profesor(string, string);
@@ -24,7 +25,8 @@ public:
 	bool getDoctor();
 	void setDoctor(bool);
 
-	void addGrado(Grado* grado);
+	void addGrado(Grado* grado, int nTFG);
+	void delGrado(string id);
 
 };
 
