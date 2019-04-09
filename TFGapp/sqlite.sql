@@ -29,3 +29,5 @@ CREATE TABLE IF NOT EXISTS horarios(
 		FOREIGN KEY(nombre) REFERENCES profesores(nombreCompleto)
 		ON UPDATE CASCADE ON DELETE CASCADE
 );
+INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) 
+VALUES ('Profesor1 ProfellidoPrimero1',1,0, 1, 0, 0, 1, 1, 1);

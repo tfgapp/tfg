@@ -40,6 +40,7 @@ void BBDD crearTablaHorario(sqlite3 *bd) {
 		"sloot5 INT,"\
 		"sloot6 INT,"\
 		"sloot7 INT,"\
+		"PRIMARY KEY(nombre, dia),"\
 		"FOREIGN KEY(nombre) REFERENCES profesores(nombreCompleto) ON UPDATE CASCADE ON DELETE CASCADE );";
 
 	char * error = NULL;

@@ -2,14 +2,13 @@
 
 int CSV leerHeader(ifstream* file)
 {
+	string dummy; //Almacenar Header
 
-	string dummy;
+	getline((*file), dummy, '\n'); //Leo la primera linea(HEADER)
 
-	getline((*file), dummy, '\n');
-
-	int count = 0;
-	for (auto iter : dummy)		if (iter == ',') count++;
-	return count + 1;
+	int count = 1;
+	for (auto iter : dummy)		if (iter == ',') count++; //Cuento el numero de comas para hallar el numero de campos
+	return count;
 
 }
 
@@ -23,7 +22,9 @@ vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
 
 	while (dummy_G == NULL)
 	{
-		cout << "A que grado perteneces los alumnos del CSV?\n";
+		cout << "A que grado pertenecen los alumnos del CSV?\n";
+		for (auto dummy : (*grados)) cout << dummy.getNombre() << " ";
+		cout << "\n";
 		cin >> grado;
 		dummy_G = existeGrado(grados, grado);
 		if (dummy_G == NULL)
