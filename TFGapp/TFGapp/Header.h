@@ -37,5 +37,6 @@ vector<Horario> CSV importarHorarios(char path[], vector<Profesor> *listaProfeso
 
 Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string correo);
 Horario * UTILITY existeHorario(vector<Horario> *lista, string nombre, string dia);
+Grado* UTILITY existeGrado(vector<Grado> *grados, string ID);
 
 
