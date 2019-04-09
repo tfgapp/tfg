@@ -11,6 +11,7 @@ private:
 	string nombreCompleto;
 	bool doctor;
 	list<pair<int, int>> grado;
+
 public:
 	Profesor(string, string);
 	~Profesor();

@@ -26,6 +26,10 @@ list<Alumno> CSV importarAlumnos(char path[])
 	ifstream csv;
 	csv.open(path);
 
+	string grado;
+	cout << "A que grado perteneces los alumnos del CSV?\n";
+	cin >> grado;
+
 	int nColumnas = leerHeader(&csv);
 	list<Alumno> lista;
 	string * dummy = new string[nColumnas];
@@ -36,7 +40,7 @@ list<Alumno> CSV importarAlumnos(char path[])
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		Alumno dummy_P(dummy[0], dummy[1], dummy[2], dummy[3], dummy[4]);
+		Alumno dummy_P(dummy[0], dummy[1], dummy[2], grado);
 		lista.push_back(dummy_P);
 	}
 

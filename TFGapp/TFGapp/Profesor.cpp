@@ -25,8 +25,7 @@ void Profesor::printProfesor()
 {
 
 	std::cout << "-------------------" << '\n';
-	std::cout << "Name: " << this->nombreCompleto 
-<< '\n';
+	std::cout << "Name: " << this->nombreCompleto << '\n';
 	std::cout << "Doctor: " << this->doctor << '\n';
 	for (auto dummy : this->grado)
 	{
