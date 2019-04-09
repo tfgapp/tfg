@@ -22,13 +22,12 @@ int main()
 	}
 
 	vector<Grado> lista_G;
-	Grado dummy("IDCD"); lista_G.push_back(dummy);
-
-	char path[] = "../datos_alumno.csv";
-	vector<Alumno> lista = importarAlumnos(path, &lista_G);
 
 	char path2[] = "../datos_profesor.csv";
 	vector<Profesor> lista2 = importarProfesores(path2 , &lista_G);
+
+	char path[] = "../datos_alumno.csv";
+	vector<Alumno> lista = importarAlumnos(path, &lista_G);
 
 	char path3[] = "../datos_disponibilidad.csv";
 	vector<Horario> lista3 = importarHorarios(path3, &lista2);
