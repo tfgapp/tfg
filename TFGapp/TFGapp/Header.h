@@ -35,3 +35,4 @@ list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores);
 Profesor * UTILITY existeProfesor(list<Profesor> *lista, string correo);
 Horario * UTILITY existeHorario(list<Horario> *lista, string nombre, string dia);
 
+//Richi
