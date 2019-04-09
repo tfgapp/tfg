@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Grado.h"
 
 using namespace std;
 
@@ -20,11 +21,11 @@ public:
 	void setNombre(string nombre);
 	void setApellido(string apellido);
 	void setID(string ID);
-	void setGrado(string grado);
+	void setGrado(Grado * grado);
 
 	string getNombre();
 	string getApellido();
 	string getID();
-	string getGrado();
+	Grado * getGrado();
 };
 

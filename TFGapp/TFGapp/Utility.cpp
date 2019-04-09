@@ -1,6 +1,6 @@
 #include "Header.h"
 
-Horario * UTILITY existeHorario(list<Horario> *lista, string nombre, string dia) {
+Horario * UTILITY existeHorario(vector<Horario> *lista, string nombre, string dia) {
 	for (auto iterator = lista->begin(), end = lista->end(); iterator != end; ++iterator) {
 		string nombreCompleto = (*iterator).getProfesor().getNombre();
 		if (nombreCompleto == nombre && to_string((*iterator).getDia()) == dia)
@@ -9,7 +9,7 @@ Horario * UTILITY existeHorario(list<Horario> *lista, string nombre, string dia)
 	return NULL;
 }
 
-Profesor * UTILITY existeProfesor(list<Profesor> *lista, string ID)
+Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string ID)
 {
 	for (auto iterator = lista->begin(), end = lista->end(); iterator != end; ++iterator)
 		if ((*iterator).getNombre() == ID)

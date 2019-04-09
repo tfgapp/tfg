@@ -10,17 +10,6 @@ Profesor::~Profesor()
 {
 }
 
-void Profesor::addGrado(string grado, string nTFG)
-{
-	pair<int, int> dummy;
-
-	dummy.first = stoi(grado);
-	dummy.second = stoi(grado);
-	this->grado.push_back(dummy);
-	this->grado.unique();
-
-}
-
 void Profesor::printProfesor()
 {
 

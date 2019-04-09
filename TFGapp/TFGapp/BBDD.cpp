@@ -127,17 +127,17 @@ void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor)
 	}
 }
 
-void BBDD insertarHorarios(list<Horario> lista, sqlite3 * db)
+void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarHorario(db, dummy);
 }
 
-void BBDD insertarAlumnos(list<Alumno> lista, sqlite3 * db)
+void BBDD insertarAlumnos(vector<Alumno> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarAlumno(db, dummy);
 }
 
-void BBDD insertarProfesores(list<Profesor> lista, sqlite3 * db)
+void BBDD insertarProfesores(vector<Profesor> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarProfesor(db, dummy);
 }
