@@ -100,8 +100,8 @@ void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno)
 	string sql = "INSERT OR REPLACE INTO alumnos (nombre,apellido,ID,grado) VALUES ('";
 	sql += alumno.getNombre(); sql += "', '";
 	sql += alumno.getApellido(); sql += "', '";
-	sql += alumno.getID(); sql += "','";
-	sql += alumno.getGrado(); sql += "');";
+	sql += alumno.getID(); sql += "',');";
+	//sql += alumno.getGrado(); sql += "');";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);

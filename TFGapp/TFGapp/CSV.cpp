@@ -53,7 +53,7 @@ vector<Alumno> CSV importarAlumnos(char path[], vector<Grado> * grados)
 	return lista;
 }
 
-vector<Profesor> CSV importarProfesores(char path[])
+vector<Profesor> CSV importarProfesores(char path[], vector<Grado> * grados)
 {
 	ifstream csv;
 	csv.open(path);
@@ -72,11 +72,11 @@ vector<Profesor> CSV importarProfesores(char path[])
 		if (aux == NULL)
 		{
 			Profesor dummy_P(dummy[0], dummy[1]);
-			dummy_P.addGrado(dummy[4], dummy[6]);
+			dummy_P.addGrado(&(*grados)[0]);
 			lista.push_back(dummy_P);
 		}
 		else
-			aux->addGrado(dummy[4], dummy[6]);
+			aux->addGrado(&(*grados)[0]);
 
 	}
 

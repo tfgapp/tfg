@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "Grado.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class Profesor
 private:
 	string nombreCompleto;
 	bool doctor;
-	vector<Grado> grados;
+	vector<Grado *> grados;
 
 public:
 	Profesor(string, string);
@@ -23,6 +24,7 @@ public:
 	bool getDoctor();
 	void setDoctor(bool);
 
-	setGrado()
+	void addGrado(Grado* grado);
+
 };
 

@@ -16,10 +16,10 @@ void Profesor::printProfesor()
 	std::cout << "-------------------" << '\n';
 	std::cout << "Name: " << this->nombreCompleto << '\n';
 	std::cout << "Doctor: " << this->doctor << '\n';
-	for (auto dummy : this->grado)
-	{
-		std::cout << "Grado: " << dummy.first <<"  nMAX: " << dummy.second <<  '\n';
-	}
+	//for (auto dummy : this->grado)
+	//{
+	//	std::cout << "Grado: " << dummy.first <<"  nMAX: " << dummy.second <<  '\n';
+	//}
 	std::cout << "-------------------" << '\n';
 }
 
@@ -41,4 +41,9 @@ bool Profesor::getDoctor()
 void Profesor::setDoctor(bool doctor)
 {
 	this->doctor = doctor;
+}
+
+void Profesor::addGrado(Grado* grado)
+{
+	this->grados.push_back(grado);
 }
