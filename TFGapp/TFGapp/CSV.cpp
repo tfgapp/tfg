@@ -81,7 +81,7 @@ list<Profesor> CSV importarProfesores(char path[])
 	return lista;
 }
 
-list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores)
+list<Horario> CSV importarHorarios(char path[], list<Profesor> *listaProfesores)
 {
 	ifstream csv;
 	csv.open(path);
@@ -96,13 +96,13 @@ list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores)
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && existeProfesor(&listaProfesores, dummy[0]) != NULL)
+		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && existeProfesor(listaProfesores, dummy[0]) != NULL)
 		{
 			bool sloots[7];
 			for (int i = 2, j = 0; j < 7; i++, j++) sloots[j] = stoi(dummy[i]);
 			Horario dummy_H(stoi(dummy[1]), sloots);
 
-			dummy_H.setProfesor(existeProfesor(&listaProfesores, dummy[0]));
+			dummy_H.setProfesor(existeProfesor(listaProfesores, dummy[0]));
 
 			lista.push_back(dummy_H);
 		}

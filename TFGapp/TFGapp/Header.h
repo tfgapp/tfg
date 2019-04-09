@@ -7,6 +7,7 @@
 #include "Profesor.h"
 #include "Alumno.h"
 #include "Horario.h"
+#include "Grado.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ void BBDD insertarHorarios(list<Horario> lista, sqlite3 * db);
 int CSV leerHeader(ifstream* file, string* header);
 list<Alumno> CSV importarAlumnos(char path[]);
 list<Profesor> CSV importarProfesores(char path[]);
-list<Horario> CSV importarHorarios(char path[], list<Profesor> listaProfesores);
+list<Horario> CSV importarHorarios(char path[], list<Profesor> *listaProfesores);
 
 #define UTILITY
 

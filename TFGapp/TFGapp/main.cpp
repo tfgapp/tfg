@@ -28,7 +28,7 @@ int main()
 	list<Profesor> lista2 = importarProfesores(path2);
 
 	char path3[] = "../datos_disponibilidad.csv";
-	list<Horario> lista3 = importarHorarios(path3, lista2);
+	list<Horario> lista3 = importarHorarios(path3, &lista2);
 
 	//for (auto dummy : lista) dummy.printAlumno();
 	// for (auto dummy : lista2) dummy.printProfesor();

@@ -11,9 +11,9 @@ private:
 	string nombre;
 	string apellido;
 	string ID;
-	string grado;
+	Grado * grado;
 public:
-	Alumno(string,string,string, string);
+	Alumno(string,string,string,Grado*);
 	void printAlumno();
 	~Alumno() {};
 
