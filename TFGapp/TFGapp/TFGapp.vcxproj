@@ -132,6 +132,7 @@
     <ClCompile Include="Alumno.cpp" />
     <ClCompile Include="Profesor.cpp" />
     <ClCompile Include="sqlite3\sqlite3.c" />
+    <ClCompile Include="TFG.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="Horario.h" />
     <ClInclude Include="Profesor.h" />
+    <ClInclude Include="TFG.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

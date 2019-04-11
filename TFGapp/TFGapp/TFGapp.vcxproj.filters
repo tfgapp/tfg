@@ -45,6 +45,9 @@
     <ClCompile Include="Grado.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TFG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alumno.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Grado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TFG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
