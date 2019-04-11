@@ -1,20 +1,59 @@
 #include "Alumno.h"
 
-Alumno::Alumno(string nombre, string apellido1, string apellido2, string correo, string grado)
+Alumno::Alumno(string nombre, string apellido, string ID, Grado * grado)
 {
 	this->nombre = nombre;
-	this->apellido1 = apellido1;
-	this->apellido2 = apellido2;
-	this->correo = correo;
-	this->grado = stoi(grado);
+	this->apellido = apellido;
+	this->ID = ID;
+	this->grado = grado;
 }
 
 void Alumno::printAlumno()
 {
 
 	std::cout << "-------------------" << '\n';
-	std::cout << "Name: " << this->nombre << " " << this->apellido1 << " " << this->apellido2 << '\n';
-	std::cout << "E-Mail: " << this->correo << '\n';
+	std::cout << "Name: " << this->nombre << " " << this->apellido << '\n';
+	std::cout << "E-Mail: " << this->ID << '\n';
 	std::cout << "Grado: " << this->grado << '\n';
 	std::cout << "-------------------" << '\n';
+}
+
+void Alumno::setNombre(string nombre)
+{
+	this->nombre = nombre;
+}
+
+void Alumno::setApellido(string apellido)
+{
+	this->apellido = apellido;
+}
+
+void Alumno::setID(string ID)
+{
+	this->ID = ID;
+}
+
+void Alumno::setGrado(Grado * grado)
+{
+	this->grado = grado;
+}
+
+string Alumno::getNombre()
+{
+	return this->nombre;
+}
+
+string Alumno::getApellido()
+{
+	return this->apellido;
+}
+
+string Alumno::getID()
+{
+	return this->ID;
+}
+
+Grado * Alumno::getGrado()
+{
+	return this->grado;
 }

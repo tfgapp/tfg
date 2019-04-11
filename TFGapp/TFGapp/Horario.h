@@ -7,14 +7,15 @@ private:
 	int dia;
 	bool sloots[7];
 	Profesor *profesor;
+
 public:
 	Profesor getProfesor();
 	void setProfesor(Profesor *profesor);
 	int getDia();
 	void setDia(int dia);
-	bool* getSloot();
+	bool* getListaSloot();
 	bool getSloot(int posicion);
-	void setSlooot(int posicion, bool valor);
+	void setSloot(int posicion, bool valor);
 	Horario(int dia, bool *sloots);
 	Horario(int dia);
 	Horario();
