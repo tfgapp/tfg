@@ -11,5 +11,8 @@ private:
 
 public:
 
-
+	void setString(string);
+	string getString();
+	void setPresentado(bool);
+	bool getPresentado();
 };
