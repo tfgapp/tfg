@@ -15,6 +15,7 @@ private:
 	vector<int> nTFG;
 
 public:
+
 	Profesor(string, string);
 	~Profesor();
 	void printProfesor();
