@@ -4,13 +4,8 @@
 
 int main()
 {
-	sqlite3 *db;
-	int rc = sqlite3_open("test.db", &db);
-	if (rc != SQLITE_OK)
-	{
-		std::cout << "ERROR: SQL Open" << '\n';
-		return -1;
-	}
+	sqlite3 *db = openBBDD("test.db");
+
 	if (CLEAR)
 	{
 		sqlite3_exec(db, "DROP TABLE alumnos", 0, 0, 0);

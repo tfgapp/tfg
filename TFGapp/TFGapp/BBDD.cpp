@@ -17,6 +17,15 @@ void BBDD checkError(int resultado, char * error)
 	}
 }
 
+sqlite3 * openBBDD(const char * path)
+{
+	sqlite3 *db = NULL;
+	int rc = sqlite3_open("test.db", &db);
+	if (rc != SQLITE_OK)
+		std::cout << "ERROR: SQL Open" << '\n';
+	return db;
+}
+
 void BBDD crearTablaProfesor(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS profesores(" \
