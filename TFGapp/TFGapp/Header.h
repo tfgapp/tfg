@@ -16,6 +16,7 @@ using namespace std;
 
 static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
 void BBDD checkError(int resultado, char * error); //Funcion para leer los errores de Sqlite3
+sqlite3 * openBBDD(const char * path);
 
 void BBDD crearTablaAlumno(sqlite3 *bd); //Crea la tabla alumno desde un preset
 void BBDD crearTablaProfesor(sqlite3 *bd); //Crea la tabla profesor desde un preset
