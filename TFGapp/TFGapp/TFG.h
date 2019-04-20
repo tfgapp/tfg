@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Profesor.h"
+#include "Presentacion.h"
 using namespace std;
 
 class TFG {
@@ -11,6 +12,7 @@ private:
 	bool presentado;
 	Profesor * tutor;
 	Profesor *  coTutor;
+	Presentacion * pres;
 
 public:
 	TFG(); //Constructor por defecto
