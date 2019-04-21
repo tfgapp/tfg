@@ -10,6 +10,11 @@ void Presentaciom::setHora(int hora)
 	this->hora = hora;
 }
 
+void Presentaciom::setDia(int dia)
+{
+	this->dia = dia;
+}
+
 void Presentaciom::setAula(int aula)
 {
 	this->aula = aula;
@@ -38,6 +43,11 @@ string Presentaciom::getID()
 int Presentaciom::getHora()
 {
 	return this->hora;
+}
+
+int Presentaciom::getDia()
+{
+	return this->dia;
 }
 
 int Presentaciom::getAula()

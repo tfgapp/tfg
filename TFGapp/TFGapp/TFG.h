@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Profesor.h"
+#include "Presentacion.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ private:
 	bool presentado;
 	Profesor * tutor;
 	Profesor *  coTutor;
+	Presentaciom * presentacion;
 
 public:
 	TFG(); //Constructor por defecto
@@ -25,5 +27,5 @@ public:
 	Profesor * getCotutor();
 	void setTutor(Profesor * prof);
 	void setCoTutor(Profesor * prof);
-	
+	void modificarPresentacion(string ID, Presentaciom presentacion);
 };
