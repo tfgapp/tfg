@@ -20,8 +20,6 @@ private:
 
 public:
 	//getters y setters
-  
-	void setConvocatoria(int convocatoria);
 	void setTribunal(vector<Profesor*>);
 	void setID(string);
 	void setHora(int);
@@ -37,6 +35,5 @@ public:
 	int getSlot();
 	int getConvocatoria();
 	vector<Profesor *> getTribunal();
-	//final getters y setters
 
 };

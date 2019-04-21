@@ -1,15 +1,14 @@
 #include "Presentacion.h"
 
-void Presentaciom::setTribunal(vector<Profesor*> tribunal)
+void Presentacion::setTribunal(vector<Profesor*> tribunal)
 {
 	this->tribunal = tribunal;
 }
 
-vector<Profesor*> Presentaciom::getTribunal()
+vector<Profesor*> Presentacion::getTribunal()
 {
 	return this->tribunal;
 }
-//Rodrigo: He creado todos los getters y setters de presentacion
 
 void Presentacion::setID(string id) {
 	this->ID = id;
