@@ -1,5 +1,6 @@
 #pragma once
-
+#include <stdio.h>
+class Profesor;
 
 class Horario
 {
@@ -9,8 +10,10 @@ private:
 	Profesor *profesor;
 
 public:
-	Profesor getProfesor();
+
+	Profesor * getProfesor();
 	void setProfesor(Profesor *profesor);
+
 	int getDia();
 	void setDia(int dia);
 	bool* getListaSloot();

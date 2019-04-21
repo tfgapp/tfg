@@ -73,7 +73,7 @@ void BBDD crearTablaAlumno(sqlite3 *bd)
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) VALUES ('";
-	sql += horario.getProfesor().getNombre(); sql += "',";
+	sql += horario.getProfesor()->getNombre(); sql += "',";
 	sql += to_string(horario.getDia()); sql += ",";
 	sql += to_string(horario.getSloot(0)); sql += ", ";
 	sql += to_string(horario.getSloot(1)); sql += ", ";

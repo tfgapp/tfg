@@ -45,7 +45,7 @@ void TFG::setCoTutor(Profesor * prof) {
 	this->coTutor = prof;
 }
 
-void TFG::modificarPresentacion(string ID, Presentaciom presentacion)
+void TFG::modificarPresentacion(string ID, Presentacion presentacion)
 {
 	this->presentacion->setID(presentacion.getID());
 	this->presentacion->setHora(presentacion.getHora());
