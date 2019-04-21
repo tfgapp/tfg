@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "Grado.h"
-
+#include "Horario.h"
 using namespace std;
 
 class Profesor
@@ -13,6 +13,7 @@ private:
 	bool doctor;
 	vector<Grado *> grados;
 	vector<int> nTFG;
+	vector<Horario *> horarios;
 
 public:
 

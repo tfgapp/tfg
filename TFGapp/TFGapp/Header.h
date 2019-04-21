@@ -5,7 +5,6 @@
 #include <iostream>
 #include <vector>
 #include "Controller.h"
-#include "Horario.h"
 
 using namespace std;
 

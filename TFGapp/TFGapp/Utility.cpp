@@ -5,7 +5,7 @@ Horario * UTILITY existeHorario(vector<Horario> * horarios, string nombre, strin
 	string nombreCompleto;
 	for (int i = 0; i < (int)horarios->size(); i++)
 	{
-		nombreCompleto = (*horarios)[i].getProfesor().getNombre();
+		nombreCompleto = (*horarios)[i].getProfesor()->getNombre();
 		if (nombreCompleto == nombre && to_string((*horarios)[i].getDia()) == dia)
 			return &(*horarios)[i];
 	}
