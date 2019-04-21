@@ -1,5 +1,16 @@
 #include "Presentacion.h"
 
+void Presentaciom::setTribunal(vector<Profesor*> tribunal)
+{
+	this->tribunal = tribunal;
+}
+
+vector<Profesor*> Presentaciom::getTribunal()
+{
+	return this->tribunal;
+}
+//Rodrigo: He creado todos los getters y setters de presentacion
+
 void Presentacion::setID(string id) {
 	this->ID = id;
 }
@@ -19,10 +30,10 @@ void Presentacion::setAula(int aul) {
 void Presentacion::setSlot(int slo) {
 	this->slot = slo;
 }
+
 void Presentacion::setConvocatoria(int conv) {
 	this->convocatoria = conv;
 }
-
 
 string Presentacion::getID() {
 	return this->ID;
