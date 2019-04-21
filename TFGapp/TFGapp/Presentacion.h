@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Presentaciom {
+class Presentacion {
 
 private:
 
@@ -17,5 +17,20 @@ private:
 	int slot;
 	int convocatoria;
 	vector<Profesor *> tribunal; //Lista de profesores que acuden a la presentación
+
+	void setID(string);
+	void setHora(int);
+	void setDia(int);
+	void setAula(int);
+	void setSlot(int);
+	void setConvocatoria(int);
+
+	string getID();
+	int getHora();
+	int getDia();
+	int getAula();
+	int getSlot();
+	int getConvocatoria();
+
 
 };
