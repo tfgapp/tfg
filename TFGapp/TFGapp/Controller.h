@@ -1,12 +1,14 @@
 #pragma once
 #include <vector>
-#include "Header.h"
+#include "Profesor.h"
+#include "Alumno.h"
+#include "Grado.h"
+
 class Controller
 {
 	vector <Alumno> alumnos;
 	vector <Profesor> profesores;
 	vector <Grado> grados;
-	
 
 public:
 	Controller();

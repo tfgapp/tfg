@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Profesor.h"
 
 class Horario
 {

@@ -4,6 +4,10 @@
 
 int main()
 {
+	char pathP[] = "../datos_profesor.csv";
+	char pathD[] = "../datos_disponibilidad.csv";
+	char pathA[] = "../datos_alumno.csv";
+
 	sqlite3 *db = openBBDD("test.db");
 
 	if (CLEAR)
@@ -16,23 +20,20 @@ int main()
 		crearTablaHorario(db);
 	}
 
-	vector<Grado> listaGrados;
+	Controller main;
 
 	char path2[] = "../datos_profesor.csv";
-	vector<Profesor> listaProfesores = importarProfesores(path2 , &listaGrados);
 
-	char path[] = "../datos_alumno.csv";
-	vector<Alumno> listaAlumnos = importarAlumnos(path, &listaGrados);
+	importarProfesores(pathP , &main);
+	importarAlumnos(pathA, &main);
+	importarHorarios(pathD, &main);
 
-	char path3[] = "../datos_disponibilidad.csv";
-	vector<Horario> listaHorarios = importarHorarios(path3, &listaProfesores);
+	////for (auto dummy : lista) dummy.printAlumno();
+	//// for (auto dummy : lista2) dummy.printProfesor();
 
-	//for (auto dummy : lista) dummy.printAlumno();
-	// for (auto dummy : lista2) dummy.printProfesor();
-
-	insertarProfesores(listaProfesores, db);
-	insertarAlumnos(listaAlumnos, db);
-	insertarHorarios(listaHorarios, db);
+	//insertarProfesores(listaProfesores, db);
+	//insertarAlumnos(listaAlumnos, db);
+	//insertarHorarios(listaHorarios, db);
 
 	sqlite3_close(db);
 

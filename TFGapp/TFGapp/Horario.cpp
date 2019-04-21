@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Horario.h"
 
 
 //Los tres constructores 
