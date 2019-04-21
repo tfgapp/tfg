@@ -17,5 +17,19 @@ private:
 	int slot;
 	int convocatoria;
 	vector<Profesor *> tribunal; //Lista de profesores que acuden a la presentación
-
+public:
+	//getters y setters
+	void setID(string ID);
+	void setHora(int hora);
+	void setAula(int aula);
+	void setSlot(int slot);
+	void setConvocatoria(int convocatoria);
+	void setTribunal(vector<Profesor*>);
+	string getID();
+	int getHora();
+	int getAula();
+	int getSlot();
+	int getConvocatoria();
+	vector<Profesor *>getTribunal();
+	//final getters y setters
 };

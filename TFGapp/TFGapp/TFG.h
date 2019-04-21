@@ -1,6 +1,8 @@
+
 #include <iostream>
 #include <string>
 #include "Profesor.h"
+
 using namespace std;
 
 class TFG {
@@ -23,4 +25,5 @@ public:
 	Profesor * getCotutor();
 	void setTutor(Profesor * prof);
 	void setCoTutor(Profesor * prof);
+	
 };

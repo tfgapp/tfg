@@ -44,3 +44,5 @@ void TFG::setTutor(Profesor * prof) {
 void TFG::setCoTutor(Profesor * prof) {
 	this->coTutor = prof;
 }
+
+
