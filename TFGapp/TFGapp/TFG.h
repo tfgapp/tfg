@@ -14,7 +14,8 @@ private:
 	bool presentado;
 	Profesor * tutor;
 	Profesor *  coTutor;
-	Presentaciom * presentacion;
+	Presentacion * presentacion;
+
 
 public:
 	TFG(); //Constructor por defecto
