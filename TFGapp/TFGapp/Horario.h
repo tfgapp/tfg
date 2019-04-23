@@ -7,7 +7,7 @@ class Horario
 private:
 	int dia;
 	bool sloots[7];
-	Profesor *profesor;
+	Profesor * profesor;
 
 public:
 

@@ -2,17 +2,19 @@
 #include <string>
 #include <iostream>
 #include "Grado.h"
+#include "TFG.h"
 
 using namespace std;
 
 class Alumno
 {
-
 private:
 	string nombre;
 	string apellido;
 	string ID;
 	Grado * grado;
+	TFG * tfg;
+
 public:
 	Alumno(string,string,string,Grado*);
 	void printAlumno();

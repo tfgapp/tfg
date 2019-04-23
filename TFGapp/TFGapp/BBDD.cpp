@@ -29,13 +29,12 @@ sqlite3 * openBBDD(const char * path)
 void BBDD crearTablaProfesor(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS profesores(" \
-		"nombreCompleto TEXT,"\
+		"nombreCompleto TEXT," \
 		"doctor INT);";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
 	checkError(resultado, error);
-
 }
 
 void BBDD crearTablaHorario(sqlite3 *bd) {

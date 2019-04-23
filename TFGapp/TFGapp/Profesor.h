@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Grado.h"
 #include "Horario.h"
+
 using namespace std;
 
 class Profesor
@@ -13,7 +14,7 @@ private:
 	bool doctor;
 	vector<Grado *> grados;
 	vector<int> nTFG;
-	vector<Horario *> horarios;
+	vector<Horario> horarios; //Faltan las funciones
 
 public:
 
@@ -29,6 +30,5 @@ public:
 
 	void addGrado(Grado* grado, int nTFG);
 	void delGrado(string id);
-
 };
 

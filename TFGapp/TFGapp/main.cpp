@@ -22,8 +22,6 @@ int main()
 
 	Controller main;
 
-	char path2[] = "../datos_profesor.csv";
-
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);

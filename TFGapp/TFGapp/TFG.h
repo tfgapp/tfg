@@ -1,4 +1,4 @@
-
+#pragma once
 #include <iostream>
 #include <string>
 #include "Profesor.h"
@@ -9,7 +9,6 @@ using namespace std;
 class TFG {
 
 private:
-
 	string titulo;
 	bool presentado;
 	Profesor * tutor;
