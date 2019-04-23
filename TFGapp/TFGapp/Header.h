@@ -17,6 +17,8 @@ sqlite3 * openBBDD(const char * path);
 void BBDD crearTablaAlumno(sqlite3 *bd); //Crea la tabla alumno desde un preset
 void BBDD crearTablaProfesor(sqlite3 *bd); //Crea la tabla profesor desde un preset
 void BBDD crearTablaHorario(sqlite3 *bd); //Crea la tabla horario desde un preset
+void BBDD crearTablaTFG(sqlite3 *bd); //Crea la tabla TFG desde un preset
+void BBDD crearTablaPresentacion(sqlite3 *bd); //Crea la tabla Presentacion desde un preset
 
 void BBDD insertarHorario(sqlite3 * bd, Horario horario); //Recibe una base de datos y un objeto Horario y lo inserta en la base de datos
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno); //Recibe una base de datos y un objeto Alumno y lo inserta en la base de datos

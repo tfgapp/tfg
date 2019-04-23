@@ -40,13 +40,38 @@ CREATE TABLE IF NOT EXISTS grados(
 );
 
 CREATE TABLE IF NOT EXISTS especialidades(
-	nombreProfesor TEXT PRIMARY KEY NOT NULL
+	nombreProfesor TEXT PRIMARY KEY NOT NULL,
 	nombreGrado TEXT,
 	numeroMax INT,
 	FOREIGN KEY(nombreProfesor) REFERENCES profesores(nombreCompleto)
 	ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY(nombreGrado) REFERENCES grados(nombre)
 	ON UPDATE CASCADE ON DELETE NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS persentacion(
+	idPresentacion TEXT PRIMARY KEY NOT NULL,
+	hora INT,
+	dia INT,
+	aula INT,
+	slot INT,
+	convocatoria INT,
+	###  vector<Profesor *> tribunal, #Revisar por que puede ser turbio
+);
+
+CREATE TABLE IF NOT EXISTS TFG(
+	titulo TEXT PRIMARY KEY NOT NULL,
+	presentado TEXT,
+	tutor TEXT,
+	cotutor TEXT,
+	presentacion TEXT,
+	FOREIGN KEY(tutor) REFERENCES profesores(nombreCompleto)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(cotutor) REFERENCES profesores(nombreCompleto)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(presentacion) REFERENCES presentacion(idPresentacion)
+	ON UPDATE CASCADE ON DELETE CASCADE,
 );
 
 
