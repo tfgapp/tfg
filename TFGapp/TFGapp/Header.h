@@ -44,4 +44,5 @@ Grado* UTILITY existeGrado(vector<Grado> *grados, string ID); //Funcion para com
 
 #define INTERFAZ
 
-Alumno UTILITY crearAlumno(vector <Grado> *grados);
+Alumno INTERFAZ crearAlumno(vector <Grado> *grados);
+int INTERFAZ menu();
