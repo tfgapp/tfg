@@ -69,6 +69,43 @@ void BBDD crearTablaAlumno(sqlite3 *bd)
 	checkError(resultado, error);
 }
 
+void BBDD crearTablaTFG(sqlite3 *bd)
+{
+	char sql[] = "CREATE TABLE IF NOT EXISTS TFG(" \
+		"titulo TEXT PRIMARY KEY NOT NULL," \
+		"presentado TEXT," \
+		"tutor TEXT," \
+		"cotutor TEXT," \
+		"presentacion TEXT," \
+		"FOREIGN KEY(tutor) REFERENCES profesores(nombreCompleto)" \
+		"ON UPDATE CASCADE ON DELETE CASCADE," \
+		"FOREIGN KEY(cotutor) REFERENCES profesores(nombreCompleto)" \
+		"ON UPDATE CASCADE ON DELETE CASCADE," \
+		"FOREIGN KEY(presentacion) REFERENCES presentacion(idPresentacion)" \
+		"ON UPDATE CASCADE ON DELETE CASCADE);";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
+	checkError(resultado, error);
+}
+
+void BBDD crearTablaPresentacion(sqlite3 *bd){
+	char sql[] = "CREATE TABLE IF NOT EXISTS alumnos(" \
+		"idPresentacion TEXT PRIMARY KEY NOT NULL," \
+		"hora INT," \
+		"dia INT," \
+		"aula INT," \
+		"slot INT," \
+		"convocatoria INT," \
+		//vector<Profesor *> tribunal, #Revisar por que puede ser turbio para implementar
+		");";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
+	checkError(resultado, error);
+}
+
+
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) VALUES ('";
