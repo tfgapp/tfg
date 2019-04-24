@@ -23,4 +23,6 @@ public:
 	Profesor * getCotutor();
 	void setTutor(Profesor * prof);
 	void setCoTutor(Profesor * prof);
+
+
 };

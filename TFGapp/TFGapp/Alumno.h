@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 #include "Grado.h"
+#include "TFG.h"
+#include "Profesor.h"
 
 using namespace std;
 
@@ -13,6 +15,10 @@ private:
 	string apellido;
 	string ID;
 	Grado * grado;
+	Profesor * tutor;
+	Profesor * coTutor;
+	TFG * tfg;
+
 public:
 	Alumno(string,string,string,Grado*);
 	void printAlumno();
@@ -27,5 +33,11 @@ public:
 	string getApellido();
 	string getID();
 	Grado * getGrado();
+
+	void asignarTutor(int ID);
+	void asignarCoTutor(int ID);
+
+	void setTFG(TFG *);
+	TFG * getTFG();
 };
 

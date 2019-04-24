@@ -60,3 +60,7 @@ void Profesor::delGrado(string id)
 		}
 	}
 }
+
+void Profesor::setID(int id) {
+	this->ID = id;
+}
