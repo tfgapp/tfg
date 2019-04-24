@@ -1,7 +1,7 @@
 #include "Header.h"
 using namespace std;
 
-Alumno UTILITY crearAlumno(vector <Grado> *grados)
+Alumno INTERFAZ crearAlumno(vector <Grado> *grados)
 {
 	Alumno dummy_A;
 	string dummy_s;
@@ -32,4 +32,24 @@ Alumno UTILITY crearAlumno(vector <Grado> *grados)
 	dummy_A.setGrado(dummy_G);
 
 	return dummy_A;
+}
+
+int INTERFAZ menu() 
+{
+	int opcion;
+
+	cout << "----------\n";
+	cout << "1.Imprimir lista Grados.\n";
+	cout << "2.Imprimir lista Alumnos.\n";
+	cout << "3.Imprimir lista Profesores.\n";
+	cout << "4.Crear Grado.\n";
+	cout << "5.Crear Alumno.\n";
+	cout << "6.Crear Profesor.\n";
+	cout << "7.Borrar Grado.\n";
+	cout << "8.Borrar Alumno.\n";
+	cout << "9.Borrar Profesor.\n";
+	cout << "----------\n";
+
+	cin >> opcion;
+	return opcion;
 }

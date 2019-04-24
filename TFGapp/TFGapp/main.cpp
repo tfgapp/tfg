@@ -21,21 +21,54 @@ int main()
 	}
 
 	Controller main;
-
+	int opc = 1;
 	cout << "Añiadiendo datos de CSV...\n";
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
 	cout << "Datos CSV añiadidos...\n";
+	while (opc != 0)
+	{
+		int opc = menu();
+		switch (opc)
+		{
+		case 0:
+			break;
+		case 1:
+			cout << "Lista Grados:\n";
+			for (auto dummy : (*main.getListaGrados())) dummy.printGrado();
+			break;
+		case 2:
+			cout << "Lista Alumnos:\n";
+			for (auto dummy : (*main.getListaAlumnos())) dummy.printAlumno();
+			break;
+		case 3:
+			cout << "Lista Profesores:\n";
+			for (auto dummy : (*main.getListaProfesores())) dummy.printProfesor();
+			break;
+		case 4:
+			cout << "TODO\n"; 
+			break;
+		case 5:
+			main.addAlumno(&crearAlumno(main.getListaGrados()));
+		case 6:
+			cout << "TODO\n";
+			break;
+		case 7:
+			cout << "TODO\n";
+			break;
+		case 8:
+			cout << "TODO\n";
+			break;
+		case 9:
+			cout << "TODO\n";
+			break;
+		default:
+			break;
+		}
 
-	cout << "Lista Grados:\n";
-	for (auto dummy : (*main.getListaGrados())) dummy.printGrado();
+	}
 
-	cout << "Lista Alumnos:\n";
-	for (auto dummy : (*main.getListaAlumnos())) dummy.printAlumno();
-
-	cout << "Lista Profesores:\n";
-	for (auto dummy : (*main.getListaProfesores())) dummy.printProfesor();
 
 	//insertarProfesores(listaProfesores, db);
 	//insertarAlumnos(listaAlumnos, db);
