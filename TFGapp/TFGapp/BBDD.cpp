@@ -105,7 +105,6 @@ void BBDD crearTablaPresentacion(sqlite3 *bd){
 	checkError(resultado, error);
 }
 
-
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) VALUES ('";
