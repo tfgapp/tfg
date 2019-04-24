@@ -14,7 +14,7 @@ void Alumno::printAlumno()
 	std::cout << "-------------------" << '\n';
 	std::cout << "Name: " << this->nombre << " " << this->apellido << '\n';
 	std::cout << "E-Mail: " << this->ID << '\n';
-	std::cout << "Grado: " << this->grado << '\n';
+	std::cout << "Grado: " << this->grado->getNombre() << '\n';
 	std::cout << "-------------------" << '\n';
 }
 

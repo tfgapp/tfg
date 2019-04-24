@@ -29,13 +29,13 @@ int main()
 	cout << "Datos CSV añiadidos...\n";
 
 	cout << "Lista Grados:\n";
-	for (auto dummy : main.getListaGrados) dummy.printGrado();
+	for (auto dummy : (*main.getListaGrados())) dummy.printGrado();
 
 	cout << "Lista Alumnos:\n";
-	for (auto dummy : main.getListaAlumnos) dummy.printAlumno();
+	for (auto dummy : (*main.getListaAlumnos())) dummy.printAlumno();
 
 	cout << "Lista Profesores:\n";
-	for (auto dummy : main.getListaProfesores) dummy.printProfesor();
+	for (auto dummy : (*main.getListaProfesores())) dummy.printProfesor();
 
 	//insertarProfesores(listaProfesores, db);
 	//insertarAlumnos(listaAlumnos, db);
