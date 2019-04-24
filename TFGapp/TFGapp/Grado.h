@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -13,5 +14,6 @@ public:
 
 	void setNombre(string nombre); 
 	string getNombre();
+	void printGrado();
 };
 
