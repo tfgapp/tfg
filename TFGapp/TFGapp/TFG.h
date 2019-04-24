@@ -27,5 +27,10 @@ public:
 	Profesor * getCotutor();
 	void setTutor(Profesor * prof);
 	void setCoTutor(Profesor * prof);
-	void modificarPresentacion(string ID, Presentacion presentacion);
+	void modificarPresentacion(Presentacion presentacion);
+	void borrarPresentacion(Presentacion presentacion);
+	void setPresentacion(Presentacion *presentation);
+	Presentacion *getPresentacion();
+	
+
 };

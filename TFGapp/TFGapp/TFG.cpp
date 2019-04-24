@@ -45,7 +45,7 @@ void TFG::setCoTutor(Profesor * prof) {
 	this->coTutor = prof;
 }
 
-void TFG::modificarPresentacion(string ID, Presentacion presentacion)
+void TFG::modificarPresentacion(Presentacion presentacion)
 {
 	this->presentacion->setID(presentacion.getID());
 	this->presentacion->setHora(presentacion.getHora());
@@ -55,7 +55,30 @@ void TFG::modificarPresentacion(string ID, Presentacion presentacion)
 	this->presentacion->setConvocatoria(presentacion.getConvocatoria());
 	this->presentacion->setTribunal(presentacion.getTribunal());
 }
+
 //he creado el metodo mencionado en la actividad modificar presentcaion, lo que hace es coger una presentacion y copiar sus parametros a la presentacion a la ue pertenece el tfg modificando asi sus parametros
 //sino es eso lo que pide la actividad enviadme un wa diciendo lo que pide pls
 //tambien he agregado un metodo que faltaba en la actividad anterior que es getDia() y setDia(), que se me olvido ponerlo.
+
+void TFG::borrarPresentacion(Presentacion presentacion)
+{
+	
+	this->presentacion->setID(NULL);
+	this->presentacion->setHora(NULL);
+	this->presentacion->setDia(NULL);
+	this->presentacion->setAula(NULL);
+	this->presentacion->setSlot(NULL);
+	this->presentacion->setConvocatoria(NULL);
+	
+
+}
+void TFG::setPresentacion(Presentacion *presentation) {
+	this->presentacion = presentation;
+}
+
+Presentacion *TFG::getPresentacion()
+{
+	
+	return this->presentacion
+}
 
