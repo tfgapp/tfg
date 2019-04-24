@@ -22,12 +22,20 @@ int main()
 
 	Controller main;
 
+	cout << "Añiadiendo datos de CSV...\n";
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
+	cout << "Datos CSV añiadidos...\n";
 
-	////for (auto dummy : lista) dummy.printAlumno();
-	//// for (auto dummy : lista2) dummy.printProfesor();
+	cout << "Lista Grados:\n";
+	for (auto dummy : main.getListaGrados) dummy.printGrado();
+
+	cout << "Lista Alumnos:\n";
+	for (auto dummy : main.getListaAlumnos) dummy.printAlumno();
+
+	cout << "Lista Profesores:\n";
+	for (auto dummy : main.getListaProfesores) dummy.printProfesor();
 
 	//insertarProfesores(listaProfesores, db);
 	//insertarAlumnos(listaAlumnos, db);
