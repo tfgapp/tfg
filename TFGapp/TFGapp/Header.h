@@ -41,3 +41,7 @@ void CSV importarHorarios(char path[], Controller * main); //Inserta en una list
 Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string correo); //Funcion para comprobar si existe un profesor con su ID
 Horario * UTILITY existeHorario(vector<Horario> *lista, string nombre, string dia); //Funcion para comprobar si existe un horario con su ID
 Grado* UTILITY existeGrado(vector<Grado> *grados, string ID); //Funcion para comprobar si existe un Grado con su ID
+
+#define INTERFAZ
+
+Alumno UTILITY crearAlumno(vector <Grado> *grados);

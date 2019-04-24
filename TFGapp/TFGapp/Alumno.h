@@ -13,10 +13,11 @@ private:
 	string apellido;
 	string ID;
 	Grado * grado;
-	TFG * tfg;
+	TFG * tfg; //TODO
 
 public:
 	Alumno(string,string,string,Grado*);
+	Alumno() {};
 	void printAlumno();
 	~Alumno() {};
 

@@ -1,6 +1,6 @@
 #include "Header.h"
 
-#define CLEAR 1
+#define CLEAR 0
 
 int main()
 {
