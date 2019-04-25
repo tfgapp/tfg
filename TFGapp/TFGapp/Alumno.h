@@ -22,6 +22,7 @@ private:
 public:
 	Alumno(string,string,string,Grado*);
 	void printAlumno();
+	Alumno() {};
 	~Alumno() {};
 
 	void setNombre(string nombre);
