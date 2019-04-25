@@ -57,7 +57,9 @@ int main()
 			cout << "TODO\n";
 			break;
 		case 7:
-			cout << "TODO\n";
+			cout << "Que garado quieres borrar\n";
+			cin >> dummy_S;
+			borrarGrado(&main, dummy_S);
 			break;
 		case 8:
 			cout << "Que alumno quieres borrar?(ID)  ";
