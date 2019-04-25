@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "Grado.h"
+#include "Horario.h"
 
 using namespace std;
 
@@ -14,6 +15,8 @@ private:
 	vector<Grado *> grados;
 	vector<int> nTFG;
 	int ID;
+	vector<Horario> horarios; //Faltan las funciones
+
 
 public:
 
@@ -31,6 +34,5 @@ public:
 
 	void addGrado(Grado* grado, int nTFG);
 	void delGrado(string id);
-
 };
 

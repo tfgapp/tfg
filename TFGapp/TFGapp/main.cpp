@@ -1,9 +1,13 @@
 #include "Header.h"
 
-#define CLEAR 1
+#define CLEAR 0
 
 int main()
 {
+	char pathP[] = "../datos_profesor.csv";
+	char pathD[] = "../datos_disponibilidad.csv";
+	char pathA[] = "../datos_alumno.csv";
+
 	sqlite3 *db = openBBDD("test.db");
 
 	if (CLEAR)
@@ -16,23 +20,59 @@ int main()
 		crearTablaHorario(db);
 	}
 
-	vector<Grado> listaGrados;
+	Controller main;
+	int opc = 1;
+	cout << "Añiadiendo datos de CSV...\n";
+	importarProfesores(pathP , &main);
+	importarAlumnos(pathA, &main);
+	importarHorarios(pathD, &main);
+	cout << "Datos CSV añiadidos...\n";
+	while (opc != 0)
+	{
+		int opc = menu();
+		switch (opc)
+		{
+		case 0:
+			break;
+		case 1:
+			cout << "Lista Grados:\n";
+			for (auto dummy : (*main.getListaGrados())) dummy.printGrado();
+			break;
+		case 2:
+			cout << "Lista Alumnos:\n";
+			for (auto dummy : (*main.getListaAlumnos())) dummy.printAlumno();
+			break;
+		case 3:
+			cout << "Lista Profesores:\n";
+			for (auto dummy : (*main.getListaProfesores())) dummy.printProfesor();
+			break;
+		case 4:
+			cout << "TODO\n"; 
+			break;
+		case 5:
+			main.addAlumno(&crearAlumno(main.getListaGrados()));
+		case 6:
+			cout << "TODO\n";
+			break;
+		case 7:
+			cout << "TODO\n";
+			break;
+		case 8:
+			cout << "TODO\n";
+			break;
+		case 9:
+			cout << "TODO\n";
+			break;
+		default:
+			break;
+		}
 
-	char path2[] = "../datos_profesor.csv";
-	vector<Profesor> listaProfesores = importarProfesores(path2 , &listaGrados);
+	}
 
-	char path[] = "../datos_alumno.csv";
-	vector<Alumno> listaAlumnos = importarAlumnos(path, &listaGrados);
 
-	char path3[] = "../datos_disponibilidad.csv";
-	vector<Horario> listaHorarios = importarHorarios(path3, &listaProfesores);
-
-	//for (auto dummy : lista) dummy.printAlumno();
-	// for (auto dummy : lista2) dummy.printProfesor();
-
-	insertarProfesores(listaProfesores, db);
-	insertarAlumnos(listaAlumnos, db);
-	insertarHorarios(listaHorarios, db);
+	//insertarProfesores(listaProfesores, db);
+	//insertarAlumnos(listaAlumnos, db);
+	//insertarHorarios(listaHorarios, db);
 
 	sqlite3_close(db);
 
