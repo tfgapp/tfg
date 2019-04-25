@@ -81,4 +81,3 @@ Presentacion *TFG::getPresentacion()
 	
 	return this->presentacion
 }
-

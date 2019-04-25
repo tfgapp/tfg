@@ -14,13 +14,17 @@ private:
 	bool doctor;
 	vector<Grado *> grados;
 	vector<int> nTFG;
+	int ID;
 	vector<Horario> horarios; //Faltan las funciones
+
 
 public:
 
 	Profesor(string, string);
 	~Profesor();
 	void printProfesor();
+	void setID(int);
+	
 
 	string getNombre();
 	void setNombre(string);

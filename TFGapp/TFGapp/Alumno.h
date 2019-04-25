@@ -3,21 +3,24 @@
 #include <iostream>
 #include "Grado.h"
 #include "TFG.h"
+#include "Profesor.h"
 
 using namespace std;
 
 class Alumno
 {
+
 private:
 	string nombre;
 	string apellido;
 	string ID;
 	Grado * grado;
-	TFG * tfg; //TODO
+	Profesor * tutor;
+	Profesor * coTutor;
+	TFG * tfg;
 
 public:
 	Alumno(string,string,string,Grado*);
-	Alumno() {};
 	void printAlumno();
 	~Alumno() {};
 
@@ -30,5 +33,11 @@ public:
 	string getApellido();
 	string getID();
 	Grado * getGrado();
+
+	void asignarTutor(int ID);
+	void asignarCoTutor(int ID);
+
+	void setTFG(TFG *);
+	TFG * getTFG();
 };
 
