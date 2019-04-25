@@ -59,7 +59,8 @@ void Controller::addGrado(Grado *grado) {
 	grados.push_back(*grado);
 }
 
-void Controller::eliminarAlumno(string id) {
+void Controller::eliminarAlumno(string id)
+{
 	for (int i = 0; i < (int)alumnos.size(); i++) {
 		if (id == alumnos[i].getID()) {
 			alumnos.erase(alumnos.begin() + i);

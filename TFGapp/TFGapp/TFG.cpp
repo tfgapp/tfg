@@ -72,12 +72,12 @@ void TFG::borrarPresentacion(Presentacion presentacion)
 	
 
 }
+
 void TFG::setPresentacion(Presentacion *presentation) {
 	this->presentacion = presentation;
 }
 
 Presentacion *TFG::getPresentacion()
 {
-	
-	return this->presentacion
+	return this->presentacion;
 }

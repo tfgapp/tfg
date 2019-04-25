@@ -27,9 +27,11 @@ int main()
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
 	cout << "Datos CSV añiadidos...\n";
+
+	string dummy_S;
 	while (opc != 0)
 	{
-		int opc = menu();
+		opc = menu();
 		switch (opc)
 		{
 		case 0:
@@ -58,7 +60,9 @@ int main()
 			cout << "TODO\n";
 			break;
 		case 8:
-			cout << "TODO\n";
+			cout << "Que alumno quieres borrar?(ID)  ";
+			cin >> dummy_S;
+			borrarAlumno(&main, dummy_S);
 			break;
 		case 9:
 			cout << "TODO\n";
