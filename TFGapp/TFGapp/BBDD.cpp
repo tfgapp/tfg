@@ -105,6 +105,21 @@ void BBDD crearTablaPresentacion(sqlite3 *bd){
 	checkError(resultado, error);
 }
 
+void BBDD crearTablaEspecialidades(sqlite3 * bd) {
+	char sql[] = "CREATE TABLE IF NOT EXISTS especialidades(" \
+		"nombreProfesor TEXT PRIMARY KEY NOT NULL" \
+		"nombreGrado TEXT," \
+		"numeroMax INT, "\
+		"FOREIGN KEY(nombreProfesor) REFERENCES profesores(nombreCompleto)" \
+		"ON UPDATE CASCADE ON DELETE CASCADE, "\
+		"FOREIGN KEY(nombreGrado) REFERENCES grados(nombre)" \
+		"ON UPDATE CASCADE ON DELETE NULL);";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
+	checkError(resultado, error);
+}
+
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) VALUES ('";
