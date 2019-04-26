@@ -105,6 +105,16 @@ void BBDD crearTablaPresentacion(sqlite3 *bd){
 	checkError(resultado, error);
 }
 
+void BBDD crearTablaGrado(sqlite3*bd) {
+	char sql[] = "CREATE TABLE IF NOT EXISTS grados("\
+		"nombre TEXT PRIMARY KEY NOT NULL"\
+		");";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
+	checkError(resultado, error);
+}
+
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) VALUES ('";
