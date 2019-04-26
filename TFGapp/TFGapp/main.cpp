@@ -49,12 +49,12 @@ int main()
 			for (auto dummy : (*main.getListaProfesores())) dummy.printProfesor();
 			break;
 		case 4:
-			cout << "TODO\n"; 
+			main.addGrado(&crearGrado());
 			break;
 		case 5:
 			main.addAlumno(&crearAlumno(main.getListaGrados()));
 		case 6:
-			cout << "TODO\n";
+			cout << "TODO";
 			break;
 		case 7:
 			cout << "Que garado quieres borrar\n";

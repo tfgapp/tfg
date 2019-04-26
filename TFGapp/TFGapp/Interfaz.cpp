@@ -34,6 +34,17 @@ Alumno INTERFAZ crearAlumno(vector <Grado> *grados)
 	return dummy_A;
 }
 
+Grado INTERFAZ crearGrado(){
+	Grado dummy_A;
+	string dummy_s;
+
+	cout << "Dame el nombre del grado: ";
+	cin >> dummy_s;
+	dummy_A.setNombre(dummy_s);
+
+	return dummy_A;
+}
+
 void INTERFAZ borrarAlumno(Controller * main, string id)
 {
 	Alumno* dummy_A = existeAlumno(main->getListaAlumnos(), id);
