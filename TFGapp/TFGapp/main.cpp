@@ -53,8 +53,9 @@ int main()
 			break;
 		case 5:
 			main.addAlumno(&crearAlumno(main.getListaGrados()));
+			break;
 		case 6:
-			cout << "TODO\n";
+			main.addProfesor(&crearProfesor(main.getListaGrados()));
 			break;
 		case 7:
 			cout << "Que garado quieres borrar\n";
