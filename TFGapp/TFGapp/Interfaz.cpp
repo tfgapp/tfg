@@ -52,6 +52,17 @@ void INTERFAZ borrarGrado(Controller *main, string id) {
 		main->eliminarGrado(id);
 
 }
+
+void INTERFAZ borrarProfesor(Controller *main, string id) {
+	Profesor* profesor = existeProfesor(main->getListaProfesores(), id);
+
+	if (profesor == NULL)
+		cout << "El profesor no existe" << endl;
+	else
+		main->eliminarProfesor(id);
+
+}
+
 int INTERFAZ menu() 
 {
 	int opcion;

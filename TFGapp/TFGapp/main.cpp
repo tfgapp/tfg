@@ -67,7 +67,9 @@ int main()
 			borrarAlumno(&main, dummy_S);
 			break;
 		case 9:
-			cout << "TODO\n";
+			cout << "Que Profesor quieres borrar?(ID)  ";
+			cin >> dummy_S;
+			borrarProfesor(&main, dummy_S);
 			break;
 		default:
 			break;

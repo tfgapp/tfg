@@ -48,4 +48,5 @@ Alumno * UTILITY existeAlumno(vector<Alumno> *profesores, string ID);
 Alumno INTERFAZ crearAlumno(vector <Grado> *grados);
 void INTERFAZ borrarAlumno(Controller * main, string id);
 void INTERFAZ borrarGrado(Controller * main, string id);
+void INTERFAZ borrarProfesor(Controller * main, string id);
 int INTERFAZ menu();
