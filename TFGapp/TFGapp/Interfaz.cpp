@@ -10,7 +10,7 @@ Alumno INTERFAZ crearAlumno(vector <Grado> *grados)
 	cout << "Dame el nombre del alumno: ";
 	cin >> dummy_s;
 	dummy_A.setNombre(dummy_s);
-
+	
 	cout << "Dame el apellido del alumno: ";
 	cin >> dummy_s;
 	dummy_A.setApellido(dummy_s);
@@ -43,7 +43,15 @@ void INTERFAZ borrarAlumno(Controller * main, string id)
 	else
 		main->eliminarAlumno(id);
 }
+void INTERFAZ borrarGrado(Controller *main, string id) {
+	Grado* grado = existeGrado(main->getListaGrados(), id);
 
+	if (grado == NULL)
+		cout << "El grado no existe" << endl;
+	else
+		main->eliminarGrado(id);
+
+}
 int INTERFAZ menu() 
 {
 	int opcion;
@@ -64,3 +72,6 @@ int INTERFAZ menu()
 	cin >> opcion;
 	return opcion;
 }
+
+
+
