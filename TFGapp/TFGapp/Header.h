@@ -19,7 +19,7 @@ void BBDD crearTablaProfesor(sqlite3 *bd); //Crea la tabla profesor desde un pre
 void BBDD crearTablaHorario(sqlite3 *bd); //Crea la tabla horario desde un preset
 void BBDD crearTablaTFG(sqlite3 *bd); //Crea la tabla TFG desde un preset
 void BBDD crearTablaPresentacion(sqlite3 *bd); //Crea la tabla Presentacion desde un preset
-void BBDD crearTablaGrado(sqlite *bd);//Crea la tabla Grado desde un preset
+void BBDD crearTablaGrado(sqlite3 *bd);//Crea la tabla Grado desde un preset
 void BBDD crearTablaEspecialidades(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
 
 

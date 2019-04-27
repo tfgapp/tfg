@@ -106,7 +106,7 @@ void BBDD crearTablaPresentacion(sqlite3 *bd){
 }
 
 
-void BBDD crearTablaGrado(sqlite3*bd) 
+void BBDD crearTablaGrado(sqlite3 *bd) 
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS grados("\
 		            "nombre TEXT PRIMARY KEY NOT NULL"\
