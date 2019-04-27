@@ -1,6 +1,6 @@
 #include "Header.h"
 
-#define CLEAR 0
+#define CLEAR 1
 
 int main()
 {
@@ -22,11 +22,11 @@ int main()
 
 	Controller main;
 	int opc = 1;
-	cout << "Añiadiendo datos de CSV...\n";
+	/*cout << "Añiadiendo datos de CSV...\n";
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
-	cout << "Datos CSV añiadidos...\n";
+	cout << "Datos CSV añiadidos...\n";*/
 
 	string dummy_S;
 	while (opc != 0)
@@ -58,7 +58,7 @@ int main()
 			main.addProfesor(&crearProfesor(main.getListaGrados()));
 			break;
 		case 7:
-			cout << "Que garado quieres borrar\n";
+			cout << "Que grado quieres borrar?(ID)  ";
 			cin >> dummy_S;
 			borrarGrado(&main, dummy_S);
 			break;
@@ -72,17 +72,27 @@ int main()
 			cin >> dummy_S;
 			borrarProfesor(&main, dummy_S);
 			break;
+		case 10:
+			cout << "Inserte el path: ";
+			cin >> dummy_S;
+			importarAlumnos((char *)dummy_S.c_str(),&main);
+			break;
+		case 11:
+			cout << "Inserte el path: ";
+			cin >> dummy_S;
+			importarProfesores((char *)dummy_S.c_str(), &main);
+			break;
+		case 12:
+			cout << "Inserte el path: ";
+			cin >> dummy_S;
+			importarHorarios((char *)dummy_S.c_str(), &main);
+			break;
 		default:
+			cout << "Esa opcion no existe\n";
 			break;
 		}
 
 	}
-
-
-	//insertarProfesores(listaProfesores, db);
-	//insertarAlumnos(listaAlumnos, db);
-	//insertarHorarios(listaHorarios, db);
-
 	sqlite3_close(db);
 
 	return 0;

@@ -134,11 +134,11 @@ int INTERFAZ menu()
 	cout << "7.Borrar Grado.\n";
 	cout << "8.Borrar Alumno.\n";
 	cout << "9.Borrar Profesor.\n";
+	cout << "10.Importar CSV de alumnos (Nombre,Apellidos,ID).\n";
+	cout << "11.Importar CSV de profesores (Nombre,Doctor,Grado1,...,GradoN).\n";
+	cout << "12.Importar CSV de disponibilidad (Nombre,Dia,Slot1,...,Slot7).\n";
 	cout << "----------\n";
 
 	cin >> opcion;
 	return opcion;
 }
-
-
-

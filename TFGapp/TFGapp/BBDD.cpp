@@ -105,7 +105,6 @@ void BBDD crearTablaPresentacion(sqlite3 *bd){
 	checkError(resultado, error);
 }
 
-
 void BBDD crearTablaGrado(sqlite3 *bd) 
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS grados("\
