@@ -19,7 +19,7 @@ private:
 
 
 public:
-
+	Profesor() {};
 	Profesor(string, string);
 	~Profesor();
 	void printProfesor();
