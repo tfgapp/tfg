@@ -10,7 +10,7 @@ using namespace std;
 
 #define BBDD
 
-static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operaciÃ³n SELECT
 void BBDD checkError(int resultado, char * error); //Funcion para leer los errores de Sqlite3
 sqlite3 * openBBDD(const char * path);
 
@@ -20,6 +20,8 @@ void BBDD crearTablaHorario(sqlite3 *bd); //Crea la tabla horario desde un prese
 void BBDD crearTablaTFG(sqlite3 *bd); //Crea la tabla TFG desde un preset
 void BBDD crearTablaPresentacion(sqlite3 *bd); //Crea la tabla Presentacion desde un preset
 void BBDD crearTablaGrado(sqlite *bd);//Crea la tabla Grado desde un preset
+void BBDD crearTablaEspecialidades(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
+
 
 void BBDD insertarHorario(sqlite3 * bd, Horario horario); //Recibe una base de datos y un objeto Horario y lo inserta en la base de datos
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno); //Recibe una base de datos y un objeto Alumno y lo inserta en la base de datos
@@ -47,6 +49,9 @@ Alumno * UTILITY existeAlumno(vector<Alumno> *profesores, string ID);
 #define INTERFAZ
 
 Alumno INTERFAZ crearAlumno(vector <Grado> *grados);
+Grado INTERFAZ crearGrado();
+Profesor INTERFAZ crearProfesor(vector<Grado> *grados);
 void INTERFAZ borrarAlumno(Controller * main, string id);
 void INTERFAZ borrarGrado(Controller * main, string id);
+void INTERFAZ borrarProfesor(Controller * main, string id);
 int INTERFAZ menu();
