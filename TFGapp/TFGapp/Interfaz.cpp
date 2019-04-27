@@ -33,6 +33,7 @@ Alumno INTERFAZ crearAlumno(vector <Grado> *grados)
 
 	return dummy_A;
 }
+
 Profesor INTERFAZ crearProfesor(vector <Grado> *grados) {
 	Profesor dummy_A;
 	string dummy_s;
@@ -96,6 +97,7 @@ void INTERFAZ borrarAlumno(Controller * main, string id)
 	else
 		main->eliminarAlumno(id);
 }
+
 void INTERFAZ borrarGrado(Controller *main, string id) {
 	Grado* grado = existeGrado(main->getListaGrados(), id);
 
@@ -106,7 +108,8 @@ void INTERFAZ borrarGrado(Controller *main, string id) {
 
 }
 
-void INTERFAZ borrarProfesor(Controller *main, string id) {
+void INTERFAZ borrarProfesor(Controller *main, string id) 
+{
 	Profesor* profesor = existeProfesor(main->getListaProfesores(), id);
 
 	if (profesor == NULL)
