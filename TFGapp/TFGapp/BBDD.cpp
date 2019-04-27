@@ -105,7 +105,19 @@ void BBDD crearTablaPresentacion(sqlite3 *bd){
 	checkError(resultado, error);
 }
 
-void BBDD crearTablaEspecialidades(sqlite3 * bd) {
+
+void BBDD crearTablaGrado(sqlite3*bd) 
+{
+	char sql[] = "CREATE TABLE IF NOT EXISTS grados("\
+		            "nombre TEXT PRIMARY KEY NOT NULL"\
+		            ");";
+  char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
+	checkError(resultado, error);
+}
+
+void BBDD crearTablaEspecialidades(sqlite3 * bd) 
+{
 	char sql[] = "CREATE TABLE IF NOT EXISTS especialidades(" \
 		"nombreProfesor TEXT PRIMARY KEY NOT NULL" \
 		"nombreGrado TEXT," \
