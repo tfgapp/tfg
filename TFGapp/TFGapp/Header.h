@@ -10,7 +10,7 @@ using namespace std;
 
 #define BBDD
 
-static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operaciÃ³n SELECT
 void BBDD checkError(int resultado, char * error); //Funcion para leer los errores de Sqlite3
 sqlite3 * openBBDD(const char * path);
 
@@ -46,7 +46,9 @@ Alumno * UTILITY existeAlumno(vector<Alumno> *profesores, string ID);
 #define INTERFAZ
 
 Alumno INTERFAZ crearAlumno(vector <Grado> *grados);
+Grado INTERFAZ crearGrado();
 Profesor INTERFAZ crearProfesor(vector<Grado> *grados);
 void INTERFAZ borrarAlumno(Controller * main, string id);
 void INTERFAZ borrarGrado(Controller * main, string id);
+void INTERFAZ borrarProfesor(Controller * main, string id);
 int INTERFAZ menu();

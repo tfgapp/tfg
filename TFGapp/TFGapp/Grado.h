@@ -10,6 +10,7 @@ private:
 	string nombre;
 public:
 	Grado(string nombre);
+	Grado() {};
 	~Grado();
 
 	void setNombre(string nombre); 

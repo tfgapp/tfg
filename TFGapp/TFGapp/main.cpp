@@ -22,11 +22,11 @@ int main()
 
 	Controller main;
 	int opc = 1;
-	cout << "Añiadiendo datos de CSV...\n";
+	cout << "AÃ±iadiendo datos de CSV...\n";
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
-	cout << "Datos CSV añiadidos...\n";
+	cout << "Datos CSV aÃ±iadidos...\n";
 
 	string dummy_S;
 	while (opc != 0)
@@ -49,7 +49,7 @@ int main()
 			for (auto dummy : (*main.getListaProfesores())) dummy.printProfesor();
 			break;
 		case 4:
-			cout << "TODO\n"; 
+			main.addGrado(&crearGrado());
 			break;
 		case 5:
 			main.addAlumno(&crearAlumno(main.getListaGrados()));
@@ -68,7 +68,9 @@ int main()
 			borrarAlumno(&main, dummy_S);
 			break;
 		case 9:
-			cout << "TODO\n";
+			cout << "Que Profesor quieres borrar?(ID)  ";
+			cin >> dummy_S;
+			borrarProfesor(&main, dummy_S);
 			break;
 		default:
 			break;
