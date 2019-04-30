@@ -119,6 +119,7 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CSV.cpp" />
     <ClCompile Include="Grado.cpp" />
+    <ClCompile Include="gradosMain.cpp" />
     <ClCompile Include="Horario.cpp" />
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="main.cpp" />
@@ -131,9 +132,14 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="gradosMain.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
     <ClInclude Include="sqlite3\sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="gradosMain.ui" />
     <QtUic Include="mainwindow.ui" />
     <QtUic Include="menu.ui" />
   </ItemGroup>

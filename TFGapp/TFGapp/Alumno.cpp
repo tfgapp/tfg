@@ -69,7 +69,7 @@ Profesor* Alumno::getTutor() {
 	return this->tutor;
 }
 Profesor* Alumno::getCoTutor() {
-	return this->Cotutor;
+	return this->coTutor;
 }
 TFG * Alumno::getTFG() {
 	return this->tfg;

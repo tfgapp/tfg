@@ -83,9 +83,9 @@ void Controller::eliminarGrado(string id) {
 		}
 	}
 }
-void asignarTutor(Alumno *alumno, Profesor *profesor) {
+void Controller::enlazarTutor(Alumno *alumno, Profesor *profesor) {
 	alumno->asignarTutor(profesor);
 }
-void asignarTutor(Alumno *alumno, Profesor *profesor) {
+void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor) {
 	alumno->asignarCoTutor(profesor);
 }

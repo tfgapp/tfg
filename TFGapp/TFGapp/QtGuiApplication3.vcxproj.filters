@@ -75,6 +75,9 @@
     <ClCompile Include="sqlite3\sqlite3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gradosMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="menu.h">
@@ -83,12 +86,18 @@
     <QtMoc Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="gradosMain.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="mainwindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="menu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gradosMain.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
