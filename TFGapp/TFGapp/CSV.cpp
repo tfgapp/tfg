@@ -1,6 +1,6 @@
 #include "Header.h"
 
-int /*CSV*/ leerHeader(ifstream* file)
+int CSV leerHeader(ifstream* file)
 {
 	string dummy; //Almacenar Header
 
@@ -12,7 +12,7 @@ int /*CSV*/ leerHeader(ifstream* file)
 
 }
 
-void /*CSV*/ importarAlumnos(char path[], Controller * main) //Inserta en una lista todos los alumnos de un CSV
+void CSV importarAlumnos(char path[], Controller * main) //Inserta en una lista todos los alumnos de un CSV
 {
 	ifstream csv;
 	csv.open(path);
@@ -53,7 +53,7 @@ void /*CSV*/ importarAlumnos(char path[], Controller * main) //Inserta en una li
 	delete[] dummy;
 }
 
-void /*CSV*/ importarProfesores(char path[], Controller * main) //Inserta en una lista todos los profesores de un CSV
+void CSV importarProfesores(char path[], Controller * main) //Inserta en una lista todos los profesores de un CSV
 {
 	ifstream csv; //Variable para manejar el CSV
 	csv.open(path); //Abro el CSV por primera vez
@@ -104,7 +104,7 @@ void /*CSV*/ importarProfesores(char path[], Controller * main) //Inserta en una
 	delete[] dummy;
 }
 
-void /*CSV*/ importarHorarios(char path[], Controller * main) //Inserta en una lista todos los horarios de un CSV
+void CSV importarHorarios(char path[], Controller * main) //Inserta en una lista todos los horarios de un CSV
 {
 	ifstream csv;
 	csv.open(path);

@@ -1,7 +1,7 @@
 #include "Header.h"
 using namespace std;
 
-Alumno* /*INTERFAZ*/ crearAlumno(vector <Grado> *grados)
+Alumno* INTERFAZ crearAlumno(vector <Grado> *grados)
 {
     Alumno* dummy_A = new Alumno();
 	string dummy_s;
@@ -34,7 +34,7 @@ Alumno* /*INTERFAZ*/ crearAlumno(vector <Grado> *grados)
 	return dummy_A;
 }
 
-Profesor* /*INTERFAZ*/ crearProfesor(vector <Grado> *grados) {
+Profesor* INTERFAZ crearProfesor(vector <Grado> *grados) {
     Profesor* dummy_A = new Profesor();
 	string dummy_s;
 	Grado * dummy_G = NULL;
@@ -77,7 +77,7 @@ Profesor* /*INTERFAZ*/ crearProfesor(vector <Grado> *grados) {
 
 }
 
-Grado* /*INTERFAZ*/ crearGrado(){
+Grado* INTERFAZ crearGrado(){
     Grado *dummy_A = new Grado();
 	string dummy_s;
 
@@ -88,7 +88,7 @@ Grado* /*INTERFAZ*/ crearGrado(){
     return dummy_A;
 }
 
-void /*INTERFAZ*/ borrarAlumno(Controller * main, string id)
+void INTERFAZ borrarAlumno(Controller * main, string id)
 {
 	Alumno* dummy_A = existeAlumno(main->getListaAlumnos(), id);
 
@@ -98,7 +98,7 @@ void /*INTERFAZ*/ borrarAlumno(Controller * main, string id)
 		main->eliminarAlumno(id);
 }
 
-void /*INTERFAZ*/ borrarGrado(Controller *main, string id) {
+void INTERFAZ borrarGrado(Controller *main, string id) {
 	Grado* grado = existeGrado(main->getListaGrados(), id);
 
 	if (grado == NULL)
@@ -108,7 +108,7 @@ void /*INTERFAZ*/ borrarGrado(Controller *main, string id) {
 
 }
 
-void /*INTERFAZ*/ borrarProfesor(Controller *main, string id)
+void INTERFAZ borrarProfesor(Controller *main, string id)
 {
 	Profesor* profesor = existeProfesor(main->getListaProfesores(), id);
 
@@ -119,7 +119,7 @@ void /*INTERFAZ*/ borrarProfesor(Controller *main, string id)
 
 }
 
-int /*INTERFAZ*/menu()
+int INTERFAZmenu()
 {
 	int opcion;
 
