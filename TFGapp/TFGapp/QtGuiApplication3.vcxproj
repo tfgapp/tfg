@@ -126,19 +126,16 @@
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="Presentacion.cpp" />
     <ClCompile Include="Profesor.cpp" />
-    <ClCompile Include="QtGuiApplication3.cpp" />
     <ClCompile Include="sqlite3\sqlite3.c" />
     <ClCompile Include="TFG.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="QtGuiApplication3.h" />
     <ClInclude Include="sqlite3\sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="mainwindow.ui" />
     <QtUic Include="menu.ui" />
-    <QtUic Include="QtGuiApplication3.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtGuiApplication3.qrc" />

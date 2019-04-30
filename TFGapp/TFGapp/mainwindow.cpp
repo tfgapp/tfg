@@ -15,7 +15,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_botonPath_clicked()
 {
    menu  *menus = new menu();
    menus->setModal(true);
@@ -27,3 +27,11 @@ void MainWindow::on_pushButton_2_clicked() {
 	menus->setModal(true);
 	menus->show();
 }
+
+//void MainWindow::testSlot() 
+//{
+//	menu  *menus = new menu();
+//	menus->setModal(true);
+//	QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open File"), "/path/to/file/", tr("all (*.*)"));
+//	ui->listWidget->addItems(fileNames);
+//}
