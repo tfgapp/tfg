@@ -110,8 +110,8 @@
    <slot>testClick()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>581</x>
-     <y>295</y>
+     <x>532</x>
+     <y>147</y>
     </hint>
     <hint type="destinationlabel">
      <x>583</x>
@@ -119,8 +119,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>gradosBoton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>botonGrados()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>339</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>630</x>
+     <y>330</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>testClick()</slot>
+  <slot>botonGrados()</slot>
  </slots>
 </ui>

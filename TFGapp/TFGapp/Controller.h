@@ -29,7 +29,7 @@ public:
 	void eliminarAlumno(string id);
 	void eliminarProfesor(string id);
 	void eliminarGrado(string id);
-	void asignarTutor(Alumno *alumno, Profesor *profesor);
-	void asignarTutor(Alumno *alumno, Profesor *profesor);
+	void enlazarTutor(Alumno *alumno, Profesor *profesor);
+	void enlazarCoTutor(Alumno *alumno, Profesor *profesor);
 };
 
