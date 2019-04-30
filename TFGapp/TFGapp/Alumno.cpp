@@ -65,7 +65,12 @@ void Alumno::asignarTutor(Profesor* profesor) {
 void Alumno::asignarCoTutor(Profesor* profesor) {
 	this->coTutor = profesor;
 }
-
+Profesor* Alumno::getTutor() {
+	return this->tutor;
+}
+Profesor* Alumno::getCoTutor() {
+	return this->Cotutor;
+}
 TFG * Alumno::getTFG() {
 	return this->tfg;
 }

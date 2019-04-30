@@ -29,16 +29,16 @@ public:
 	void setApellido(string apellido);
 	void setID(string ID);
 	void setGrado(Grado * grado);
+	void asignarTutor(Profesor *profesor);
+	void asignarCoTutor(Profesor *profesor);
+	void setTFG(TFG *);
 
 	string getNombre();
 	string getApellido();
 	string getID();
 	Grado * getGrado();
-
-	void asignarTutor(Profesor *profesor);
-	void asignarCoTutor(Profesor *profesor);
-
-	void setTFG(TFG *);
+	Profesor * getTutor();
+	Profesor * getCoTutor();
 	TFG * getTFG();
 };
 
