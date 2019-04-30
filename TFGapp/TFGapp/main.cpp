@@ -1,10 +1,15 @@
 #include "Header.h"
-
+#include "QApplication"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 #define CLEAR 1
 
-int main()
+int main(int argc, char * argv[] )
 {
-	char pathP[] = "../datos_profesor.csv";
+    QApplication qApplication(argc,argv);
+    MainWindow inicio;
+    inicio.show();
+    /*char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
 
@@ -22,13 +27,13 @@ int main()
 
 	Controller main;
 	int opc = 1;
-	/*cout << "Añiadiendo datos de CSV...\n";
+	cout << "Añiadiendo datos de CSV...\n";
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
-	cout << "Datos CSV añiadidos...\n";*/
+	cout << "Datos CSV añiadidos...\n";
 
-	string dummy_S;
+    string dummy_S;
 	while (opc != 0)
 	{
 		opc = menu();
@@ -49,13 +54,13 @@ int main()
 			for (auto dummy : (*main.getListaProfesores())) dummy.printProfesor();
 			break;
 		case 4:
-			main.addGrado(&crearGrado());
+            main.addGrado(crearGrado());
 			break;
 		case 5:
-			main.addAlumno(&crearAlumno(main.getListaGrados()));
+            main.addAlumno(crearAlumno(main.getListaGrados()));
 			break;
 		case 6:
-			main.addProfesor(&crearProfesor(main.getListaGrados()));
+            main.addProfesor(crearProfesor(main.getListaGrados()));
 			break;
 		case 7:
 			cout << "Que grado quieres borrar?(ID)  ";
@@ -93,7 +98,7 @@ int main()
 		}
 
 	}
-	sqlite3_close(db);
+    sqlite3_close(db);*/
 
-	return 0;
+    return qApplication.exec();
 }
