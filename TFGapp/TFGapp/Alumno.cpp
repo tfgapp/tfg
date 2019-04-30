@@ -58,14 +58,19 @@ Grado * Alumno::getGrado()
 	return this->grado;
 }
 
-void Alumno::asignarTutor(int ID) {
-	this->tutor->setID(ID);
+void Alumno::asignarTutor(Profesor* profesor) {
+	this->tutor = profesor;
 }
 
-void Alumno::asignarCoTutor(int ID) {
-	this->coTutor->setID(ID);
+void Alumno::asignarCoTutor(Profesor* profesor) {
+	this->coTutor = profesor;
 }
-
+Profesor* Alumno::getTutor() {
+	return this->tutor;
+}
+Profesor* Alumno::getCoTutor() {
+	return this->Cotutor;
+}
 TFG * Alumno::getTFG() {
 	return this->tfg;
 }

@@ -30,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="QtGuiApplication3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Alumno.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -88,9 +85,6 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="QtGuiApplication3.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="mainwindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
@@ -126,9 +120,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TFG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QtGuiApplication3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sqlite3\sqlite3.h">

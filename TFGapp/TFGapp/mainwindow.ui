@@ -14,40 +14,69 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="importarBoton">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>250</y>
+      <x>440</x>
+      <y>80</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Importar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="profesoresBoton">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>250</y>
+      <x>440</x>
+      <y>150</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Profesores</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QPushButton" name="alumnosBoton">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>30</y>
-      <width>351</width>
-      <height>551</height>
+      <x>440</x>
+      <y>220</y>
+      <width>93</width>
+      <height>28</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Alumnos</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gradosBoton">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>290</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Grados</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="organizadorBoton">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>360</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Organizador</string>
     </property>
    </widget>
   </widget>
@@ -73,5 +102,25 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>importarBoton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>testClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>581</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>583</x>
+     <y>215</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>testClick()</slot>
+ </slots>
 </ui>
