@@ -16,9 +16,9 @@ public:
     ~MainWindow();
 
 private slots:
-	void on_botonPath_clicked();
-	void on_pushButton_2_clicked();
-	//void testSlot() ;
+	//void on_botonPath_clicked();
+	//void on_pushButton_2_clicked();
+	////void testSlot() ;
 
 private:
     Ui::MainWindow *ui;

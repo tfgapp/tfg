@@ -15,20 +15,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_botonPath_clicked()
-{
-   menu  *menus = new menu();
-   menus->setModal(true);
-   QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open File"), "/path/to/file/", tr("all (*.*)"));
-   ui->listWidget->addItems(fileNames);
-}
-void MainWindow::on_pushButton_2_clicked() {
-	menu  *menus = new menu();
-	menus->setModal(true);
-	menus->show();
-}
-
-//void MainWindow::testSlot() 
+//void MainWindow::on_botonPath_clicked()
+//{
+//   QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open File"), "/path/to/file/", tr("all (*.*)"));
+//   ui->listWidget->addItems(fileNames);
+//}
+//void MainWindow::on_pushButton_2_clicked() {
+//	menu  *menus = new menu();
+//	menus->setModal(true);
+//	menus->show();
+//}
+//
+////void MainWindow::testSlot() 
 //{
 //	menu  *menus = new menu();
 //	menus->setModal(true);
