@@ -1,18 +1,18 @@
 #include "Header.h"
 
-Horario * UTILITY existeHorario(vector<Horario> * horarios, string nombre, string dia)
+Horario * /*UTILITY*/ existeHorario(vector<Horario> * horarios, string nombre, string dia)
 {
 	string nombreCompleto;
 	for (int i = 0; i < (int)horarios->size(); i++)
 	{
-		nombreCompleto = (*horarios)[i].getProfesor().getNombre();
+		nombreCompleto = (*horarios)[i].getProfesor()->getNombre();
 		if (nombreCompleto == nombre && to_string((*horarios)[i].getDia()) == dia)
 			return &(*horarios)[i];
 	}
 	return NULL;
 }
 
-Profesor * UTILITY existeProfesor(vector<Profesor> *profesores, string ID)
+Profesor * /*UTILITY*/existeProfesor(vector<Profesor> *profesores, string ID)
 {
 	for (int i = 0; i < (int)profesores->size(); i++)
 		if ((*profesores)[i].getNombre() == ID)
@@ -20,7 +20,15 @@ Profesor * UTILITY existeProfesor(vector<Profesor> *profesores, string ID)
 	return NULL;
 }
 
-Grado * UTILITY existeGrado(vector<Grado> *grados, string ID)
+Alumno * /*UTILITY*/existeAlumno(vector<Alumno> *alumnos, string ID)
+{
+	for (int i = 0; i < (int)alumnos->size(); i++)
+		if ((*alumnos)[i].getID() == ID)
+			return &(*alumnos)[i];
+	return NULL;
+}
+
+Grado * /*UTILITY*/existeGrado(vector<Grado> *grados, string ID)
 {
 	for (int i = 0; i < (int)grados->size(); i++)
 		if ((*grados)[i].getNombre() == ID)

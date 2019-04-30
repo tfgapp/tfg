@@ -14,7 +14,7 @@ void Alumno::printAlumno()
 	std::cout << "-------------------" << '\n';
 	std::cout << "Name: " << this->nombre << " " << this->apellido << '\n';
 	std::cout << "E-Mail: " << this->ID << '\n';
-	std::cout << "Grado: " << this->grado << '\n';
+	std::cout << "Grado: " << this->grado->getNombre() << '\n';
 	std::cout << "-------------------" << '\n';
 }
 
@@ -56,4 +56,20 @@ string Alumno::getID()
 Grado * Alumno::getGrado()
 {
 	return this->grado;
+}
+
+void Alumno::asignarTutor(int ID) {
+	this->tutor->setID(ID);
+}
+
+void Alumno::asignarCoTutor(int ID) {
+	this->coTutor->setID(ID);
+}
+
+TFG * Alumno::getTFG() {
+	return this->tfg;
+}
+
+void Alumno::setTFG(TFG * tfg1) {
+	this->tfg = tfg1;
 }

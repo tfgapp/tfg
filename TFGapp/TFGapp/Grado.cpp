@@ -18,3 +18,8 @@ string Grado::getNombre()
 {
 	return this->nombre;
 }
+
+void Grado::printGrado()
+{
+	std::cout<< "Nombre:" << this->nombre << "\n";
+}

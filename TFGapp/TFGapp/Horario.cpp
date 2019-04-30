@@ -1,9 +1,9 @@
-#include "Header.h"
+#include "Horario.h"
 
 
 //Los tres constructores 
-Profesor Horario::getProfesor() {
-	return *profesor;
+Profesor* Horario::getProfesor() {
+	return profesor;
 }
 
 void Horario::setProfesor(Profesor *profesor) {
@@ -26,7 +26,6 @@ Horario::Horario() {
 	for (int i = 0; i < 7; i++)this->sloots[i] = 0;
 }
 
-//set y get
 int Horario::getDia() {
 	return dia;
 }

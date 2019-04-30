@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "Grado.h"
+#include "Horario.h"
 
 using namespace std;
 
@@ -13,11 +14,17 @@ private:
 	bool doctor;
 	vector<Grado *> grados;
 	vector<int> nTFG;
+	int ID;
+	vector<Horario> horarios; //Faltan las funciones
+
 
 public:
+	Profesor() {};
 	Profesor(string, string);
 	~Profesor();
 	void printProfesor();
+	void setID(int);
+	
 
 	string getNombre();
 	void setNombre(string);
@@ -27,6 +34,5 @@ public:
 
 	void addGrado(Grado* grado, int nTFG);
 	void delGrado(string id);
-
 };
 

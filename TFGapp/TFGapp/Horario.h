@@ -1,16 +1,19 @@
 #pragma once
-
+#include <stdio.h>
+class Profesor;
 
 class Horario
 {
 private:
 	int dia;
 	bool sloots[7];
-	Profesor *profesor;
+	Profesor * profesor;
 
 public:
-	Profesor getProfesor();
+
+	Profesor * getProfesor();
 	void setProfesor(Profesor *profesor);
+
 	int getDia();
 	void setDia(int dia);
 	bool* getListaSloot();

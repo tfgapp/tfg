@@ -16,10 +16,10 @@ void Profesor::printProfesor()
 	std::cout << "-------------------" << '\n';
 	std::cout << "Name: " << this->nombreCompleto << '\n';
 	std::cout << "Doctor: " << this->doctor << '\n';
-	//for (auto dummy : this->grado)
-	//{
-	//	std::cout << "Grado: " << dummy.first <<"  nMAX: " << dummy.second <<  '\n';
-	//}
+	for (int i = 0; i < (int)this->grados.size(); i++)
+	{
+		std::cout << "Grado: " << this->grados[i]->getNombre() <<"  nMAX: " << this->nTFG[i] <<  '\n';
+	}
 	std::cout << "-------------------" << '\n';
 }
 
@@ -59,4 +59,8 @@ void Profesor::delGrado(string id)
 			this->nTFG.erase(this->nTFG.begin() + i);
 		}
 	}
+}
+
+void Profesor::setID(int id) {
+	this->ID = id;
 }
