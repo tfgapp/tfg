@@ -35,8 +35,8 @@ public:
 	string getID();
 	Grado * getGrado();
 
-	void asignarTutor(int ID);
-	void asignarCoTutor(int ID);
+	void asignarTutor(Profesor *profesor);
+	void asignarCoTutor(Profesor *profesor);
 
 	void setTFG(TFG *);
 	TFG * getTFG();
