@@ -119,7 +119,7 @@ void INTERFAZ borrarProfesor(Controller *main, string id)
 
 }
 
-int INTERFAZmenu()
+int INTERFAZ menu()
 {
 	int opcion;
 
