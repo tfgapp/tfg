@@ -1,13 +1,13 @@
 #include "Presentacion.h"
 
-void Presentacion::setTribunal(vector<Profesor*> tribunal)
+void Presentacion::addTribunal(Profesor* tribunal)
 {
-	this->tribunal = tribunal;
+	this->tribunal.push_back(tribunal);
 }
 
-vector<Profesor*> Presentacion::getTribunal()
+vector<Profesor*> * Presentacion::getTribunal()
 {
-	return this->tribunal;
+	return &this->tribunal;
 }
 
 void Presentacion::setID(string id) {
@@ -56,4 +56,13 @@ int Presentacion::getSlot() {
 
 int Presentacion::getConvocatoria() {
 	return this->convocatoria;
+}
+
+void Presentacion::delTribunal(string idProfesor)
+{
+	for (int i = 0; i < tribunal.size(); i++)
+	{
+		if (tribunal[i]->getNombre() == idProfesor)
+			tribunal.erase(tribunal.begin() + i);
+	}
 }

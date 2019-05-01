@@ -9,8 +9,7 @@ using namespace std;
 class Presentacion {
 
 private:
-
-	string ID;
+	string ID; //ID
 	int hora;
 	int dia;
 	int aula;
@@ -19,8 +18,10 @@ private:
 	vector<Profesor *> tribunal; //Lista de profesores que acuden a la presentación
 
 public:
-	//getters y setters
-	void setTribunal(vector<Profesor*>);
+
+	void addTribunal(Profesor* tribunal);
+	void delTribunal(string idProfesor);
+
 	void setID(string);
 	void setHora(int);
 	void setDia(int);
@@ -34,6 +35,6 @@ public:
 	int getAula();
 	int getSlot();
 	int getConvocatoria();
-	vector<Profesor *> getTribunal();
+	vector<Profesor*> * getTribunal();
 
 };
