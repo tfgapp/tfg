@@ -23,9 +23,18 @@ void ImportMain::pathDisponibilidad(){
 	ui.direccionDisponibilidad->setText(QFileDialog::getOpenFileName(this, tr("open file"), "/path/to/file/", tr("all (*.csv)")));
 }
 void ImportMain::cerrar(){
-	importarProfesores((char*)ui.pathProf->text().toStdString().c_str(), manager);
-	//importarAlumnos((char*)ui.pathAlum->text().toStdString().c_str(), manager);
-	importarHorarios((char*)ui.pathDisp->text().toStdString().c_str(),manager);
+	if (ui.direccionProfesores->text().contains(".csv")) {
+		manager->setListaProfesores(new vector <Profesor>);
+		manager->setListaGrados(new vector <Grado>);
+		importarProfesores((char*)ui.direccionProfesores->text().toStdString().c_str(), this->manager);
+	}
+	if (ui.direccionDisponibilidad->text().contains(".csv")) {
+		importarHorarios((char*)ui.direccionDisponibilidad->text().toStdString().c_str(), this->manager);
+	}
+	if (ui.direccionAlumnos->text().contains(".csv")) {
+		//manager->setListaAlumnos(new vector <Alumno>);
+		//importarAlumnos((char*)ui.direccionAlumnos->text().toStdString().c_str(), manager);
+	}
 	emit ocultar();
 	
 }

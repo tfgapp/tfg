@@ -93,3 +93,12 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 {
 	alumno->getTFG()->setCoTutor(profesor);
 }
+void Controller::setListaAlumnos(vector <Alumno> *alumnos) {
+	this->alumnos = *alumnos;
+}
+void Controller::setListaGrados(vector <Grado>* grados) {
+	this->grados = *grados;
+}
+void Controller::setListaProfesores(vector <Profesor>* profesores) {
+	this->profesores = *profesores;
+}
