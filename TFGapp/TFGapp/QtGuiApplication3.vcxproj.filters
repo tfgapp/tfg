@@ -28,6 +28,12 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Source Forms">
+      <UniqueIdentifier>{179b5314-f48d-44bd-a8bd-c9cd54489be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Forms">
+      <UniqueIdentifier>{4fc28311-593c-4e8a-9ef9-eab76a33cabe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Alumno.cpp">
@@ -51,12 +57,6 @@
     <ClCompile Include="Interfaz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mainwindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Presentacion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -75,19 +75,31 @@
     <ClCompile Include="sqlite3\sqlite3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gradosMain.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="menu.cpp">
+      <Filter>Source Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>Source Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="GradosMain.cpp">
+      <Filter>Source Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="ImportMain.cpp">
+      <Filter>Source Forms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="menu.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="mainwindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Forms</Filter>
     </QtMoc>
-    <QtMoc Include="gradosMain.h">
-      <Filter>Header Files</Filter>
+    <QtMoc Include="menu.h">
+      <Filter>Header Forms</Filter>
+    </QtMoc>
+    <QtMoc Include="ImportMain.h">
+      <Filter>Header Forms</Filter>
+    </QtMoc>
+    <QtMoc Include="GradosMain.h">
+      <Filter>Header Forms</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +110,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="gradosMain.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="mainImport.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

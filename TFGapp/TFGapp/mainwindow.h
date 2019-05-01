@@ -3,8 +3,9 @@
 
 #include <QMainWindow>
 #include "qfiledialog.h"
-#include "Controller.h"
-#include "gradosMain.h"
+#include "Header.h"
+#include "GradosMain.h"
+#include "ImportMain.h"
 namespace Ui {
 class MainWindow;
 }
@@ -18,18 +19,22 @@ public:
     ~MainWindow();
 	Controller * getController();
 	void setController(Controller * controller);
+	void ocultarImportar(); 
+	
 	
 private slots:
 	//void on_botonPath_clicked();
 	//void on_pushButton_2_clicked();
 	////void testSlot() ;
 	void botonGrados();
+	void botonImportar();
 signals:
     void enviarController(Controller *controller);
 private:
 	Controller * manager;
     Ui::MainWindow *ui;
-	gradosMain *grado;
+	GradosMain *grados;
+	ImportMain *vImport;
 };
 
 #endif // MAINWINDOW_H

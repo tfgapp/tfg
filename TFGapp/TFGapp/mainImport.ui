@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainImport</class>
+ <widget class="QWidget" name="mainImport">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>949</width>
+    <height>715</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>mainImport</string>
+  </property>
+  <widget class="QLabel" name="direccionAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>140</y>
+     <width>521</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="direccionProfesores">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>330</y>
+     <width>521</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="direccionDisponibilidad">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>540</y>
+     <width>521</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pathAlum">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>130</y>
+     <width>131</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Path Alumnos</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pathProf">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>310</y>
+     <width>131</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Path Profesores</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pathDisp">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>530</y>
+     <width>131</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Path Disponibilidad</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Aceptar">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>630</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Aceptar</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pathAlum</sender>
+   <signal>clicked()</signal>
+   <receiver>mainImport</receiver>
+   <slot>pathAlumnos()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>702</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pathProf</sender>
+   <signal>clicked()</signal>
+   <receiver>mainImport</receiver>
+   <slot>pathProfesores()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>703</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>559</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pathDisp</sender>
+   <signal>clicked()</signal>
+   <receiver>mainImport</receiver>
+   <slot>pathDisponibilidad()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>709</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>514</x>
+     <y>460</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Aceptar</sender>
+   <signal>clicked()</signal>
+   <receiver>mainImport</receiver>
+   <slot>cerrar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>773</x>
+     <y>638</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>883</x>
+     <y>456</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>pathAlumnos()</slot>
+  <slot>pathProfesores()</slot>
+  <slot>pathDisponibilidad()</slot>
+  <slot>cerrar()</slot>
+ </slots>
+</ui>
