@@ -139,5 +139,6 @@
  <slots>
   <slot>botonGrados()</slot>
   <slot>botonImportar()</slot>
+  <slot>ocultarImportar()</slot>
  </slots>
 </ui>

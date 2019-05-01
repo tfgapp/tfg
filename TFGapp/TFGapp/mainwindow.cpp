@@ -38,8 +38,6 @@ void MainWindow::botonGrados() {
 }
 void MainWindow::botonImportar() {
 	emit enviarController(this->getController());
-	vImport = new ImportMain();
-	
 	vImport->show();
 	vImport->setWindowModality(Qt::WindowModal);
 	

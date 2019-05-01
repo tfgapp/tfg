@@ -1,10 +1,12 @@
 #include "ImportMain.h"
 #include "ui_mainImport.h"
 #include "Header.h"
+#include "qerrormessage.h"
 ImportMain::ImportMain(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+
 }
 
 ImportMain::~ImportMain()
@@ -25,6 +27,7 @@ void ImportMain::cerrar(){
 	//importarAlumnos((char*)ui.pathAlum->text().toStdString().c_str(), manager);
 	importarHorarios((char*)ui.pathDisp->text().toStdString().c_str(),manager);
 	emit ocultar();
+	
 }
 Controller * ImportMain::getController() {
 	return this->manager;
