@@ -1,34 +1,37 @@
 #include "ui_gradosMain.h"
-#include "gradosMain.h"
+#include "GradosMain.h"
 
-gradosMain::gradosMain(QWidget *parent)
+GradosMain::GradosMain(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-	vector  <Alumno>  alumnos;
-	alumnos = *(manager->getListaAlumnos());
-	QStringList lista;
-	for (int i = 0; alumnos.size(); i++) {
-		QString * nombre = new QString((alumnos)[i].getNombre().c_str());
-		lista.append(*nombre);
-		
-	}
-	ui.listaGrados->addItems(lista);
+	
 }
 
-gradosMain::~gradosMain()
+GradosMain::~GradosMain()
 {
 }
 
-void gradosMain::borrarGrado(){
+void GradosMain::borrarGrado(){
 	//ui.listaGrados.add
 }
-void gradosMain::crearGrado() {
+void GradosMain::crearGrado() {
 	
 }
-Controller * gradosMain::getController() {
+Controller * GradosMain::getController() {
 	return this->manager;
 }
-void gradosMain::setController(Controller * controller) {
+void GradosMain::setController(Controller * controller) {
 	this->manager = controller;
+	vector <Grado> * grados = new vector <Grado>;
+	grados = manager->getListaGrados();
+	QStringList lista;
+	for (int i = 0; i < grados->size(); i++) {
+		QString * nombre = new QString((*grados)[i].getNombre().c_str());
+		if (!lista.contains(*nombre)) {
+			lista.append(*nombre);
+		}
+	}
+	ui.listaGrados->clear();
+	ui.listaGrados->addItems(lista);
 }

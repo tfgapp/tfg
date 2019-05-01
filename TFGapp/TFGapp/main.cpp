@@ -2,13 +2,16 @@
 #include "QApplication"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "GradosMain.h"
 #define CLEAR 1
 
 int main(int argc, char * argv[] )
 {
     QApplication qApplication(argc,argv);
     MainWindow inicio;
+	
     inicio.show();
+	
     /*char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";

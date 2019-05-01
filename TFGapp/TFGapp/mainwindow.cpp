@@ -4,10 +4,20 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{
+{	
+	grados = new GradosMain();
+	vImport = new ImportMain();
     ui->setupUi(this);
-	manager = new Controller;
-	connect(this, &MainWindow::enviarController, grado, &gradosMain::setController);
+	manager = new Controller();
+	Grado * gradoIng = new Grado();
+	string * nombre = new string("Ingenieria");
+	gradoIng->setNombre(*nombre);
+	manager->addGrado(gradoIng);
+	connect(this, &MainWindow::enviarController, grados, &GradosMain::setController);
+	connect(this, &MainWindow::enviarController, vImport, &ImportMain::setController);
+	connect(vImport, &ImportMain::ocultar, this, &MainWindow::ocultarImportar);
+	emit enviarController(this->getController());
+	
 }
 
 MainWindow::~MainWindow()
@@ -21,10 +31,22 @@ void MainWindow::setController(Controller * controller) {
 	this->manager = controller;
 }
 void MainWindow::botonGrados() {
-	grado = new gradosMain();
-	grado->show();
-	grado->setWindowModality(Qt::WindowModal);
 	emit enviarController(this->getController());
+	grados->show();
+	grados->setWindowModality(Qt::WindowModal);
+	
+}
+void MainWindow::botonImportar() {
+	emit enviarController(this->getController());
+	vImport = new ImportMain();
+	
+	vImport->show();
+	vImport->setWindowModality(Qt::WindowModal);
+	
+	
+}
+void MainWindow::ocultarImportar() {
+	vImport->hide();
 }
 //void Mainwindow::on_botonpath_clicked()
 //{

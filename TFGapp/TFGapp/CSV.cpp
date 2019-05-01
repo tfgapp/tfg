@@ -95,8 +95,8 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 			for (int i = 2; i < nColumnas; i++) dummy_P.addGrado(existeGrado(main->getListaGrados(), nombresGrado[i - 2]), stoi(dummy[i]));
 			profesores->push_back(dummy_P);
 		}
-		else
-			cout << "El profesor con ID: " << aux->getNombre() << " ya existe. IMPLEMENTAR SOLUCIÓN\n";
+		//else
+			//cout << "El profesor con ID: " << aux->getNombre() << " ya existe. IMPLEMENTAR SOLUCIÓN\n";
 
 	}
 

@@ -119,10 +119,11 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CSV.cpp" />
     <ClCompile Include="Grado.cpp" />
-    <ClCompile Include="gradosMain.cpp" />
+    <ClCompile Include="GradosMain.cpp" />
     <ClCompile Include="Horario.cpp" />
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ImportMain.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="Presentacion.cpp" />
@@ -132,7 +133,11 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="gradosMain.h">
+    <QtMoc Include="GradosMain.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImportMain.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
     </QtMoc>
@@ -140,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="gradosMain.ui" />
+    <QtUic Include="mainImport.ui" />
     <QtUic Include="mainwindow.ui" />
     <QtUic Include="menu.ui" />
   </ItemGroup>

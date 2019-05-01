@@ -104,22 +104,6 @@
  <resources/>
  <connections>
   <connection>
-   <sender>importarBoton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>testClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>532</x>
-     <y>147</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>583</x>
-     <y>215</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>gradosBoton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -135,8 +119,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>importarBoton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>botonImportar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>500</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>728</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>botonGrados()</slot>
+  <slot>botonImportar()</slot>
  </slots>
 </ui>
