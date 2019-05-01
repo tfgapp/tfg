@@ -19,7 +19,7 @@ public:
     ~MainWindow();
 	Controller * getController();
 	void setController(Controller * controller);
-	void ocultarImportar(); 
+	
 	
 	
 private slots:
@@ -28,6 +28,7 @@ private slots:
 	////void testSlot() ;
 	void botonGrados();
 	void botonImportar();
+	void ocultarImportar();
 signals:
     void enviarController(Controller *controller);
 private:
