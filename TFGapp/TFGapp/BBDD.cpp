@@ -26,7 +26,7 @@ sqlite3 * openBBDD(const char * path)
 	return db;
 }
 
-void BBDD crearTablaProfesor(sqlite3 *bd)
+void BBDD crearTablaProfesores(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS profesores(" \
 		"nombreCompleto TEXT," \
@@ -37,32 +37,35 @@ void BBDD crearTablaProfesor(sqlite3 *bd)
 	checkError(resultado, error);
 }
 
-void BBDD crearTablaHorario(sqlite3 *bd) {
-	char sql[] = "CREATE TABLE IF NOT EXISTS horarios(" \
-		"nombre TEXT NOT NULL,"\
+void BBDD crearTablaDisponibilidad(sqlite3 *bd) {
+	char sql[] = "CREATE TABLE IF NOT EXISTS disponibilidad(" \
+		"nombreProfesor TEXT NOT NULL,"\
 		"dia INT,"\
-		"sloot1 INT,"\
-		"sloot2 INT,"\
-		"sloot3 INT,"\
-		"sloot4 INT,"\
-		"sloot5 INT,"\
-		"sloot6 INT,"\
-		"sloot7 INT,"\
-		"PRIMARY KEY(nombre, dia),"\
-		"FOREIGN KEY(nombre) REFERENCES profesores(nombreCompleto) ON UPDATE CASCADE ON DELETE CASCADE );";
+		"slot1 INT,"\
+		"slot2 INT,"\
+		"slot3 INT,"\
+		"slot4 INT,"\
+		"slot5 INT,"\
+		"slot6 INT,"\
+		"slot7 INT,"\
+		"PRIMARY KEY(nombreProfesor, dia),"\
+		"FOREIGN KEY(nombreProfesor) REFERENCES profesores(nombreCompleto)" \
+		"ON UPDATE CASCADE ON DELETE CASCADE );";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
 	checkError(resultado, error);
 }
 
-void BBDD crearTablaAlumno(sqlite3 *bd)
+void BBDD crearTablaAlumnos(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS alumnos(" \
 		"nombre TEXT,"\
-		"apellido TEXT,"\
+		"apellidos TEXT,"\
 		"ID TEXT PRIMARY KEY NOT NULL,"\
-		"grado TEXT);";
+		"grado TEXT,"\
+		"FOREIGN KEY(grado) REFERENCES grados(nombre)" \
+		"ON UPDATE CASCADE ON DELETE NULL);";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql, 0, 0, &error);
@@ -72,11 +75,10 @@ void BBDD crearTablaAlumno(sqlite3 *bd)
 void BBDD crearTablaTFG(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS TFG(" \
-		"titulo TEXT PRIMARY KEY NOT NULL," \
+		"titulo TEXT PRIMARY KEY," \
 		"presentado TEXT," \
 		"tutor TEXT," \
 		"cotutor TEXT," \
-		"presentacion TEXT," \
 		"FOREIGN KEY(tutor) REFERENCES profesores(nombreCompleto)" \
 		"ON UPDATE CASCADE ON DELETE CASCADE," \
 		"FOREIGN KEY(cotutor) REFERENCES profesores(nombreCompleto)" \
@@ -89,7 +91,7 @@ void BBDD crearTablaTFG(sqlite3 *bd)
 	checkError(resultado, error);
 }
 
-void BBDD crearTablaPresentacion(sqlite3 *bd){
+void BBDD crearTablaPresentaciones(sqlite3 *bd){
 	char sql[] = "CREATE TABLE IF NOT EXISTS alumnos(" \
 		"idPresentacion TEXT PRIMARY KEY NOT NULL," \
 		"hora INT," \
@@ -105,7 +107,12 @@ void BBDD crearTablaPresentacion(sqlite3 *bd){
 	checkError(resultado, error);
 }
 
-void BBDD crearTablaGrado(sqlite3 *bd)
+void BBDD crearTablaTribunales(sqlite3 *bd)
+{
+
+}
+
+void BBDD crearTablaGrados(sqlite3 *bd)
 {
 	char sql[] = "CREATE TABLE IF NOT EXISTS grados("\
 		            "nombre TEXT PRIMARY KEY NOT NULL"\

@@ -14,13 +14,15 @@ static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName)
 void BBDD checkError(int resultado, char * error); //Funcion para leer los errores de Sqlite3
 sqlite3 * openBBDD(const char * path);
 
-void BBDD crearTablaAlumno(sqlite3 *bd); //Crea la tabla alumno desde un preset
-void BBDD crearTablaProfesor(sqlite3 *bd); //Crea la tabla profesor desde un preset
-void BBDD crearTablaHorario(sqlite3 *bd); //Crea la tabla horario desde un preset
+void BBDD crearTablaAlumnos(sqlite3 *bd); //Crea la tabla alumno desde un preset
+void BBDD crearTablaProfesores(sqlite3 *bd); //Crea la tabla profesor desde un preset
+void BBDD crearTablaDisponibilidad(sqlite3 *bd); //Crea la tabla horario desde un preset
 void BBDD crearTablaTFG(sqlite3 *bd); //Crea la tabla TFG desde un preset
-void BBDD crearTablaPresentacion(sqlite3 *bd); //Crea la tabla Presentacion desde un preset
-void BBDD crearTablaGrado(sqlite3 *bd);//Crea la tabla Grado desde un preset
+void BBDD crearTablaPresentaciones(sqlite3 *bd); //Crea la tabla Presentacion desde un preset
+void BBDD crearTablaGrados(sqlite3 *bd);//Crea la tabla Grado desde un preset
 void BBDD crearTablaEspecialidades(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
+void BBDD crearTablaTribunales(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
+
 
 
 void BBDD insertarHorario(sqlite3 * bd, Horario horario); //Recibe una base de datos y un objeto Horario y lo inserta en la base de datos

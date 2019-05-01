@@ -2,8 +2,7 @@
 
 CREATE TABLE IF NOT EXISTS alumnos(
 	nombre TEXT,
-	apellido1 TEXT,
-	apellido2 TEXT,
+	apellidos TEXT,
 	ID TEXT PRIMARY KEY NOT NULL,
 	grado TEXT,
 	FOREIGN KEY(grado) REFERENCES grados(nombre)
@@ -34,13 +33,13 @@ CREATE TABLE IF NOT EXISTS especialidades(
 CREATE TABLE IF NOT EXISTS disponibilidad(
 	nombreProfesor TEXT NOT NULL,
 	dia INT,
-	sloot1 INT,
-	sloot2 INT,
-	sloot3 INT,
-	sloot4 INT,
-	sloot5 INT,
-	sloot6 INT,
-	sloot7 INT,
+	slot1 INT,
+	slot2 INT,
+	slot3 INT,
+	slot4 INT,
+	slot5 INT,
+	slot6 INT,
+	slot7 INT,
 	PRIMARY KEY(nombreProfesor, dia),
 	FOREIGN KEY(nombreProfesor) REFERENCES profesores(nombreCompleto)
 	ON UPDATE CASCADE ON DELETE CASCADE
@@ -51,6 +50,7 @@ CREATE TABLE IF NOT EXISTS tfg(
 	presentado INT,
 	tutor TEXT,
 	cotutor TEXT,
+	alumno TEXT,
 	FOREIGN KEY(tutor) REFERENCES profesores(nombreCompleto)
 	ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY(cotutor) REFERENCES profesores(nombreCompleto)
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS tfg(
 	ON UPDATE CASCADE ON DELETE CASCADE,
 );
 
-CREATE TABLE IF NOT EXISTS presentacion(
+CREATE TABLE IF NOT EXISTS presentaciones(
 	tfg TEXT,
 	idPresentacion TEXT PRIMARY KEY,
 	hora INT,
