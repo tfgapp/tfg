@@ -40,14 +40,14 @@ bool* Horario::getListaSloot() {
 
 bool Horario::getSloot(int posicion) {
 	if (posicion < 0 || posicion>7) {
-		printf("Error en el rango de posicion");
+		std::cout << "Error en el rango de posicion\n";
 	}
 	return sloots[posicion];
 }
 
 void Horario::setSloot(int posicion, bool valor) {
 	if (posicion < 0 || posicion>7) {
-		printf("Error en el rango de posicion");
+		std::cout << "Error en el rango de posicion\n";
 	}
 	sloots[posicion] = valor;
 }

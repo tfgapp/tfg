@@ -15,9 +15,7 @@ private:
 	string apellido;
 	string ID;
 	Grado * grado;
-	Profesor * tutor;
-	Profesor * coTutor;
-	TFG * tfg;
+	TFG tfg;
 
 public:
 	Alumno(string,string,string,Grado*);
@@ -29,16 +27,12 @@ public:
 	void setApellido(string apellido);
 	void setID(string ID);
 	void setGrado(Grado * grado);
-	void asignarTutor(Profesor *profesor);
-	void asignarCoTutor(Profesor *profesor);
-	void setTFG(TFG *);
+	void setTFG(TFG);
 
 	string getNombre();
 	string getApellido();
 	string getID();
 	Grado * getGrado();
-	Profesor * getTutor();
-	Profesor * getCoTutor();
 	TFG * getTFG();
 };
 
