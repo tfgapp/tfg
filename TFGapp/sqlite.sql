@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS alumnos(
 	apellido1 TEXT,
 	apellido2 TEXT,
 	ID TEXT PRIMARY KEY NOT NULL,
-	grado INT
+	grado TEXT,
 	FOREIGN KEY(grado) REFERENCES grados(nombre)
 	ON UPDATE CASCADE ON DELETE NULL
 );
@@ -19,17 +19,19 @@ CREATE TABLE IF NOT EXISTS grados(
 	nombre TEXT PRIMARY KEY NOT NULL
 );
 
+--Tabla que conecta profesores y grados 
 CREATE TABLE IF NOT EXISTS especialidades(
-	nombreProfesor TEXT PRIMARY KEY NOT NULL,
+	nombreProfesor TEXT,
 	nombreGrado TEXT,
 	numeroMax INT,
 	FOREIGN KEY(nombreProfesor) REFERENCES profesores(nombreCompleto)
 	ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY(nombreGrado) REFERENCES grados(nombre)
-	ON UPDATE CASCADE ON DELETE NULL
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	PRIMARY KEY (nombreProfesor, nombreGrado)
 );
 
-CREATE TABLE IF NOT EXISTS horarios(
+CREATE TABLE IF NOT EXISTS disponibilidad(
 	nombreProfesor TEXT NOT NULL,
 	dia INT,
 	sloot1 INT,
@@ -44,9 +46,8 @@ CREATE TABLE IF NOT EXISTS horarios(
 	ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS TFG(
-	ID TEXT PRIMARY KEY,
-	titulo TEXT ,
+CREATE TABLE IF NOT EXISTS tfg(
+	titulo TEXT PRIMARY KEY,
 	presentado INT,
 	tutor TEXT,
 	cotutor TEXT,
@@ -59,21 +60,23 @@ CREATE TABLE IF NOT EXISTS TFG(
 );
 
 CREATE TABLE IF NOT EXISTS presentacion(
-	TFG PRIMARY KEY,
-	idPresentacion TEXT PRIMARY KEY NOT NULL,
+	tfg TEXT,
+	idPresentacion TEXT PRIMARY KEY,
 	hora INT,
 	dia INT,
 	aula INT,
 	slot INT,
 	convocatoria INT,
-	FOREIGN KEY(TFG) REFERENCES TFG(ID)
+	FOREIGN KEY(tfg) REFERENCES tfg(titulo)
 	ON UPDATE CASCADE ON DELETE CASCADE,
-	###  vector<Profesor *> tribunal, #Revisar por que puede ser turbio
 );
 
-
-
-
-
-
-
+CREATE TABLE IF NOT EXISTS tribunales(
+	presentacion TEXT,
+	profesor TEXT,
+	FOREIGN KEY(presentacion) REFERENCES presentacion(idPresentacion)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(profesor) REFERENCES profesores(nombreCompleto)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	PRIMARY KEY(presentacion, profesor)
+);
