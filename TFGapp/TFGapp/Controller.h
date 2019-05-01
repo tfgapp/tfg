@@ -17,6 +17,9 @@ public:
 	vector <Alumno>* getListaAlumnos();
 	vector <Profesor>* getListaProfesores();
 	vector <Grado>* getListaGrados();
+	void setListaAlumnos(vector <Alumno>* alumnos);
+	void setListaGrados(vector <Grado>* grados);
+	void setListaProfesores(vector <Profesor>* profesores);
 
 	Alumno* getAlumno(string id);
 	Profesor* getProfesor(string id);
