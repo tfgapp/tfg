@@ -22,7 +22,7 @@ int main(int argc, char * argv[] )
 	int opc = 1;
 
 	importarProfesores(pathP , &main);
-	importarAlumnos(pathA, &main);
+	importarAlumnos(pathA, &main, main.getGrado("Grado1"));
 	importarHorarios(pathD, &main);
 
 
@@ -73,7 +73,7 @@ int main(int argc, char * argv[] )
 		case 10:
 			cout << "Inserte el path: ";
 			cin >> dummy_S;
-			importarAlumnos((char *)dummy_S.c_str(),&main);
+			importarAlumnos((char *)dummy_S.c_str(),&main, main.getGrado("Grado1"));
 			break;
 		case 11:
 			cout << "Inserte el path: ";
