@@ -3,29 +3,33 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "GradosMain.h"
-#define CLEAR 1
 
-int main(int argc, char * argv[] )
+
+int main(int argc, char * argv[])
 {
-    QApplication qApplication(argc,argv);
-    MainWindow inicio;
-    inicio.show();
-	
-    char pathP[] = "../datos_profesor.csv";
+	QApplication qApplication(argc, argv);
+
+
+	char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
 
 	sqlite3 *db = openBBDD("test.db");
-	
+	if (FIRST == 1) emptyDB(db);
+
 	Controller main(db);
 
 	int opc = 1;
-
-	importarProfesores(pathP , &main);
-	importarAlumnos(pathA, &main, main.getGrado("Grado1"));
-	importarHorarios(pathD, &main);
 	volcarGrados(&main);
 
+	if(FIRST == 1)
+	{
+		importarProfesores(pathP, &main);
+		importarAlumnos(pathA, &main, main.getGrado("Grado1"));
+		importarHorarios(pathD, &main);
+	}
+	MainWindow inicio(&main);
+	inicio.show();
     string dummy_S;
 	while (opc != 0)
 	{
@@ -91,7 +95,7 @@ int main(int argc, char * argv[] )
 		}
 
 	}
-    sqlite3_close(db);
 
+	
     return qApplication.exec();
 }

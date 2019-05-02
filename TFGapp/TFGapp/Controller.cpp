@@ -7,7 +7,7 @@ Controller::Controller()
 
 Controller::Controller(sqlite3 *db)
 {
-	cargarBasedeDatos(db);
+	if(FIRST == 1) cargarBasedeDatos(db);
 	this->db = db;
 }
 

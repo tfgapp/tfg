@@ -1,4 +1,7 @@
 #pragma once
+
+#define FIRST 0
+
 #include "sqlite3/sqlite3.h"
 #include <fstream>
 #include <string>
@@ -10,6 +13,7 @@
 
 void BBDD checkError(int resultado, char * error); //Funcion para leer los errores de Sqlite3
 sqlite3 * openBBDD(const char * path);
+void BBDD emptyDB(sqlite3 * db);
 
 void BBDD crearTablaAlumnos(sqlite3 *bd); //Crea la tabla alumno desde un preset
 void BBDD crearTablaProfesores(sqlite3 *bd); //Crea la tabla profesor desde un preset
@@ -54,5 +58,5 @@ int INTERFAZ menu();
 
 #define SELECT
 
-static int SELECT callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+static int SELECT callbackGrados(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
 void SELECT volcarGrados(Controller * main);

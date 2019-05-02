@@ -43,7 +43,6 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 	string header; // Variable para leer el header
 
 	//Listas del controller
-	vector<Grado> * grados = main->getListaGrados();
 	vector<Profesor> * profesores = main->getListaProfesores();
 
 	getline(csv, header, '\n'); //Leo la primera liena del CSV que es el Header
@@ -61,7 +60,7 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 	{
 		Grado* dummy_G = main->getGrado(dummy[i]);
 		if (main->getGrado(dummy[i]) == NULL)
-			grados->push_back(Grado(dummy[i]));
+			main->addGrado(Grado(dummy[i]));
 		nombresGrado.push_back(dummy[i]);
 	}
 

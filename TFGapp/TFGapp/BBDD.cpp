@@ -221,3 +221,15 @@ void BBDD insertarProfesores(vector<Profesor> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarProfesor(db, dummy);
 }
+
+void BBDD emptyDB(sqlite3 * db)
+{
+	sqlite3_exec(db, "DROP TABLE alumnos;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE profesores;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE grados;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE especialidades;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE disponibilidad;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE TFG;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE presentaciones;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE tribunales;", 0, 0, 0);
+}

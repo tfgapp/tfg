@@ -1,11 +1,12 @@
 #include "Header.h"
 
-static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName) {
+static int SELECT callbackGrados(void *data, int argc, char **argv, char **azColName) {
 	int i;
-	for (i = 0; i < argc; i++) {
-		printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+	Controller * main = (Controller *)data;
+	for (i = 0; i < argc; i++)
+	{
+		main->getListaGrados()->push_back(Grado(argv[i]));
 	}
-	printf("\n");
 	return 0;
 }
 
@@ -14,6 +15,6 @@ void SELECT volcarGrados(Controller * main)
 	char sql[] = "SELECT * FROM grados;";
 
 	char * error = NULL;
-	int resultado = sqlite3_exec(main->getDB(), sql, callback, main, &error);
+	int resultado = sqlite3_exec(main->getDB(), sql, callbackGrados, main, &error);
 	checkError(resultado, error);
 }
