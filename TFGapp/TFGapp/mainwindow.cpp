@@ -5,13 +5,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {	
+    ui->setupUi(this);
 	grados = new GradosMain();
 	vImport = new ImportMain();
-    ui->setupUi(this);
-	manager = new Controller();
-	Grado * gradoIng = new Grado();
-	string * nombre = new string("Ingenieria");
-	gradoIng->setNombre(*nombre);
+
+	sqlite3 *db = openBBDD("test.db");
+	manager = new Controller(db);
+
+	Grado gradoIng;
+	gradoIng.setNombre(string("Ingenieria"));
 	manager->addGrado(gradoIng);
 	connect(this, &MainWindow::enviarController, grados, &GradosMain::setController);
 	connect(this, &MainWindow::enviarController, vImport, &ImportMain::setController);
@@ -22,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+	delete manager;
     delete ui;
 }
 Controller * MainWindow::getController() {

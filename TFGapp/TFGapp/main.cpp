@@ -9,32 +9,22 @@ int main(int argc, char * argv[] )
 {
     QApplication qApplication(argc,argv);
     MainWindow inicio;
-	
     inicio.show();
 	
-    /*char pathP[] = "../datos_profesor.csv";
+    char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
 
 	sqlite3 *db = openBBDD("test.db");
+	
+	Controller main(db);
 
-	if (CLEAR)
-	{
-		sqlite3_exec(db, "DROP TABLE alumnos", 0, 0, 0);
-		crearTablaAlumno(db);
-		sqlite3_exec(db, "DROP TABLE profesores", 0, 0, 0);
-		crearTablaProfesor(db);
-		sqlite3_exec(db, "DROP TABLE horarios", 0, 0, 0);
-		crearTablaHorario(db);
-	}
-
-	Controller main;
 	int opc = 1;
-	cout << "Añiadiendo datos de CSV...\n";
+
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
-	cout << "Datos CSV añiadidos...\n";
+
 
     string dummy_S;
 	while (opc != 0)
@@ -60,10 +50,10 @@ int main(int argc, char * argv[] )
             main.addGrado(crearGrado());
 			break;
 		case 5:
-            main.addAlumno(crearAlumno(main.getListaGrados()));
+            main.addAlumno(crearAlumno(&main));
 			break;
 		case 6:
-            main.addProfesor(crearProfesor(main.getListaGrados()));
+            main.addProfesor(crearProfesor(&main));
 			break;
 		case 7:
 			cout << "Que grado quieres borrar?(ID)  ";
@@ -101,7 +91,7 @@ int main(int argc, char * argv[] )
 		}
 
 	}
-    sqlite3_close(db);*/
+    sqlite3_close(db);
 
     return qApplication.exec();
 }
