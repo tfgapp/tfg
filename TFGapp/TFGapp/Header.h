@@ -22,6 +22,7 @@ void BBDD crearTablaPresentaciones(sqlite3 *bd); //Crea la tabla Presentacion de
 void BBDD crearTablaGrados(sqlite3 *bd);//Crea la tabla Grado desde un preset
 void BBDD crearTablaEspecialidades(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
 void BBDD crearTablaTribunales(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
+void BBDD cargarBasedeDatos(sqlite3 *bd); //Crea todas las tablas de la base de datos
 
 
 

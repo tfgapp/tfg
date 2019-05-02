@@ -12,29 +12,18 @@ int main(int argc, char * argv[] )
 	
     inicio.show();
 	
-    /*char pathP[] = "../datos_profesor.csv";
+    char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
-
 	sqlite3 *db = openBBDD("test.db");
-
-	if (CLEAR)
-	{
-		sqlite3_exec(db, "DROP TABLE alumnos", 0, 0, 0);
-		crearTablaAlumno(db);
-		sqlite3_exec(db, "DROP TABLE profesores", 0, 0, 0);
-		crearTablaProfesor(db);
-		sqlite3_exec(db, "DROP TABLE horarios", 0, 0, 0);
-		crearTablaHorario(db);
-	}
-
+	cargarBasedeDatos(db);
 	Controller main;
 	int opc = 1;
-	cout << "Añiadiendo datos de CSV...\n";
+	/*cout << "Añiadiendo datos de CSV...\n";
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
-	cout << "Datos CSV añiadidos...\n";
+	cout << "Datos CSV añiadidos...\n";*/
 
     string dummy_S;
 	while (opc != 0)
@@ -101,7 +90,7 @@ int main(int argc, char * argv[] )
 		}
 
 	}
-    sqlite3_close(db);*/
+    sqlite3_close(db);
 
     return qApplication.exec();
 }
