@@ -9,21 +9,22 @@ int main(int argc, char * argv[] )
 {
     QApplication qApplication(argc,argv);
     MainWindow inicio;
-	
     inicio.show();
 	
     char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
+
 	sqlite3 *db = openBBDD("test.db");
-	cargarBasedeDatos(db);
-	Controller main;
+	
+	Controller main(db);
+
 	int opc = 1;
-	/*cout << "Añiadiendo datos de CSV...\n";
+
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
-	cout << "Datos CSV añiadidos...\n";*/
+
 
     string dummy_S;
 	while (opc != 0)
@@ -49,10 +50,10 @@ int main(int argc, char * argv[] )
             main.addGrado(crearGrado());
 			break;
 		case 5:
-            main.addAlumno(crearAlumno(main.getListaGrados()));
+            main.addAlumno(crearAlumno(&main));
 			break;
 		case 6:
-            main.addProfesor(crearProfesor(main.getListaGrados()));
+            main.addProfesor(crearProfesor(&main));
 			break;
 		case 7:
 			cout << "Que grado quieres borrar?(ID)  ";

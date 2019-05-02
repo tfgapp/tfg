@@ -12,26 +12,26 @@ Horario * UTILITY existeHorario(vector<Horario> * horarios, string nombre, strin
 	return NULL;
 }
 
-Profesor * UTILITY existeProfesor(vector<Profesor> *profesores, string ID)
-{
-	for (int i = 0; i < (int)profesores->size(); i++)
-		if ((*profesores)[i].getNombre() == ID)
-			return &(*profesores)[i];
-	return NULL;
-}
-
-Alumno * UTILITY existeAlumno(vector<Alumno> *alumnos, string ID)
-{
-	for (int i = 0; i < (int)alumnos->size(); i++)
-		if ((*alumnos)[i].getID() == ID)
-			return &(*alumnos)[i];
-	return NULL;
-}
-
-Grado * UTILITY existeGrado(vector<Grado> *grados, string ID)
-{
-	for (int i = 0; i < (int)grados->size(); i++)
-		if ((*grados)[i].getNombre() == ID)
-			return &(*grados)[i];
-	return NULL;
-}
+//Profesor * UTILITY existeProfesor(vector<Profesor> *profesores, string ID)
+//{
+//	for (int i = 0; i < (int)profesores->size(); i++)
+//		if ((*profesores)[i].getNombre() == ID)
+//			return &(*profesores)[i];
+//	return NULL;
+//}
+//
+//Alumno * UTILITY existeAlumno(vector<Alumno> *alumnos, string ID)
+//{
+//	for (int i = 0; i < (int)alumnos->size(); i++)
+//		if ((*alumnos)[i].getID() == ID)
+//			return &(*alumnos)[i];
+//	return NULL;
+//}
+//
+//Grado * UTILITY existeGrado(vector<Grado> *grados, string ID)
+//{
+//	for (int i = 0; i < (int)grados->size(); i++)
+//		if ((*grados)[i].getNombre() == ID)
+//			return &(*grados)[i];
+//	return NULL;
+//}

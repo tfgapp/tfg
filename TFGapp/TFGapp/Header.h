@@ -44,16 +44,16 @@ void CSV importarHorarios(char path[], Controller * main); //Inserta en una list
 
 #define UTILITY
 
-Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string correo); //Funcion para comprobar si existe un profesor con su ID
+//Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string correo); //Funcion para comprobar si existe un profesor con su ID
+//Grado* UTILITY existeGrado(vector<Grado> *grados, string ID); //Funcion para comprobar si existe un Grado con su ID
+//Alumno * UTILITY existeAlumno(vector<Alumno> *profesores, string ID);
 Horario * UTILITY existeHorario(vector<Horario> *lista, string nombre, string dia); //Funcion para comprobar si existe un horario con su ID
-Grado* UTILITY existeGrado(vector<Grado> *grados, string ID); //Funcion para comprobar si existe un Grado con su ID
-Alumno * UTILITY existeAlumno(vector<Alumno> *profesores, string ID);
 
 #define INTERFAZ
 
-Alumno* INTERFAZ crearAlumno(vector <Grado> *grados);
-Grado* INTERFAZ crearGrado();
-Profesor* INTERFAZ crearProfesor(vector<Grado> *grados);
+Alumno INTERFAZ crearAlumno(Controller * main);
+Grado INTERFAZ crearGrado();
+Profesor INTERFAZ crearProfesor(Controller * main);
 void INTERFAZ borrarAlumno(Controller * main, string id);
 void INTERFAZ borrarGrado(Controller * main, string id);
 void INTERFAZ borrarProfesor(Controller * main, string id);

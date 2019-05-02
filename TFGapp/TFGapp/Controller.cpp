@@ -1,7 +1,14 @@
 #include "Controller.h"
+void cargarBasedeDatos(sqlite3 *bd);
 
 Controller::Controller()
 {
+}
+
+Controller::Controller(sqlite3 *db)
+{
+	cargarBasedeDatos(db);
+	this->db = db;
 }
 
 Controller::~Controller()
@@ -18,6 +25,28 @@ vector <Profesor>* Controller::getListaProfesores() {
 
 vector <Grado>* Controller::getListaGrados() {
 	return &grados;
+}
+
+sqlite3 * Controller::getDB()
+{
+	return this->db;
+}
+
+void Controller::setListaAlumnos(vector <Alumno> *alumnos) {
+	this->alumnos = *alumnos;
+}
+
+void Controller::setListaGrados(vector <Grado>* grados) {
+	this->grados = *grados;
+}
+
+void Controller::setListaProfesores(vector <Profesor>* profesores) {
+	this->profesores = *profesores;
+}
+
+void Controller::setDB(sqlite3 *db)
+{
+	this->db = db;
 }
 
 Alumno* Controller::getAlumno(string id) 
@@ -47,16 +76,16 @@ Grado* Controller::getGrado(string id) {
 	return NULL;
 }
 
-void Controller::addAlumno(Alumno *alumno) {
-	alumnos.push_back(*alumno);
+void Controller::addAlumno(Alumno alumno) {
+	alumnos.push_back(alumno);
 }
 
-void Controller::addProfesor(Profesor *profesor) {
-	profesores.push_back(*profesor);
+void Controller::addProfesor(Profesor profesor) {
+	profesores.push_back(profesor);
 }
 
-void Controller::addGrado(Grado *grado) {
-	grados.push_back(*grado);
+void Controller::addGrado(Grado grado) {
+	grados.push_back(grado);
 }
 
 void Controller::eliminarAlumno(string id)
@@ -93,12 +122,4 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 {
 	alumno->getTFG()->setCoTutor(profesor);
 }
-void Controller::setListaAlumnos(vector <Alumno> *alumnos) {
-	this->alumnos = *alumnos;
-}
-void Controller::setListaGrados(vector <Grado>* grados) {
-	this->grados = *grados;
-}
-void Controller::setListaProfesores(vector <Profesor>* profesores) {
-	this->profesores = *profesores;
-}
+

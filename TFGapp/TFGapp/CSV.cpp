@@ -30,7 +30,7 @@ void CSV importarAlumnos(char path[], Controller * main) //Inserta en una lista 
 		for (auto dummy : (*grados)) cout << dummy.getNombre() << " ";
 		cout << "\n";
 		cin >> grado;
-		dummy_G = existeGrado(grados, grado);
+		dummy_G = main->getGrado(grado);
 		if (dummy_G == NULL)
 			cout << "No existe ese grado\n";
 	}
@@ -39,14 +39,14 @@ void CSV importarAlumnos(char path[], Controller * main) //Inserta en una lista 
 
 	string * dummy = new string[nColumnas];
 
-	while (csv.good()) //Por cada liena creo un alumnos y los guardo en la lista
+	while (csv.good()) //Por cada linea creo un alumnos y los guardo en la lista
 	{
 		for (int i = 0; i < nColumnas - 1; i++)	getline(csv, dummy[i], ',');
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
 		Alumno dummy_P(dummy[0], dummy[1], dummy[2], dummy_G);
-		alumnos->push_back(dummy_P);
+		main->addAlumno(dummy_P);
 	}
 
 	csv.close();
@@ -76,8 +76,8 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 
 	for (int i = 2; i < nColumnas; i++)
 	{
-		Grado* dummy_G = existeGrado(grados, dummy[i]);
-		if (existeGrado(grados, dummy[i]) == NULL)
+		Grado* dummy_G = main->getGrado(dummy[i]);
+		if (main->getGrado(dummy[i]) == NULL)
 			grados->push_back(Grado(dummy[i]));
 		nombresGrado.push_back(dummy[i]);
 	}
@@ -88,11 +88,11 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		Profesor * aux = existeProfesor(profesores, dummy[0]);
+		Profesor * aux = main->getProfesor(dummy[0]);
 		if (aux == NULL)
 		{
 			Profesor dummy_P(dummy[0], dummy[1]);
-			for (int i = 2; i < nColumnas; i++) dummy_P.addGrado(existeGrado(main->getListaGrados(), nombresGrado[i - 2]), stoi(dummy[i]));
+			for (int i = 2; i < nColumnas; i++) dummy_P.addGrado(main->getGrado(nombresGrado[i - 2]), stoi(dummy[i]));
 			profesores->push_back(dummy_P);
 		}
 		//else
@@ -123,13 +123,13 @@ void CSV importarHorarios(char path[], Controller * main) //Inserta en una lista
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && existeProfesor(profesores, dummy[0]) != NULL)
+		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && main->getGrado(dummy[0]) != NULL)
 		{
 			bool sloots[7];
 			for (int i = 2, j = 0; j < 7; i++, j++) sloots[j] = stoi(dummy[i]);
 			Horario dummy_H(stoi(dummy[1]), sloots);
 
-			dummy_H.setProfesor(existeProfesor(profesores, dummy[0]));
+			dummy_H.setProfesor(main->getProfesor(dummy[0]));
 
 			lista.push_back(dummy_H);
 		}
