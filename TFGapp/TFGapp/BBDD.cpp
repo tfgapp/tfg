@@ -93,7 +93,7 @@ void BBDD crearTablaTFG(sqlite3 *bd)
 }
 
 void BBDD crearTablaPresentaciones(sqlite3 *bd){
-	char sql[] = "CREATE TABLE IF NOT EXISTS alumnos(" \
+	char sql[] = "CREATE TABLE IF NOT EXISTS presentaciones(" \
 		"tfg TEXT," \
 		"hora INT," \
 		"dia INT," \
@@ -111,7 +111,7 @@ void BBDD crearTablaPresentaciones(sqlite3 *bd){
 
 void BBDD crearTablaTribunales(sqlite3 *bd)
 {
-	char sql[] = "CREATE TABLE IF NOT EXISTS alumnos(" \
+	char sql[] = "CREATE TABLE IF NOT EXISTS tribunales(" \
 		"presentacion TEXT," \
 		"profesor TEXT," \
 		"FOREIGN KEY(presentacion) REFERENCES presentacion(idPresentacion)" \
@@ -164,11 +164,9 @@ void BBDD cargarBasedeDatos(sqlite3 *bd)
 	crearTablaEspecialidades(bd);
 }
 
-
-
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
-	string sql = "INSERT OR REPLACE INTO horarios(nombre,dia,sloot1,sloot2,sloot3,sloot4,sloot5,sloot6,sloot7) VALUES ('";
+	string sql = "INSERT OR REPLACE INTO disponibilidad(nombreProfesor,dia,slot1,slot2,slot3,slot4,slot5,slot6,slot7) VALUES ('";
 	sql += horario.getProfesor()->getNombre(); sql += "',";
 	sql += to_string(horario.getDia()); sql += ",";
 	sql += to_string(horario.getSloot(0)); sql += ", ";
@@ -186,7 +184,7 @@ void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno)
 {
-	string sql = "INSERT OR REPLACE INTO alumnos (nombre,apellido,ID,grado) VALUES ('";
+	string sql = "INSERT OR REPLACE INTO alumnos(nombre,apellidos,ID,grado) VALUES ('";
 	sql += alumno.getNombre(); sql += "', '";
 	sql += alumno.getApellido(); sql += "', '";
 	sql += alumno.getID(); sql += "','";
@@ -211,17 +209,12 @@ void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor)
 void BBDD insertarGrado(sqlite3 * bd, Grado grado)
 {
 	string sql = "INSERT OR REPLACE INTO grados (nombre) VALUES ('";
-	sql += grado.getNombre(); sql += ");";
+	sql += grado.getNombre(); sql += "');";
 
 	char * error = NULL;
 	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
 	checkError(resultado, error);
 }
-
-
-
-
-
 
 void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db)
 {

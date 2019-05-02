@@ -91,8 +91,8 @@ void Controller::addProfesor(Profesor profesor)
 
 void Controller::addGrado(Grado grado)
 {
-	insertarGrado(db, grado);
 	grados.push_back(grado);
+	insertarGrado(db, grado);
 }
 
 void Controller::eliminarAlumno(string id)
