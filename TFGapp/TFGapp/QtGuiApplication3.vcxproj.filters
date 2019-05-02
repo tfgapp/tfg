@@ -87,6 +87,9 @@
     <ClCompile Include="ImportMain.cpp">
       <Filter>Source Forms</Filter>
     </ClCompile>
+    <ClCompile Include="Select.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">

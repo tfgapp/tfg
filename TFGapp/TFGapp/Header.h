@@ -8,7 +8,6 @@
 
 #define BBDD 
 
-static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
 void BBDD checkError(int resultado, char * error); //Funcion para leer los errores de Sqlite3
 sqlite3 * openBBDD(const char * path);
 
@@ -52,3 +51,8 @@ void INTERFAZ borrarAlumno(Controller * main, string id);
 void INTERFAZ borrarGrado(Controller * main, string id);
 void INTERFAZ borrarProfesor(Controller * main, string id);
 int INTERFAZ menu();
+
+#define SELECT
+
+static int SELECT callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+void SELECT volcarGrados(Controller * main);
