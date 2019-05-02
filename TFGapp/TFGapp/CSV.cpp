@@ -12,40 +12,23 @@ int CSV leerHeader(ifstream* file)
 
 }
 
-void CSV importarAlumnos(char path[], Controller * main) //Inserta en una lista todos los alumnos de un CSV
+void CSV importarAlumnos(char path[], Controller * main, Grado * grado) //Inserta en una lista todos los alumnos de un CSV
 {
 	ifstream csv;
 	csv.open(path);
-
-	string grado;
-	Grado * dummy_G = NULL;
-
 	//Listas del controller
-	vector<Grado> * grados = main->getListaGrados();
 	vector<Alumno> * alumnos = main->getListaAlumnos();
-
-	while (dummy_G == NULL) //Preguntamos a que grado pertenecen los alumnos del CSV de la lista existente
-	{
-		cout << "A que grado pertenecen los alumnos del CSV?\n";
-		for (auto dummy : (*grados)) cout << dummy.getNombre() << " ";
-		cout << "\n";
-		cin >> grado;
-		dummy_G = main->getGrado(grado);
-		if (dummy_G == NULL)
-			cout << "No existe ese grado\n";
-	}
-
-	int nColumnas = leerHeader(&csv);
-
+	string header;
+	getline(csv, header, '\n');
+	int nColumnas = count(header.begin(), header.end(), ',') + 1;
 	string * dummy = new string[nColumnas];
 
 	while (csv.good()) //Por cada linea creo un alumnos y los guardo en la lista
 	{
 		for (int i = 0; i < nColumnas - 1; i++)	getline(csv, dummy[i], ',');
-
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		Alumno dummy_P(dummy[0], dummy[1], dummy[2], dummy_G);
+		Alumno dummy_P(dummy[0], dummy[1], dummy[2], grado);
 		main->addAlumno(dummy_P);
 	}
 

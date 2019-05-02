@@ -37,7 +37,7 @@ void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db); //Funcion bucle
 
 int CSV leerHeader(ifstream* file); //Recibe un puntero a un archivo CSV recien abierto y devuelve el numero de columnas
 
-void CSV importarAlumnos(char path[], Controller * main); //Inserta en una lista todos los alumnos de un CSV
+void CSV importarAlumnos(char path[], Controller * main, Grado * grado); //Inserta en una lista todos los alumnos de un CSV
 void CSV importarProfesores(char path[], Controller * main); //Inserta en una lista todos los profesores de un CSV
 void CSV importarHorarios(char path[], Controller * main); //Inserta en una lista todos los horarios de un CSV
 
