@@ -13,19 +13,6 @@
   <property name="windowTitle">
    <string>mainImport</string>
   </property>
-  <widget class="QLabel" name="direccionAlumnos">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>140</y>
-     <width>521</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="direccionProfesores">
    <property name="geometry">
     <rect>
@@ -69,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>640</x>
-     <y>310</y>
+     <y>320</y>
      <width>131</width>
      <height>28</height>
     </rect>
@@ -102,6 +89,16 @@
    </property>
    <property name="text">
     <string>Aceptar</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listPathAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>561</width>
+     <height>221</height>
+    </rect>
    </property>
   </widget>
  </widget>
