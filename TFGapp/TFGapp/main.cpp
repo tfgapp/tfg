@@ -24,7 +24,7 @@ int main(int argc, char * argv[] )
 	importarProfesores(pathP , &main);
 	importarAlumnos(pathA, &main);
 	importarHorarios(pathD, &main);
-
+	volcarGrados(&main);
 
     string dummy_S;
 	while (opc != 0)

@@ -128,6 +128,7 @@
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="Presentacion.cpp" />
     <ClCompile Include="Profesor.cpp" />
+    <ClCompile Include="Select.cpp" />
     <ClCompile Include="sqlite3\sqlite3.c" />
     <ClCompile Include="TFG.cpp" />
     <ClCompile Include="Utility.cpp" />
