@@ -1,5 +1,5 @@
 #include "Profesor.h"
-
+#include "Header.h"
 Profesor::Profesor(string nombre, string doctor)
 {
 	this->nombreCompleto = nombre;
@@ -83,4 +83,14 @@ void Profesor::delHorario(int dia)
 		if (horarios[i].getDia() == dia)
 			horarios.erase(horarios.begin() + i);
 	}
+}
+
+Horario * Profesor::getHorario(int dia)
+{
+	for (int i = 0; i < (int)this->horarios.size(); i++)
+	{
+		if (this->horarios[i].getDia() == dia)
+			return &(horarios[i]);
+	}
+	return NULL;
 }

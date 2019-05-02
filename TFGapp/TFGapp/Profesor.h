@@ -34,6 +34,7 @@ public:
 	vector<Grado *>* getListaGrados();
 
 	void addHorario(Horario horario);
+	Horario * getHorario(int dia);
 	vector<Horario>* getListaHorarios();
 	void delHorario(int dia);
 };

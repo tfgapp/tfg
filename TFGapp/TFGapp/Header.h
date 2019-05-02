@@ -6,8 +6,6 @@
 #include <vector>
 #include "Controller.h"
 
-using namespace std;
-
 #define BBDD 
 
 static int BBDD callback(void *NotUsed, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
@@ -29,6 +27,7 @@ void BBDD cargarBasedeDatos(sqlite3 *bd); //Crea todas las tablas de la base de 
 void BBDD insertarHorario(sqlite3 * bd, Horario horario); //Recibe una base de datos y un objeto Horario y lo inserta en la base de datos
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno); //Recibe una base de datos y un objeto Alumno y lo inserta en la base de datos
 void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor); //Recibe una base de datos y un objeto Profesor y lo inserta en la base de datos
+void BBDD insertarGrado(sqlite3 * bd, Grado grado);
 
 void BBDD insertarAlumnos(vector<Alumno> lista, sqlite3 * db); //Funcion bucle para insertar una lista de Alumnos
 void BBDD insertarProfesores(vector<Profesor> lista, sqlite3 * db); //Funcion bucle para insertar una lista de Alumnos
@@ -43,11 +42,6 @@ void CSV importarProfesores(char path[], Controller * main); //Inserta en una li
 void CSV importarHorarios(char path[], Controller * main); //Inserta en una lista todos los horarios de un CSV
 
 #define UTILITY
-
-//Profesor * UTILITY existeProfesor(vector<Profesor> *lista, string correo); //Funcion para comprobar si existe un profesor con su ID
-//Grado* UTILITY existeGrado(vector<Grado> *grados, string ID); //Funcion para comprobar si existe un Grado con su ID
-//Alumno * UTILITY existeAlumno(vector<Alumno> *profesores, string ID);
-Horario * UTILITY existeHorario(vector<Horario> *lista, string nombre, string dia); //Funcion para comprobar si existe un horario con su ID
 
 #define INTERFAZ
 

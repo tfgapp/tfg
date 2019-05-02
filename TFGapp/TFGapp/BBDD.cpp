@@ -208,6 +208,21 @@ void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor)
 	checkError(resultado, error);
 }
 
+void BBDD insertarGrado(sqlite3 * bd, Grado grado)
+{
+	string sql = "INSERT OR REPLACE INTO grados (nombre) VALUES ('";
+	sql += grado.getNombre(); sql += ");";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
+	checkError(resultado, error);
+}
+
+
+
+
+
+
 void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db)
 {
 	for (auto dummy : lista) insertarHorario(db, dummy);

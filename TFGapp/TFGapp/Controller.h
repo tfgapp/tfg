@@ -40,5 +40,7 @@ public:
 	void eliminarGrado(string id);
 	void enlazarTutor(Alumno *alumno, Profesor *profesor);
 	void enlazarCoTutor(Alumno *alumno, Profesor *profesor);
+
+	void meterHorario(Horario horario);
 };
 

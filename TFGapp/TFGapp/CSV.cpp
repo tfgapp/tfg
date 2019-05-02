@@ -122,16 +122,16 @@ void CSV importarHorarios(char path[], Controller * main) //Inserta en una lista
 		for (int i = 0; i < nColumnas - 1; i++)	getline(csv, dummy[i], ',');
 
 		getline(csv, dummy[nColumnas - 1], '\n');
-
-		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && main->getGrado(dummy[0]) != NULL)
+		Profesor * dummy_P = main->getProfesor(dummy[0]);
+		if (dummy_P->getHorario(stoi(dummy[1])) == NULL)
 		{
 			bool sloots[7];
 			for (int i = 2, j = 0; j < 7; i++, j++) sloots[j] = stoi(dummy[i]);
 			Horario dummy_H(stoi(dummy[1]), sloots);
 
-			dummy_H.setProfesor(main->getProfesor(dummy[0]));
+			dummy_H.setProfesor(dummy_P);
 
-			lista.push_back(dummy_H);
+			main->meterHorario(dummy_H);
 		}
 
 	}

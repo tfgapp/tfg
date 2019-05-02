@@ -1,5 +1,5 @@
 #include "Controller.h"
-void cargarBasedeDatos(sqlite3 *bd);
+#include "Header.h"
 
 Controller::Controller()
 {
@@ -67,7 +67,8 @@ Profesor* Controller::getProfesor(string id) {
 	return NULL;
 }
 
-Grado* Controller::getGrado(string id) {
+Grado* Controller::getGrado(string id) 
+{
 	for (int i = 0; i < (int)grados.size(); i++) {
 		if (id == grados[i].getNombre()) {
 			return &grados[i];
@@ -76,15 +77,21 @@ Grado* Controller::getGrado(string id) {
 	return NULL;
 }
 
-void Controller::addAlumno(Alumno alumno) {
+void Controller::addAlumno(Alumno alumno) 
+{
+	insertarAlumno(db, alumno);
 	alumnos.push_back(alumno);
 }
 
-void Controller::addProfesor(Profesor profesor) {
+void Controller::addProfesor(Profesor profesor) 
+{
+	insertarProfesor(db, profesor);
 	profesores.push_back(profesor);
 }
 
-void Controller::addGrado(Grado grado) {
+void Controller::addGrado(Grado grado)
+{
+	insertarGrado(db, grado);
 	grados.push_back(grado);
 }
 
@@ -123,3 +130,8 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 	alumno->getTFG()->setCoTutor(profesor);
 }
 
+void Controller::meterHorario(Horario horario)
+{
+	insertarHorario(db, horario);
+	horario.getProfesor()->addHorario(horario);
+}
