@@ -13,19 +13,6 @@
   <property name="windowTitle">
    <string>mainImport</string>
   </property>
-  <widget class="QLabel" name="direccionAlumnos">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>140</y>
-     <width>521</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="direccionProfesores">
    <property name="geometry">
     <rect>
@@ -69,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>640</x>
-     <y>310</y>
+     <y>320</y>
      <width>131</width>
      <height>28</height>
     </rect>
@@ -102,6 +89,64 @@
    </property>
    <property name="text">
     <string>Aceptar</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listPathAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>561</width>
+     <height>221</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="selectGrado">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>120</y>
+     <width>381</width>
+     <height>111</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="confirmarGrado">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>170</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>confirmar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="path">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>430</y>
+     <width>691</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
@@ -172,11 +217,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>confirmarGrado</sender>
+   <signal>clicked()</signal>
+   <receiver>mainImport</receiver>
+   <slot>confirmarGrado()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>679</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>522</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>pathAlumnos()</slot>
   <slot>pathProfesores()</slot>
   <slot>pathDisponibilidad()</slot>
   <slot>cerrar()</slot>
+  <slot>confirmarGrado()</slot>
  </slots>
 </ui>
