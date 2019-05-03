@@ -19,6 +19,7 @@ private slots:
 	void pathProfesores();
 	void pathDisponibilidad();
 	void cerrar();
+	void confirmarGrado();
 signals:
 	void ocultar();
 private:
