@@ -10,21 +10,18 @@ using namespace std;
 class Profesor
 {
 private:
-	string nombreCompleto;
+	string nombreCompleto; //ID
 	bool doctor;
 	vector<Grado *> grados;
 	vector<int> nTFG;
-	int ID;
-	vector<Horario> horarios; //Faltan las funciones
+	vector<Horario> horarios;
 
 
 public:
 	Profesor() {};
 	Profesor(string, string);
 	~Profesor();
-	void printProfesor();
-	void setID(int);
-	
+	void printProfesor();	
 
 	string getNombre();
 	void setNombre(string);
@@ -34,5 +31,12 @@ public:
 
 	void addGrado(Grado* grado, int nTFG);
 	void delGrado(string id);
+	vector<Grado *>* getListaGrados();
+	vector<int>* getListaNTFG();
+
+	void addHorario(Horario horario);
+	Horario * getHorario(int dia);
+	vector<Horario>* getListaHorarios();
+	void delHorario(int dia);
 };
 

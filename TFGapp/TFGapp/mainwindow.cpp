@@ -1,24 +1,57 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "menu.h"
-#include "ui_menu.h"
-#include "qfiledialog.h"
-MainWindow::MainWindow(QWidget *parent) :
+
+MainWindow::MainWindow(Controller * main, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{
+{	
     ui->setupUi(this);
+	grados = new GradosMain();
+	vImport = new ImportMain();
+	this->manager = main;
+	sqlite3 *db = openBBDD("test.db");
+
+	Grado gradoIng;
+	gradoIng.setNombre(string("Ingenieria"));
+	manager->addGrado(gradoIng);
+	connect(this, &MainWindow::enviarController, grados, &GradosMain::setController);
+	connect(this, &MainWindow::enviarController, vImport, &ImportMain::setController);
+	connect(vImport, &ImportMain::ocultar, this, &MainWindow::ocultarImportar);
+	emit enviarController(this->getController());
+	
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+	sqlite3_close(manager->getDB());
+	delete ui;
 }
-
-//void MainWindow::on_botonPath_clicked()
+Controller * MainWindow::getController() {
+	return this->manager;
+}
+void MainWindow::setController(Controller * controller) {
+	this->manager = controller;
+}
+void MainWindow::botonGrados() {
+	emit enviarController(this->getController());
+	grados->show();
+	grados->setWindowModality(Qt::WindowModal);
+	
+}
+void MainWindow::botonImportar() {
+	emit enviarController(this->getController());
+	vImport->show();
+	vImport->setWindowModality(Qt::WindowModal);
+	
+	
+}
+void MainWindow::ocultarImportar() {
+	vImport->hide();
+}
+//void Mainwindow::on_botonpath_clicked()
 //{
-//   QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open File"), "/path/to/file/", tr("all (*.*)"));
-//   ui->listWidget->addItems(fileNames);
+//   qstringlist filenames = qfiledialog::getopenfilenames(this, tr("open file"), "/path/to/file/", tr("all (*.*)"));
+//   ui->listwidget->additems(filenames);
 //}
 //void MainWindow::on_pushButton_2_clicked() {
 //	menu  *menus = new menu();
@@ -26,10 +59,10 @@ MainWindow::~MainWindow()
 //	menus->show();
 //}
 //
-////void MainWindow::testSlot() 
+//void mainwindow::testslot() 
 //{
 //	menu  *menus = new menu();
-//	menus->setModal(true);
-//	QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open File"), "/path/to/file/", tr("all (*.*)"));
-//	ui->listWidget->addItems(fileNames);
+//	menus->setmodal(true);
+//	qstringlist filenames = qfiledialog::getopenfilenames(this, tr("open file"), "/path/to/file/", tr("all (*.*)"));
+//	ui->listwidget->additems(filenames);
 //}

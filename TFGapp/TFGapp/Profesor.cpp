@@ -1,5 +1,5 @@
 #include "Profesor.h"
-
+#include "Header.h"
 Profesor::Profesor(string nombre, string doctor)
 {
 	this->nombreCompleto = nombre;
@@ -61,6 +61,42 @@ void Profesor::delGrado(string id)
 	}
 }
 
-void Profesor::setID(int id) {
-	this->ID = id;
+vector<Grado*> * Profesor::getListaGrados()
+{
+	return &this->grados;
+}
+
+void Profesor::addHorario(Horario horario)
+{
+	this->horarios.push_back(horario);
+}
+
+vector<Horario>* Profesor::getListaHorarios()
+{
+	return &this->horarios;
+}
+
+void Profesor::delHorario(int dia)
+{
+	for (int i = 0; i < horarios.size(); i++)
+	{
+		if (horarios[i].getDia() == dia)
+			horarios.erase(horarios.begin() + i);
+	}
+}
+
+Horario * Profesor::getHorario(int dia)
+{
+	int size = (int)this->horarios.size();
+	for (int i = 0; i < size; i++)
+	{
+		if (this->horarios[i].getDia() == dia)
+			return &(horarios[i]);
+	}
+	return NULL;
+}
+
+vector<int>* Profesor::getListaNTFG()
+{
+	return &this->nTFG;
 }

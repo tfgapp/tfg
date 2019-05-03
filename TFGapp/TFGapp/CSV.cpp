@@ -12,41 +12,24 @@ int CSV leerHeader(ifstream* file)
 
 }
 
-void CSV importarAlumnos(char path[], Controller * main) //Inserta en una lista todos los alumnos de un CSV
+void CSV importarAlumnos(char path[], Controller * main, Grado * grado) //Inserta en una lista todos los alumnos de un CSV
 {
 	ifstream csv;
 	csv.open(path);
-
-	string grado;
-	Grado * dummy_G = NULL;
-
 	//Listas del controller
-	vector<Grado> * grados = main->getListaGrados();
 	vector<Alumno> * alumnos = main->getListaAlumnos();
-
-	while (dummy_G == NULL) //Preguntamos a que grado pertenecen los alumnos del CSV de la lista existente
-	{
-		cout << "A que grado pertenecen los alumnos del CSV?\n";
-		for (auto dummy : (*grados)) cout << dummy.getNombre() << " ";
-		cout << "\n";
-		cin >> grado;
-		dummy_G = existeGrado(grados, grado);
-		if (dummy_G == NULL)
-			cout << "No existe ese grado\n";
-	}
-
-	int nColumnas = leerHeader(&csv);
-
+	string header;
+	getline(csv, header, '\n');
+	int nColumnas = count(header.begin(), header.end(), ',') + 1;
 	string * dummy = new string[nColumnas];
 
-	while (csv.good()) //Por cada liena creo un alumnos y los guardo en la lista
+	while (csv.good()) //Por cada linea creo un alumnos y los guardo en la lista
 	{
 		for (int i = 0; i < nColumnas - 1; i++)	getline(csv, dummy[i], ',');
-
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		Alumno dummy_P(dummy[0], dummy[1], dummy[2], dummy_G);
-		alumnos->push_back(dummy_P);
+		Alumno dummy_P(dummy[0], dummy[1], dummy[2], grado);
+		main->addAlumno(dummy_P);
 	}
 
 	csv.close();
@@ -60,7 +43,6 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 	string header; // Variable para leer el header
 
 	//Listas del controller
-	vector<Grado> * grados = main->getListaGrados();
 	vector<Profesor> * profesores = main->getListaProfesores();
 
 	getline(csv, header, '\n'); //Leo la primera liena del CSV que es el Header
@@ -76,9 +58,9 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 
 	for (int i = 2; i < nColumnas; i++)
 	{
-		Grado* dummy_G = existeGrado(grados, dummy[i]);
-		if (existeGrado(grados, dummy[i]) == NULL)
-			grados->push_back(Grado(dummy[i]));
+		Grado* dummy_G = main->getGrado(dummy[i]);
+		if (main->getGrado(dummy[i]) == NULL)
+			main->addGrado(Grado(dummy[i]));
 		nombresGrado.push_back(dummy[i]);
 	}
 
@@ -88,12 +70,12 @@ void CSV importarProfesores(char path[], Controller * main) //Inserta en una lis
 
 		getline(csv, dummy[nColumnas - 1], '\n');
 
-		Profesor * aux = existeProfesor(profesores, dummy[0]);
+		Profesor * aux = main->getProfesor(dummy[0]);
 		if (aux == NULL)
 		{
 			Profesor dummy_P(dummy[0], dummy[1]);
-			for (int i = 2; i < nColumnas; i++) dummy_P.addGrado(existeGrado(main->getListaGrados(), nombresGrado[i - 2]), stoi(dummy[i]));
-			profesores->push_back(dummy_P);
+			for (int i = 2; i < nColumnas; i++) dummy_P.addGrado(main->getGrado(nombresGrado[i - 2]), stoi(dummy[i]));
+			main->addProfesor(dummy_P);
 		}
 		else
 			cout << "El profesor con ID: " << aux->getNombre() << " ya existe. IMPLEMENTAR SOLUCIÓN\n";
@@ -122,16 +104,16 @@ void CSV importarHorarios(char path[], Controller * main) //Inserta en una lista
 		for (int i = 0; i < nColumnas - 1; i++)	getline(csv, dummy[i], ',');
 
 		getline(csv, dummy[nColumnas - 1], '\n');
-
-		if (existeHorario(&lista, dummy[0], dummy[1]) == NULL && existeProfesor(profesores, dummy[0]) != NULL)
+		Profesor * dummy_P = main->getProfesor(dummy[0]);
+		if (dummy_P->getHorario(stoi(dummy[1])) == NULL)
 		{
 			bool sloots[7];
 			for (int i = 2, j = 0; j < 7; i++, j++) sloots[j] = stoi(dummy[i]);
 			Horario dummy_H(stoi(dummy[1]), sloots);
 
-			dummy_H.setProfesor(existeProfesor(profesores, dummy[0]));
+			dummy_H.setProfesor(dummy_P);
 
-			lista.push_back(dummy_H);
+			main->meterHorario(dummy_H);
 		}
 
 	}

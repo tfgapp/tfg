@@ -10,10 +10,16 @@ void Horario::setProfesor(Profesor *profesor) {
 	this->profesor = profesor;
 }
 
+Horario::Horario(int dia, bool *sloots, Profesor * profesor)
+{
+	this->dia = dia;
+	for (int i = 0; i < 7; i++)this->sloots[i] = sloots[i];
+	this->profesor = profesor;
+}
+
 Horario::Horario(int dia, bool *sloots) {
 
 	this->dia = dia;
-	for (int i = 0; i < 7; i++)this->sloots[i] = 0;
 	for (int i = 0; i < 7; i++)this->sloots[i] = sloots[i];
 }
 
@@ -40,14 +46,14 @@ bool* Horario::getListaSloot() {
 
 bool Horario::getSloot(int posicion) {
 	if (posicion < 0 || posicion>7) {
-		printf("Error en el rango de posicion");
+		std::cout << "Error en el rango de posicion\n";
 	}
 	return sloots[posicion];
 }
 
 void Horario::setSloot(int posicion, bool valor) {
 	if (posicion < 0 || posicion>7) {
-		printf("Error en el rango de posicion");
+		std::cout << "Error en el rango de posicion\n";
 	}
 	sloots[posicion] = valor;
 }

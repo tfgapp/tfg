@@ -2,37 +2,39 @@
 #include "QApplication"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#define CLEAR 1
+#include "GradosMain.h"
 
-int main(int argc, char * argv[] )
+
+int main(int argc, char * argv[])
 {
-    QApplication qApplication(argc,argv);
-    MainWindow inicio;
-    inicio.show();
-    /*char pathP[] = "../datos_profesor.csv";
+	QApplication qApplication(argc, argv);
+
+
+	char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
 
 	sqlite3 *db = openBBDD("test.db");
+	if (FIRST == 1) emptyDB(db);
 
-	if (CLEAR)
+	Controller main(db);
+
+	int opc = 1;
+	if (FIRST == 0)
 	{
-		sqlite3_exec(db, "DROP TABLE alumnos", 0, 0, 0);
-		crearTablaAlumno(db);
-		sqlite3_exec(db, "DROP TABLE profesores", 0, 0, 0);
-		crearTablaProfesor(db);
-		sqlite3_exec(db, "DROP TABLE horarios", 0, 0, 0);
-		crearTablaHorario(db);
+		volcarGrados(&main);
+		volcarProfesores(&main);
+		volcarAlumnos(&main);
 	}
 
-	Controller main;
-	int opc = 1;
-	cout << "Añiadiendo datos de CSV...\n";
-	importarProfesores(pathP , &main);
-	importarAlumnos(pathA, &main);
-	importarHorarios(pathD, &main);
-	cout << "Datos CSV añiadidos...\n";
-
+	if(FIRST == 1)
+	{
+		importarProfesores(pathP, &main);
+		importarAlumnos(pathA, &main, main.getGrado("Grado1"));
+		importarHorarios(pathD, &main);
+	}
+	MainWindow inicio(&main);
+	inicio.show();
     string dummy_S;
 	while (opc != 0)
 	{
@@ -57,10 +59,10 @@ int main(int argc, char * argv[] )
             main.addGrado(crearGrado());
 			break;
 		case 5:
-            main.addAlumno(crearAlumno(main.getListaGrados()));
+            main.addAlumno(crearAlumno(&main));
 			break;
 		case 6:
-            main.addProfesor(crearProfesor(main.getListaGrados()));
+            main.addProfesor(crearProfesor(&main));
 			break;
 		case 7:
 			cout << "Que grado quieres borrar?(ID)  ";
@@ -80,7 +82,7 @@ int main(int argc, char * argv[] )
 		case 10:
 			cout << "Inserte el path: ";
 			cin >> dummy_S;
-			importarAlumnos((char *)dummy_S.c_str(),&main);
+			importarAlumnos((char *)dummy_S.c_str(),&main, main.getGrado("Grado1"));
 			break;
 		case 11:
 			cout << "Inserte el path: ";
@@ -98,7 +100,7 @@ int main(int argc, char * argv[] )
 		}
 
 	}
-    sqlite3_close(db);*/
 
+	
     return qApplication.exec();
 }

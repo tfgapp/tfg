@@ -1,5 +1,5 @@
 #pragma once
-#include <stdio.h>
+#include <iostream>
 class Profesor;
 
 class Horario
@@ -19,6 +19,7 @@ public:
 	bool* getListaSloot();
 	bool getSloot(int posicion);
 	void setSloot(int posicion, bool valor);
+	Horario(int dia, bool *sloots, Profesor * profesor);
 	Horario(int dia, bool *sloots);
 	Horario(int dia);
 	Horario();

@@ -9,29 +9,31 @@ using namespace std;
 class TFG {
 
 private:
-	string titulo;
+	string titulo; //ID
 	bool presentado;
 	Profesor * tutor;
 	Profesor *  coTutor;
-	Presentacion * presentacion;
-
-
+	Presentacion presentacion;
 public:
 	TFG(); //Constructor por defecto
 	TFG(string, bool); //Constructor con parametros
+
 	void setString(string);
 	string getString();
+
 	void setPresentado(bool);
 	bool getPresentado();
+
 	Profesor * getTutor();
 	Profesor * getCotutor();
+
 	void setTutor(Profesor * prof);
 	void setCoTutor(Profesor * prof);
 
 	void modificarPresentacion(Presentacion presentacion);
 	void borrarPresentacion(Presentacion presentacion);
-	void setPresentacion(Presentacion *presentation);
-	Presentacion *getPresentacion();
+	void setPresentacion(Presentacion presentation);
+	Presentacion * getPresentacion();
 	
 
 };

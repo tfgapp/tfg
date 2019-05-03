@@ -1,23 +1,24 @@
 #include "Header.h"
 using namespace std;
 
-Alumno* INTERFAZ crearAlumno(vector <Grado> *grados)
+Alumno INTERFAZ crearAlumno(Controller * main)
 {
-    Alumno* dummy_A = new Alumno();
+    Alumno dummy_A;
 	string dummy_s;
 	Grado * dummy_G = NULL;
+	vector <Grado> * grados = main->getListaGrados();
 
 	cout << "Dame el nombre del alumno: ";
 	cin >> dummy_s;
-    dummy_A->setNombre(dummy_s);
+    dummy_A.setNombre(dummy_s);
 	
 	cout << "Dame el apellido del alumno: ";
 	cin >> dummy_s;
-    dummy_A->setApellido(dummy_s);
+    dummy_A.setApellido(dummy_s);
 
 	cout << "Dame la ID del alumno: ";
 	cin >> dummy_s;
-    dummy_A->setID(dummy_s);
+    dummy_A.setID(dummy_s);
 
 	while (dummy_G == NULL) //Preguntamos a que grado pertenecen los alumnos del CSV de la lista existente
 	{
@@ -25,19 +26,20 @@ Alumno* INTERFAZ crearAlumno(vector <Grado> *grados)
 		for (auto dummy : (*grados)) cout << dummy.getNombre() << " ";
 		cout << "\n";
 		cin >> dummy_s;
-		dummy_G = existeGrado(grados, dummy_s);
+		dummy_G = main->getGrado(dummy_s);
 		if (dummy_G == NULL)
 			cout << "No existe ese grado\n";
 	}
-    dummy_A->setGrado(dummy_G);
+    dummy_A.setGrado(dummy_G);
 
 	return dummy_A;
 }
 
-Profesor* INTERFAZ crearProfesor(vector <Grado> *grados) {
-    Profesor* dummy_A = new Profesor();
+Profesor INTERFAZ crearProfesor(Controller * main) {
+    Profesor dummy_A;
 	string dummy_s;
 	Grado * dummy_G = NULL;
+	vector <Grado> * grados = main->getListaGrados();
 	int nTFG = 0;
 	int esDoctor = 0;
 	bool salir = false;
@@ -45,7 +47,7 @@ Profesor* INTERFAZ crearProfesor(vector <Grado> *grados) {
 	cout << "Dame el nombre y el apellido del profesor: ";
 	getchar();
 	getline(cin, dummy_s);
-    dummy_A->setNombre(dummy_s);
+    dummy_A.setNombre(dummy_s);
 
 
 	while (salir == false) //Preguntamos a que grado pertenece el profesor
@@ -55,7 +57,7 @@ Profesor* INTERFAZ crearProfesor(vector <Grado> *grados) {
 		cout << "\n";
 		
 		cin >> dummy_s;
-		dummy_G = existeGrado(grados, dummy_s);
+		dummy_G = main->getGrado(dummy_s);
 		if (dummy_s == "exit" || dummy_s == "Exit")//primero veos si el usuario quiere salir
 			salir = true;
 		else if (dummy_G == NULL)//vemos si el grado introducido existe
@@ -63,34 +65,34 @@ Profesor* INTERFAZ crearProfesor(vector <Grado> *grados) {
 		else {//en caso de que exista el grado se le pregunta el numero de TFGs que puede tutelar en ese grado
 			cout << "Cuantos TFGs puede tutelar en ese grado?:\n";
 			cin >> nTFG;
-            dummy_A->addGrado(dummy_G, nTFG);
+            dummy_A.addGrado(dummy_G, nTFG);
 
 		}
 	}
 	cout << "es doctor?(1: es doctor, 0:no es doctor)" << endl;
 	getchar();
 	cin >> esDoctor;
-    dummy_A->setDoctor(esDoctor);
+    dummy_A.setDoctor(esDoctor);
 	
 
 	return dummy_A;
 
 }
 
-Grado* INTERFAZ crearGrado(){
-    Grado *dummy_A = new Grado();
+Grado INTERFAZ crearGrado(){
+    Grado dummy_A;
 	string dummy_s;
 
 	cout << "Dame el nombre del grado: ";
 	cin >> dummy_s;
-    dummy_A->setNombre(dummy_s);
+    dummy_A.setNombre(dummy_s);
 
     return dummy_A;
 }
 
 void INTERFAZ borrarAlumno(Controller * main, string id)
 {
-	Alumno* dummy_A = existeAlumno(main->getListaAlumnos(), id);
+	Alumno* dummy_A = main->getAlumno(id);
 
 	if (dummy_A == NULL)
 		cout << "El alumno no existe\n";
@@ -99,7 +101,7 @@ void INTERFAZ borrarAlumno(Controller * main, string id)
 }
 
 void INTERFAZ borrarGrado(Controller *main, string id) {
-	Grado* grado = existeGrado(main->getListaGrados(), id);
+	Grado* grado = main->getGrado(id);
 
 	if (grado == NULL)
 		cout << "El grado no existe" << endl;
@@ -110,7 +112,7 @@ void INTERFAZ borrarGrado(Controller *main, string id) {
 
 void INTERFAZ borrarProfesor(Controller *main, string id)
 {
-	Profesor* profesor = existeProfesor(main->getListaProfesores(), id);
+	Profesor* profesor = main->getProfesor(id);
 
 	if (profesor == NULL)
 		cout << "El profesor no existe" << endl;
@@ -119,7 +121,7 @@ void INTERFAZ borrarProfesor(Controller *main, string id)
 
 }
 
-int INTERFAZmenu()
+int INTERFAZ menu()
 {
 	int opcion;
 

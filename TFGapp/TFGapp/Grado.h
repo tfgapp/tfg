@@ -7,7 +7,7 @@ using namespace std;
 class Grado
 {
 private:
-	string nombre;
+	string nombre; //ID
 public:
 	Grado(string nombre);
 	Grado() {};
