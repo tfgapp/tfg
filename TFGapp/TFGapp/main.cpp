@@ -20,7 +20,12 @@ int main(int argc, char * argv[])
 	Controller main(db);
 
 	int opc = 1;
-	volcarGrados(&main);
+	if (FIRST == 0)
+	{
+		volcarGrados(&main);
+		volcarProfesores(&main);
+		volcarAlumnos(&main);
+	}
 
 	if(FIRST == 1)
 	{

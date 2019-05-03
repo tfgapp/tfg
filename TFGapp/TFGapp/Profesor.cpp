@@ -87,10 +87,16 @@ void Profesor::delHorario(int dia)
 
 Horario * Profesor::getHorario(int dia)
 {
-	for (int i = 0; i < (int)this->horarios.size(); i++)
+	int size = (int)this->horarios.size();
+	for (int i = 0; i < size; i++)
 	{
 		if (this->horarios[i].getDia() == dia)
 			return &(horarios[i]);
 	}
 	return NULL;
+}
+
+vector<int>* Profesor::getListaNTFG()
+{
+	return &this->nTFG;
 }

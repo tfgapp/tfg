@@ -155,6 +155,18 @@ void BBDD cargarBasedeDatos(sqlite3 *bd)
 	crearTablaEspecialidades(bd);
 }
 
+void BBDD emptyDB(sqlite3 * db)
+{
+	sqlite3_exec(db, "DROP TABLE alumnos;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE profesores;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE grados;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE especialidades;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE disponibilidad;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE TFG;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE presentaciones;", 0, 0, 0);
+	sqlite3_exec(db, "DROP TABLE tribunales;", 0, 0, 0);
+}
+
 void BBDD insertarHorario(sqlite3 * bd, Horario horario)
 {
 	string sql = "INSERT OR REPLACE INTO disponibilidad(nombreProfesor,dia,slot1,slot2,slot3,slot4,slot5,slot6,slot7) VALUES ('";
@@ -207,29 +219,18 @@ void BBDD insertarGrado(sqlite3 * bd, Grado grado)
 	checkError(resultado, error);
 }
 
-void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db)
+void BBDD insertarEspecialidad(sqlite3 * bd, Profesor profesor)
 {
-	for (auto dummy : lista) insertarHorario(db, dummy);
-}
+	for (int i = 0; i < profesor.getListaGrados()->size(); i++)
+	{
+		string sql = "INSERT OR REPLACE INTO especialidades(nombreProfesor,nombreGrado,numeroMax) VALUES ('";
+		sql += profesor.getNombre(); sql += "','";
+		sql += (*profesor.getListaGrados())[i]->getNombre(); sql += "', ";
+		sql += to_string((*profesor.getListaNTFG())[i]); sql += ");";
 
-void BBDD insertarAlumnos(vector<Alumno> lista, sqlite3 * db)
-{
-	for (auto dummy : lista) insertarAlumno(db, dummy);
-}
-
-void BBDD insertarProfesores(vector<Profesor> lista, sqlite3 * db)
-{
-	for (auto dummy : lista) insertarProfesor(db, dummy);
-}
-
-void BBDD emptyDB(sqlite3 * db)
-{
-	sqlite3_exec(db, "DROP TABLE alumnos;", 0, 0, 0);
-	sqlite3_exec(db, "DROP TABLE profesores;", 0, 0, 0);
-	sqlite3_exec(db, "DROP TABLE grados;", 0, 0, 0);
-	sqlite3_exec(db, "DROP TABLE especialidades;", 0, 0, 0);
-	sqlite3_exec(db, "DROP TABLE disponibilidad;", 0, 0, 0);
-	sqlite3_exec(db, "DROP TABLE TFG;", 0, 0, 0);
-	sqlite3_exec(db, "DROP TABLE presentaciones;", 0, 0, 0);
-	sqlite3_exec(db, "DROP TABLE tribunales;", 0, 0, 0);
+		char * error = NULL;
+		int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
+		checkError(resultado, error);
+	}
+	
 }

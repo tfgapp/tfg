@@ -77,22 +77,29 @@ Grado* Controller::getGrado(string id)
 	return NULL;
 }
 
-void Controller::addAlumno(Alumno alumno) 
+int Controller::addAlumno(Alumno alumno, bool ins)
 {
-	insertarAlumno(db, alumno);
 	alumnos.push_back(alumno);
+	if (ins) insertarAlumno(db, alumno);
+	return alumnos.size() - 1;
 }
 
-void Controller::addProfesor(Profesor profesor) 
+int Controller::addProfesor(Profesor profesor, bool ins)
 {
-	insertarProfesor(db, profesor);
 	profesores.push_back(profesor);
+	if (ins)
+	{
+		insertarProfesor(db, profesor);
+		insertarEspecialidad(db, profesor);
+	}
+	return profesores.size() - 1;
 }
 
-void Controller::addGrado(Grado grado)
+int Controller::addGrado(Grado grado, bool ins)
 {
 	grados.push_back(grado);
-	insertarGrado(db, grado);
+	if (ins) insertarGrado(db, grado);
+	return grados.size() - 1;
 }
 
 void Controller::eliminarAlumno(string id)

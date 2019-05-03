@@ -32,6 +32,7 @@ public:
 	void addGrado(Grado* grado, int nTFG);
 	void delGrado(string id);
 	vector<Grado *>* getListaGrados();
+	vector<int>* getListaNTFG();
 
 	void addHorario(Horario horario);
 	Horario * getHorario(int dia);

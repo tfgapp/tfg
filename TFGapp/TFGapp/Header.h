@@ -25,16 +25,11 @@ void BBDD crearTablaEspecialidades(sqlite3 *bd); //Crea la tabla Especialidades 
 void BBDD crearTablaTribunales(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
 void BBDD cargarBasedeDatos(sqlite3 *bd); //Crea todas las tablas de la base de datos
 
-
-
 void BBDD insertarHorario(sqlite3 * bd, Horario horario); //Recibe una base de datos y un objeto Horario y lo inserta en la base de datos
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno); //Recibe una base de datos y un objeto Alumno y lo inserta en la base de datos
 void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor); //Recibe una base de datos y un objeto Profesor y lo inserta en la base de datos
 void BBDD insertarGrado(sqlite3 * bd, Grado grado);
-
-void BBDD insertarAlumnos(vector<Alumno> lista, sqlite3 * db); //Funcion bucle para insertar una lista de Alumnos
-void BBDD insertarProfesores(vector<Profesor> lista, sqlite3 * db); //Funcion bucle para insertar una lista de Alumnos
-void BBDD insertarHorarios(vector<Horario> lista, sqlite3 * db); //Funcion bucle para insertar una lista de Alumnos
+void BBDD insertarEspecialidad(sqlite3 * bd, Profesor profesor);
 
 #define CSV
 
@@ -51,6 +46,7 @@ void CSV importarHorarios(char path[], Controller * main); //Inserta en una list
 Alumno INTERFAZ crearAlumno(Controller * main);
 Grado INTERFAZ crearGrado();
 Profesor INTERFAZ crearProfesor(Controller * main);
+
 void INTERFAZ borrarAlumno(Controller * main, string id);
 void INTERFAZ borrarGrado(Controller * main, string id);
 void INTERFAZ borrarProfesor(Controller * main, string id);
@@ -60,3 +56,10 @@ int INTERFAZ menu();
 
 static int SELECT callbackGrados(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
 void SELECT volcarGrados(Controller * main);
+
+static int SELECT callbackProfesores(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+static int SELECT callbackDisponibilidad(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+static int SELECT callbackEspecialidad(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+static int SELECT callbackEspecialidad(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
+void SELECT volcarProfesores(Controller * main);
+void SELECT volcarAlumnos(Controller * main);
