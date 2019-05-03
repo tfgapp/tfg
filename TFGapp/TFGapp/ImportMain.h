@@ -22,6 +22,7 @@ private slots:
 	void confirmarGrado();
 signals:
 	void ocultar();
+	void aceptarGrado();
 private:
 	Ui::mainImport ui;
 	Controller *manager;

@@ -8,6 +8,10 @@ ImportMain::ImportMain(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	ui.selectGrado->setHidden(true);
+	ui.confirmarGrado->setHidden(true);
+	ui.path->setHidden(true);
+	
 
 }
 
@@ -44,13 +48,15 @@ void ImportMain::cerrar(){
 			ui.selectGrado->addItem(grado->getNombre().c_str());
 		}
 		grados = manager->getListaGrados();
+		QEventLoop loop;
+		connect(this, SIGNAL(aceptarGrado()), &loop, SLOT(quit()));
 		for (int i = 0; i < ui.listPathAlumnos->count(); i++) {
-			if (ui.listPathAlumnos->takeItem(i)->text().contains(".csv")) {
+			if (ui.listPathAlumnos->item(i)->text().contains(".csv")) {
 				ui.selectGrado->show();
 				ui.confirmarGrado->show();
 				ui.path->show();
-				ui.path->setText(ui.listPathAlumnos->takeItem(i)->text());
-				
+				ui.path->setText(ui.listPathAlumnos->item(i)->text());
+				loop.exec();
 			}
 		}
 	}
@@ -69,7 +75,8 @@ void ImportMain::setController(Controller * controller) {
 }
 void ImportMain::confirmarGrado() {
 	importarAlumnos((char*)ui.path->text().toStdString().c_str(), manager, this->manager->getGrado(ui.selectGrado->currentText().toStdString()));
-	ui.selectGrado->setDisabled(true);
-	ui.confirmarGrado->setDisabled(true);
-	ui.path->setDisabled(true);
+	ui.selectGrado->setHidden(true);
+	ui.confirmarGrado->setHidden(true);
+	ui.path->setHidden(true);
+	emit aceptarGrado();
 }

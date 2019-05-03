@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>949</width>
+    <width>956</width>
     <height>715</height>
    </rect>
   </property>
@@ -103,7 +103,7 @@
   </widget>
   <widget class="QComboBox" name="selectGrado">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -116,7 +116,7 @@
   </widget>
   <widget class="QPushButton" name="confirmarGrado">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -132,7 +132,7 @@
   </widget>
   <widget class="QLabel" name="path">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
