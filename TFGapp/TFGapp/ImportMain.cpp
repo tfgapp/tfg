@@ -21,6 +21,7 @@ ImportMain::~ImportMain()
 void ImportMain::pathAlumnos(){
 	
 	QStringList filenames = QFileDialog::getOpenFileNames(this, tr("open file"), "/path/to/file/", tr("all (*.csv)"));
+	ui.listPathAlumnos->clear();
 	ui.listPathAlumnos->addItems(filenames);
 		
 	
@@ -32,6 +33,8 @@ void ImportMain::pathDisponibilidad(){
 	ui.direccionDisponibilidad->setText(QFileDialog::getOpenFileName(this, tr("open file"), "/path/to/file/", tr("all (*.csv)")));
 }
 void ImportMain::cerrar(){
+	ui.Aceptar->setDisabled(true);
+	ui.Aceptar->setHidden(true);
 	if (ui.direccionProfesores->text().contains(".csv")) {
 		manager->setListaProfesores(new vector <Profesor>);
 		manager->setListaGrados(new vector <Grado>);
@@ -60,10 +63,7 @@ void ImportMain::cerrar(){
 			}
 		}
 	}
-	//if (ui.direccionAlumnos->text().contains(".csv")) {
-		//manager->setListaAlumnos(new vector <Alumno>);
-		//importarAlumnos((char*)ui.direccionAlumnos->text().toStdString().c_str(), manager);
-	//}
+	ui.Aceptar->setDisabled(false);
 	emit ocultar();
 	
 }
