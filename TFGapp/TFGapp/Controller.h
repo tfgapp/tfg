@@ -31,9 +31,9 @@ public:
 	Profesor* getProfesor(string id); //Busca por ID y devulve el objeto o NULL si no lo encuentra
 	Grado* getGrado(string id); //Busca por ID y devulve el objeto o NULL si no lo encuentra
 
-	void addAlumno(Alumno alumno);
-	void addProfesor(Profesor profesor);
-	void addGrado(Grado grado);
+	int addAlumno(Alumno alumno, bool ins=true);
+	int addProfesor(Profesor profesor, bool ins = true);
+	int addGrado(Grado grado, bool ins = true);
 
 	void eliminarAlumno(string id);
 	void eliminarProfesor(string id);
