@@ -14,6 +14,8 @@ public:
 	~ImportMain();
 	Controller * getController();
 	void setController(Controller * controller);
+	void ocultarCasiTodo();
+	void mostrarCasiTodo();
 private slots:
 	void pathAlumnos();
 	void pathProfesores();
