@@ -80,7 +80,13 @@ Grado* Controller::getGrado(string id)
 int Controller::addAlumno(Alumno alumno, bool ins)
 {
 	alumnos.push_back(alumno);
-	if (ins) insertarAlumno(db, alumno);
+	if (ins)
+	{
+		insertarAlumno(db, alumno);
+		insertarTFG(db, alumno);
+		insertarPresentacion(db, alumno);
+		insertarTribunales(db, alumno);
+	}
 	return alumnos.size() - 1;
 }
 
@@ -139,6 +145,6 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 
 void Controller::meterHorario(Horario horario)
 {
-	insertarHorario(db, horario);
+	insertarDisponibilidad(db, horario);
 	horario.getProfesor()->addHorario(horario);
 }

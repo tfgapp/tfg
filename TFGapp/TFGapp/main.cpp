@@ -9,7 +9,6 @@ int main(int argc, char * argv[])
 {
 	QApplication qApplication(argc, argv);
 
-
 	char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
