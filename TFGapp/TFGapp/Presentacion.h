@@ -9,7 +9,6 @@ using namespace std;
 class Presentacion {
 
 private:
-	string ID; //ID
 	int hora;
 	int dia;
 	int aula;
@@ -22,14 +21,12 @@ public:
 	void addTribunal(Profesor* tribunal);
 	void delTribunal(string idProfesor);
 
-	void setID(string);
 	void setHora(int);
 	void setDia(int);
 	void setAula(int);
 	void setSlot(int);
 	void setConvocatoria(int);
 
-	string getID();
 	int getHora();
 	int getDia();
 	int getAula();

@@ -11,9 +11,9 @@ class Controller
 	vector <Profesor> profesores;
 	vector <Grado> grados;
 	sqlite3 *db;
+	int diaMax;
 
 public:
-	Controller();
 	Controller(sqlite3 *db);
 	~Controller();
 
@@ -42,5 +42,7 @@ public:
 	void enlazarCoTutor(Alumno *alumno, Profesor *profesor);
 
 	void meterHorario(Horario horario);
+
+	int getDiaMax();
 };
 

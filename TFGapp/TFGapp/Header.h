@@ -1,6 +1,6 @@
 #pragma once
 
-#define FIRST 1
+#define FIRST 0
 
 #include "sqlite3/sqlite3.h"
 #include <fstream>
@@ -38,7 +38,6 @@ void BBDD insertarTribunales(sqlite3 * bd, Alumno alumno);
 #define CSV
 
 int CSV leerHeader(ifstream* file); //Recibe un puntero a un archivo CSV recien abierto y devuelve el numero de columnas
-
 void CSV importarAlumnos(char path[], Controller * main, Grado * grado); //Inserta en una lista todos los alumnos de un CSV
 void CSV importarProfesores(char path[], Controller * main); //Inserta en una lista todos los profesores de un CSV
 void CSV importarHorarios(char path[], Controller * main); //Inserta en una lista todos los horarios de un CSV
