@@ -19,10 +19,6 @@ vector<Profesor*> * Presentacion::getTribunal()
 	return &this->tribunal;
 }
 
-void Presentacion::setID(string id) {
-	this->ID = id;
-}
-
 void Presentacion::setHora(int hor) {
 	this->hora = hor;
 }
@@ -41,10 +37,6 @@ void Presentacion::setSlot(int slo) {
 
 void Presentacion::setConvocatoria(int conv) {
 	this->convocatoria = conv;
-}
-
-string Presentacion::getID() {
-	return this->ID;
 }
 
 int Presentacion::getHora() {

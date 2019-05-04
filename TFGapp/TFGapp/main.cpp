@@ -32,6 +32,7 @@ int main(int argc, char * argv[])
 		importarAlumnos(pathA, &main, main.getGrado("Grado1"));
 		importarHorarios(pathD, &main);
 	}
+
 	MainWindow inicio(&main);
 	inicio.show();
     string dummy_S;
@@ -100,6 +101,5 @@ int main(int argc, char * argv[])
 
 	}
 
-	
     return qApplication.exec();
 }
