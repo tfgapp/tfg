@@ -49,7 +49,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="Modificar">
+  <widget class="QPushButton" name="botonModificar">
    <property name="geometry">
     <rect>
      <x>670</x>
@@ -60,6 +60,29 @@
    </property>
    <property name="text">
     <string>Modificar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="botonAceptar">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>310</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Aceptar</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="introducirTexto">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>310</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
    </property>
   </widget>
  </widget>
@@ -99,7 +122,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>Modificar</sender>
+   <sender>botonModificar</sender>
    <signal>clicked()</signal>
    <receiver>gradosMain</receiver>
    <slot>modificarGrado()</slot>
@@ -114,10 +137,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>botonAceptar</sender>
+   <signal>clicked()</signal>
+   <receiver>gradosMain</receiver>
+   <slot>aceptarCambio()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>626</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>486</x>
+     <y>446</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>borrarGrado()</slot>
   <slot>crearGrado()</slot>
   <slot>modificarGrado()</slot>
+  <slot>aceptarCambio()</slot>
  </slots>
 </ui>

@@ -33,6 +33,7 @@ void ImportMain::pathDisponibilidad(){
 	ui.direccionDisponibilidad->setText(QFileDialog::getOpenFileName(this, tr("open file"), "/path/to/file/", tr("all (*.csv)")));
 }
 void ImportMain::cerrar(){
+	ocultarCasiTodo();
 	ui.Aceptar->setDisabled(true);
 	ui.Aceptar->setHidden(true);
 	if (ui.direccionProfesores->text().contains(".csv")) {
@@ -63,7 +64,7 @@ void ImportMain::cerrar(){
 			}
 		}
 	}
-	ui.Aceptar->setDisabled(false);
+	mostrarCasiTodo();
 	emit ocultar();
 	
 }
@@ -79,4 +80,37 @@ void ImportMain::confirmarGrado() {
 	ui.confirmarGrado->setHidden(true);
 	ui.path->setHidden(true);
 	emit aceptarGrado();
+}
+void ImportMain::ocultarCasiTodo() {
+	ui.Aceptar->setHidden(true);
+	ui.Aceptar->setDisabled(true);
+	ui.pathAlum->setHidden(true);
+	ui.pathAlum->setDisabled(true);
+	ui.pathDisp->setHidden(true);
+	ui.pathDisp->setDisabled(true);
+	ui.pathProf->setHidden(true);
+	ui.pathProf->setDisabled(true);
+	ui.direccionDisponibilidad->setHidden(true);
+	ui.direccionDisponibilidad->setDisabled(true);
+	ui.direccionProfesores->setHidden(true);
+	ui.direccionProfesores->setDisabled(true);
+	ui.listPathAlumnos->setHidden(true);
+	ui.listPathAlumnos->setDisabled(true);
+
+}
+void ImportMain::mostrarCasiTodo() {
+	ui.Aceptar->setHidden(false);
+	ui.Aceptar->setDisabled(false);
+	ui.pathAlum->setHidden(false);
+	ui.pathAlum->setDisabled(false);
+	ui.pathDisp->setHidden(false);
+	ui.pathDisp->setDisabled(false);
+	ui.pathProf->setHidden(false);
+	ui.pathProf->setDisabled(false);
+	ui.direccionDisponibilidad->setHidden(false);
+	ui.direccionDisponibilidad->setDisabled(false);
+	ui.direccionProfesores->setHidden(false);
+	ui.direccionProfesores->setDisabled(false);
+	ui.listPathAlumnos->setHidden(false);
+	ui.listPathAlumnos->setDisabled(false);
 }
