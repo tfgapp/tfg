@@ -1,5 +1,14 @@
 #include "Presentacion.h"
 
+Presentacion::Presentacion()
+{
+	this->hora = 0;
+	this->dia = 0;
+	this->aula = 0;
+	this->slot = 0;
+	this->convocatoria = 0;
+}
+
 void Presentacion::addTribunal(Profesor* tribunal)
 {
 	this->tribunal.push_back(tribunal);

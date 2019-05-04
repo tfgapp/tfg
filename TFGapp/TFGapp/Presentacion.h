@@ -15,10 +15,10 @@ private:
 	int aula;
 	int slot;
 	int convocatoria;
-	vector<Profesor *> tribunal; //Lista de profesores que acuden a la presentación
+	vector<Profesor *> tribunal;
 
 public:
-
+	Presentacion();
 	void addTribunal(Profesor* tribunal);
 	void delTribunal(string idProfesor);
 

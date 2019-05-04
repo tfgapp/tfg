@@ -1,6 +1,6 @@
 #pragma once
 
-#define FIRST 0
+#define FIRST 1
 
 #include "sqlite3/sqlite3.h"
 #include <fstream>
@@ -25,11 +25,15 @@ void BBDD crearTablaEspecialidades(sqlite3 *bd); //Crea la tabla Especialidades 
 void BBDD crearTablaTribunales(sqlite3 *bd); //Crea la tabla Especialidades desde un preset
 void BBDD cargarBasedeDatos(sqlite3 *bd); //Crea todas las tablas de la base de datos
 
-void BBDD insertarHorario(sqlite3 * bd, Horario horario); //Recibe una base de datos y un objeto Horario y lo inserta en la base de datos
+void BBDD insertarDisponibilidad(sqlite3 * bd, Horario horario); //Recibe una base de datos y un objeto Horario y lo inserta en la base de datos
 void BBDD insertarAlumno(sqlite3 * bd, Alumno alumno); //Recibe una base de datos y un objeto Alumno y lo inserta en la base de datos
 void BBDD insertarProfesor(sqlite3 * bd, Profesor profesor); //Recibe una base de datos y un objeto Profesor y lo inserta en la base de datos
 void BBDD insertarGrado(sqlite3 * bd, Grado grado);
 void BBDD insertarEspecialidad(sqlite3 * bd, Profesor profesor);
+void BBDD insertarTFG(sqlite3 * bd, Alumno alumno);
+void BBDD insertarPresentacion(sqlite3 * bd, Alumno alumno);
+void BBDD insertarTribunales(sqlite3 * bd, Alumno alumno);
+
 
 #define CSV
 

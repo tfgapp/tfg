@@ -18,8 +18,8 @@ public:
 	TFG(); //Constructor por defecto
 	TFG(string, bool); //Constructor con parametros
 
-	void setString(string);
-	string getString();
+	void setTitulo(string);
+	string getTitulo();
 
 	void setPresentado(bool);
 	bool getPresentado();
