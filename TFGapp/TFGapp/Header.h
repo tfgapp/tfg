@@ -66,3 +66,8 @@ static int SELECT callbackEspecialidad(void *data, int argc, char **argv, char *
 static int SELECT callbackEspecialidad(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
 void SELECT volcarProfesores(Controller * main);
 void SELECT volcarAlumnos(Controller * main);
+
+#define RECURSIVE
+
+void RECURSIVE prepareR(Controller * main, int convocatoria);
+void RECURSIVE backtracking(Controller * main, vector<Alumno *> *convocados, int convocatoria, int slot, int aula, int dia, int pos);

@@ -18,7 +18,7 @@ int main(int argc, char * argv[])
 
 	Controller main(db);
 
-	int opc = 1;
+	int opc = 0;
 	if (FIRST == 0)
 	{
 		volcarGrados(&main);
@@ -100,6 +100,8 @@ int main(int argc, char * argv[])
 		}
 
 	}
+
+	prepareR(&main, 1);
 
     return qApplication.exec();
 }

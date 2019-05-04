@@ -8,7 +8,6 @@ private:
 	int dia;
 	bool sloots[7];
 	Profesor * profesor;
-
 public:
 
 	Profesor * getProfesor();
