@@ -70,4 +70,5 @@ void SELECT volcarAlumnos(Controller * main);
 #define RECURSIVE
 
 void RECURSIVE prepareR(Controller * main, int convocatoria);
-void RECURSIVE backtracking(Controller * main, vector<Alumno *> *convocados, int convocatoria, int slot, int aula, int dia, int pos);
+bool RECURSIVE backtracking(Controller * main, vector<Alumno *> *convocados, int convocatoria, int slot, int ** aulas, int dia, int pos);
+bool RECURSIVE backtrackingManage(Controller * main, vector<Alumno *> *convocados, int convocatoria, int slot, int ** aulas, int dia, int pos);

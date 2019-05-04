@@ -2,11 +2,11 @@
 
 Presentacion::Presentacion()
 {
-	this->hora = 0;
-	this->dia = 0;
-	this->aula = 0;
-	this->slot = 0;
-	this->convocatoria = 0;
+	this->hora = -1;
+	this->dia = -1;
+	this->aula = -1;
+	this->slot = -1;
+	this->convocatoria = -1;
 }
 
 void Presentacion::addTribunal(Profesor* tribunal)
@@ -66,4 +66,20 @@ void Presentacion::delTribunal(string idProfesor)
 		if (tribunal[i]->getNombre() == idProfesor)
 			tribunal.erase(tribunal.begin() + i);
 	}
+}
+
+void Presentacion::setAll(int dia, int slot, int convocatoria)
+{
+	this->dia = dia;
+	this->aula = aula;
+	this->slot = slot;
+	this->convocatoria = convocatoria;
+}
+
+void Presentacion::reset()
+{
+	dia = -1;
+	aula = -1;
+	slot = -1;
+	convocatoria = -1;
 }

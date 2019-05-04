@@ -29,7 +29,10 @@ int main(int argc, char * argv[])
 	if(FIRST == 1)
 	{
 		importarProfesores(pathP, &main);
-		importarAlumnos(pathA, &main, main.getGrado("Grado1"));
+		importarAlumnos("../Alumnos.csv", &main, main.getGrado("Grado1"));
+		importarAlumnos("../Alumnos4.csv", &main, main.getGrado("Grado2"));
+		importarAlumnos("../Alumnos3.csv", &main, main.getGrado("Grado3"));
+		importarAlumnos("../Alumnos2.csv", &main, main.getGrado("Grado4"));
 		importarHorarios(pathD, &main);
 	}
 

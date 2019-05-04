@@ -34,4 +34,6 @@ public:
 	int getConvocatoria();
 	vector<Profesor*> * getTribunal();
 
+	void setAll(int dia, int slot, int convocatoria);
+	void reset();
 };

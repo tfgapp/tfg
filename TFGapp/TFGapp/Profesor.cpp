@@ -100,3 +100,23 @@ vector<int>* Profesor::getListaNTFG()
 {
 	return &this->nTFG;
 }
+
+bool Profesor::estaEspecializado(Grado * grado)
+{
+	for (int i = 0; i < this->grados.size(); i++)
+	{
+		if (grados[i] == grado)
+			return true;
+	}
+	return false;
+}
+
+bool Profesor::estaDisponible(int dia, int slot)
+{
+	for (int i = 0; i < horarios.size(); i++)
+	{
+		if (horarios[i].getDia() == dia && horarios[i].getSloot(slot))
+			return true;
+	}
+	return false;
+}

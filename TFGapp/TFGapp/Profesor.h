@@ -38,5 +38,8 @@ public:
 	Horario * getHorario(int dia);
 	vector<Horario>* getListaHorarios();
 	void delHorario(int dia);
+
+	bool estaEspecializado(Grado * grado);
+	bool estaDisponible(int dia, int slot);
 };
 
