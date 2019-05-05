@@ -261,7 +261,7 @@ void BBDD insertarTribunales(sqlite3 * bd, Alumno alumno)
 	Presentacion * presentacion = alumno.getTFG()->getPresentacion();
 	for (int i = 0; i < presentacion->getTribunal()->size(); i++)
 	{
-		string sql = "INSERT OR REPLACE INTO especialidades(presentacion,profesor,convocatoria) VALUES ('";
+		string sql = "INSERT OR REPLACE INTO tribunales(presentacion,profesor,convocatoria) VALUES ('";
 		sql += alumno.getID(); sql += "','";
 		sql += (*presentacion->getTribunal())[i]->getNombre(); sql += "', ";
 		sql += to_string(presentacion->getConvocatoria()); sql += ");";
