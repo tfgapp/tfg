@@ -6,6 +6,8 @@ PreBack::PreBack(QWidget *parent)
 {
 
 	ui.setupUi(this);
+	ui.listaAlumnos->setHidden(true);
+	ui.aceptarAlumnos->setHidden(true);
 
 }
 
@@ -37,12 +39,9 @@ void PreBack::setTam() {
 	for (int x = 0; x <= ui.tablaDias->rowCount(); x++)
 		ui.tablaDias->setRowHeight(x, (ui.tablaDias->height() - ui.tablaDias->horizontalHeader()->height()) /( ui.tablaDias->rowCount()+1));
 }
-void PreBack::cambiarDias(){
-	dias = ui.textoDias->text().toInt();
-	setTam();
+void PreBack::enviarAlumnos() {
+	
 }
+void PreBack::enviarAulas() {
 
-void PreBack::cambiarSlots(){
-	slotsPorDia = ui.textoSlots->text().toInt();
-	setTam();
 }

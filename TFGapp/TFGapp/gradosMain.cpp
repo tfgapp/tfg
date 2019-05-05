@@ -15,8 +15,10 @@ GradosMain::~GradosMain()
 }
 
 void GradosMain::borrarGrado(){
-	this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
-	actualizarLista();
+	if (this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
+		this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
+		actualizarLista();
+	}
 }
 void GradosMain::crearGrado() {
 	QEventLoop loop;
@@ -57,13 +59,11 @@ void GradosMain::setController(Controller * controller) {
 
 }
 void GradosMain::aceptarCambio() {
-	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
-		
+	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL && ui.introducirTexto->text() != QString("Grado no valido")) {
 		emit aceptar();
 	}
 	else {
 		QString a("Grado no valido");
-		ui.introducirTexto->setText(a);
 	}
 }
 void GradosMain::actualizarLista() {
