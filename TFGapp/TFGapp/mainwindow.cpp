@@ -10,7 +10,6 @@ MainWindow::MainWindow(Controller * main, QWidget *parent) :
 	vImport = new ImportMain();
 	this->manager = main;
 	sqlite3 *db = openBBDD("test.db");
-
 	Grado gradoIng;
 	gradoIng.setNombre(string("Ingenieria"));
 	manager->addGrado(gradoIng);
@@ -47,6 +46,13 @@ void MainWindow::botonImportar() {
 }
 void MainWindow::ocultarImportar() {
 	vImport->hide();
+}
+void MainWindow::botonOrganizar() {
+	preBack = new PreBack();
+	connect(this, &MainWindow::enviarController, preBack, &PreBack::setController);
+	preBack->show();
+	preBack->setWindowModality(Qt::WindowModal);
+	
 }
 //void Mainwindow::on_botonpath_clicked()
 //{

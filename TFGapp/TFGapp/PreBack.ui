@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PreBack</class>
+ <widget class="QWidget" name="PreBack">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1150</width>
+    <height>855</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PreBack</string>
+  </property>
+  <widget class="QTableWidget" name="tablaDias">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>220</y>
+     <width>841</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="aceptarDias">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>40</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CambiarDias</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="aceptarSlots">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>90</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CabiarSlots</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="textoDias">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>40</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="textoSlots">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>90</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>aceptarDias</sender>
+   <signal>clicked()</signal>
+   <receiver>PreBack</receiver>
+   <slot>cambiarDias()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>422</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>713</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aceptarSlots</sender>
+   <signal>clicked()</signal>
+   <receiver>PreBack</receiver>
+   <slot>cambiarSlots()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>383</x>
+     <y>104</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>715</x>
+     <y>137</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>cambiarDias()</slot>
+  <slot>cambiarSlots()</slot>
+ </slots>
+</ui>
