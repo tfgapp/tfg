@@ -135,10 +135,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>profesoresBoton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>botonProfesores()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>514</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>724</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>botonGrados()</slot>
   <slot>botonImportar()</slot>
   <slot>ocultarImportar()</slot>
+  <slot>botonProfesores()</slot>
  </slots>
 </ui>

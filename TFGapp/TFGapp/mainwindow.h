@@ -6,6 +6,7 @@
 #include "Header.h"
 #include "GradosMain.h"
 #include "ImportMain.h"
+#include "ProfesoresMain.h"
 namespace Ui {
 class MainWindow;
 }
@@ -27,6 +28,7 @@ private slots:
 	//void on_pushButton_2_clicked();
 	////void testSlot() ;
 	void botonGrados();
+	void botonProfesores();
 	void botonImportar();
 	void ocultarImportar();
 signals:
@@ -36,6 +38,7 @@ private:
     Ui::MainWindow *ui;
 	GradosMain *grados;
 	ImportMain *vImport;
+	ProfesoresMain *profesores;
 };
 
 #endif // MAINWINDOW_H
