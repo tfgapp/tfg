@@ -87,6 +87,8 @@
     <ClCompile Include="ImportMain.cpp">
       <Filter>Source Forms</Filter>
     </ClCompile>
+    <ClCompile Include="menuAlumno.cpp">
+      <Filter>Source Forms</Filter>
     <ClCompile Include="Select.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -107,6 +109,9 @@
     <QtMoc Include="GradosMain.h">
       <Filter>Header Forms</Filter>
     </QtMoc>
+    <QtMoc Include="menuAlumno.h">
+      <Filter>Header Forms</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="mainwindow.ui">
@@ -119,6 +124,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="mainImport.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="menuAlumno.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -126,6 +126,7 @@
     <ClCompile Include="ImportMain.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="menuAlumno.cpp" />
     <ClCompile Include="Presentacion.cpp" />
     <ClCompile Include="Profesor.cpp" />
     <ClCompile Include="Recursive.cpp" />
@@ -143,6 +144,10 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
     </QtMoc>
+    <QtMoc Include="menuAlumno.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
     <ClInclude Include="sqlite3\sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +155,7 @@
     <QtUic Include="mainImport.ui" />
     <QtUic Include="mainwindow.ui" />
     <QtUic Include="menu.ui" />
+    <QtUic Include="menuAlumno.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtGuiApplication3.qrc" />
