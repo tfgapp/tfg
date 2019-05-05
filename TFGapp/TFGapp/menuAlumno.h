@@ -16,8 +16,9 @@ public:
 	vector <Alumno> *alumnos;
 
 private slots:
-	void CrearAlummno();
+	void crearAlummno();
 	void borrarAlumno();
+	void modificarAlumno();
 
 private:
 	Controller *manager;

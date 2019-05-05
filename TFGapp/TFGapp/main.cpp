@@ -104,7 +104,7 @@ int main(int argc, char * argv[])
 
 	}
 
-	prepareR(&main, 1);
+	//prepareR(&main, 1);
 
     return qApplication.exec();
 }
