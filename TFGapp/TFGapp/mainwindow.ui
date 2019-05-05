@@ -136,6 +136,20 @@
    </hints>
   </connection>
   <connection>
+
+   <sender>organizadorBoton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>botonOrganizar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>502</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>738</x>
+     <y>476</y>
+    </hint>
    <sender>profesoresBoton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -162,6 +176,7 @@
     <hint type="destinationlabel">
      <x>716</x>
      <y>261</y>
+
     </hint>
    </hints>
   </connection>
@@ -170,6 +185,7 @@
   <slot>botonGrados()</slot>
   <slot>botonImportar()</slot>
   <slot>ocultarImportar()</slot>
+  <slot>botonOrganizar()</slot>
   <slot>botonProfesores()</slot>
   <slot>botonAlumnos()</slot>
  </slots>
