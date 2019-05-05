@@ -148,6 +148,8 @@
     <hint type="destinationlabel">
      <x>724</x>
      <y>198</y>
+    </hint>
+   </hints>
    <sender>alumnosBoton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
