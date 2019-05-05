@@ -5,6 +5,7 @@ Controller::Controller(sqlite3 *db)
 {
 	if(FIRST == 1) cargarBasedeDatos(db);
 	this->db = db;
+	diaMax = 0;
 }
 
 Controller::~Controller()
@@ -175,4 +176,18 @@ int Controller::getDiaMax()
 void Controller::setDiaMax(int dia)
 {
 	this->diaMax = dia;
+}
+
+void Controller::modificarGrado(Grado * actual, Grado cambio)
+{
+	string sql = "UPDATE grados SET nombre='";
+	sql += cambio.getNombre(); sql += "' WHERE nombre='";
+	sql += actual->getNombre(); sql += "';";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(db, sql.c_str(), 0, 0, &error);
+	checkError(resultado, error);
+
+	actual->setNombre(cambio.getNombre());
+	insertarGrado(db, (*actual));
 }

@@ -44,6 +44,6 @@ public:
 	void enlazarTutor(Alumno *alumno, Profesor *profesor);
 	void enlazarCoTutor(Alumno *alumno, Profesor *profesor);
 
-
+	void modificarGrado(Grado * actual, Grado cambio);
 };
 
