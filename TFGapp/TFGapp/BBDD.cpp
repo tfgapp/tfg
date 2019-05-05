@@ -288,3 +288,41 @@ void BBDD insertarEspecialidad(sqlite3 * bd, Profesor profesor)
 	}
 	
 }
+
+void BBDD borrarProfesor(sqlite3 * bd, Profesor profesor)
+{
+}
+
+void BBDD borrarGrado(sqlite3 * bd, string id)
+{
+	string sql = "DELETE FROM grados WHERE nombre='";
+	sql += id; sql += "';";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(bd, sql.c_str(), 0, 0, &error);
+	checkError(resultado, error);
+}
+
+void BBDD borrarAlumno(sqlite3 * bd, Alumno alumno)
+{
+}
+
+void BBDD borrarDisponibilidad(sqlite3 * bd, Horario horario)
+{
+}
+
+void BBDD borrarTFG(sqlite3 * bd, Alumno alumno)
+{
+}
+
+void BBDD borrarPresentacion(sqlite3 * bd, Alumno alumno)
+{
+}
+
+void BBDD borrarTribunales(sqlite3 * bd, Alumno alumno)
+{
+}
+
+void BBDD borrarEspecialidad(sqlite3 * bd, Profesor profesor)
+{
+}
