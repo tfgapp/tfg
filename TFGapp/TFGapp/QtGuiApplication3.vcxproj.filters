@@ -93,6 +93,9 @@
     <ClCompile Include="Select.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PreBack.cpp">
+      <Filter>Source Forms</Filter>
+    </ClCompile>
     <ClCompile Include="ProfesoresMain.cpp">
       <Filter>Source Forms</Filter>
     </ClCompile>
@@ -111,6 +114,9 @@
       <Filter>Header Forms</Filter>
     </QtMoc>
     <QtMoc Include="GradosMain.h">
+      <Filter>Header Forms</Filter>
+    </QtMoc>
+    <QtMoc Include="PreBack.h">
       <Filter>Header Forms</Filter>
     </QtMoc>
     <QtMoc Include="ProfesoresMain.h">
@@ -132,6 +138,8 @@
     </QtUic>
     <QtUic Include="mainImport.ui">
       <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="PreBack.ui">
     </QtUic>
     <QtUic Include="ProfesoresMain.ui">
       <Filter>Form Files</Filter>

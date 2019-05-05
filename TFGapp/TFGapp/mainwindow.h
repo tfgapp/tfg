@@ -6,6 +6,7 @@
 #include "Header.h"
 #include "GradosMain.h"
 #include "ImportMain.h"
+#include "PreBack.h"
 #include "ProfesoresMain.h"
 #include "menuAlumno.h"
 namespace Ui {
@@ -25,14 +26,13 @@ public:
 	
 	
 private slots:
-	//void on_botonPath_clicked();
-	//void on_pushButton_2_clicked();
-	////void testSlot() ;
+
 	void botonGrados();
 	void botonProfesores();
 	void botonAlumnos();
 	void botonImportar();
 	void ocultarImportar();
+	void botonOrganizar();
 signals:
     void enviarController(Controller *controller);
 private:
@@ -40,8 +40,12 @@ private:
     Ui::MainWindow *ui;
 	GradosMain *grados;
 	ImportMain *vImport;
+
+	PreBack *preBack;
+
 	ProfesoresMain *profesores;
 	menuAlumno *alumnos;
+
 };
 
 #endif // MAINWINDOW_H
