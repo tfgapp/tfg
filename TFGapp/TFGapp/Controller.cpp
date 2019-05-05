@@ -1,18 +1,16 @@
 #include "Controller.h"
 #include "Header.h"
 
-Controller::Controller()
-{
-}
-
 Controller::Controller(sqlite3 *db)
 {
 	if(FIRST == 1) cargarBasedeDatos(db);
 	this->db = db;
+	diaMax = 0;
 }
 
 Controller::~Controller()
 {
+	sqlite3_close(db);
 }
 
 vector <Alumno>* Controller::getListaAlumnos() {
@@ -77,22 +75,35 @@ Grado* Controller::getGrado(string id)
 	return NULL;
 }
 
-void Controller::addAlumno(Alumno alumno) 
+int Controller::addAlumno(Alumno alumno, bool ins)
 {
-	insertarAlumno(db, alumno);
 	alumnos.push_back(alumno);
+	if (ins)
+	{
+		insertarAlumno(db, alumno);
+		insertarTFG(db, alumno);
+		insertarPresentacion(db, alumno);
+		insertarTribunales(db, alumno);
+	}
+	return alumnos.size() - 1;
 }
 
-void Controller::addProfesor(Profesor profesor) 
+int Controller::addProfesor(Profesor profesor, bool ins)
 {
-	insertarProfesor(db, profesor);
 	profesores.push_back(profesor);
+	if (ins)
+	{
+		insertarProfesor(db, profesor);
+		insertarEspecialidad(db, profesor);
+	}
+	return profesores.size() - 1;
 }
 
-void Controller::addGrado(Grado grado)
+int Controller::addGrado(Grado grado, bool ins)
 {
 	grados.push_back(grado);
-	insertarGrado(db, grado);
+	if (ins) insertarGrado(db, grado);
+	return grados.size() - 1;
 }
 
 void Controller::eliminarAlumno(string id)
@@ -132,6 +143,12 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 
 void Controller::meterHorario(Horario horario)
 {
-	insertarHorario(db, horario);
+	if (horario.getDia() > this->diaMax) diaMax = horario.getDia();
+	insertarDisponibilidad(db, horario);
 	horario.getProfesor()->addHorario(horario);
+}
+
+int Controller::getDiaMax()
+{
+	return this->diaMax;
 }

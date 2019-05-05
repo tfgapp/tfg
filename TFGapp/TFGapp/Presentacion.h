@@ -9,27 +9,24 @@ using namespace std;
 class Presentacion {
 
 private:
-	string ID; //ID
 	int hora;
 	int dia;
 	int aula;
 	int slot;
 	int convocatoria;
-	vector<Profesor *> tribunal; //Lista de profesores que acuden a la presentación
+	vector<Profesor *> tribunal;
 
 public:
-
+	Presentacion();
 	void addTribunal(Profesor* tribunal);
 	void delTribunal(string idProfesor);
 
-	void setID(string);
 	void setHora(int);
 	void setDia(int);
 	void setAula(int);
 	void setSlot(int);
 	void setConvocatoria(int);
 
-	string getID();
 	int getHora();
 	int getDia();
 	int getAula();

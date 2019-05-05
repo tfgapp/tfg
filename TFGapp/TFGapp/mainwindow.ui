@@ -148,6 +148,18 @@
     <hint type="destinationlabel">
      <x>724</x>
      <y>198</y>
+   <sender>alumnosBoton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>botonAlumnos()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>500</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>716</x>
+     <y>261</y>
     </hint>
    </hints>
   </connection>
@@ -157,5 +169,6 @@
   <slot>botonImportar()</slot>
   <slot>ocultarImportar()</slot>
   <slot>botonProfesores()</slot>
+  <slot>botonAlumnos()</slot>
  </slots>
 </ui>

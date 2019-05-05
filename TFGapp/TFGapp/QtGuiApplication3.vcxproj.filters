@@ -87,10 +87,13 @@
     <ClCompile Include="ImportMain.cpp">
       <Filter>Source Forms</Filter>
     </ClCompile>
+    <ClCompile Include="menuAlumno.cpp">
+      <Filter>Source Forms</Filter>
     <ClCompile Include="Select.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ProfesoresMain.cpp">
+    <ClCompile Include="Recursive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -109,6 +112,8 @@
     </QtMoc>
     <QtMoc Include="ProfesoresMain.h">
       <Filter>Header Files</Filter>
+    <QtMoc Include="menuAlumno.h">
+      <Filter>Header Forms</Filter> 
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -124,7 +129,11 @@
     <QtUic Include="mainImport.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+ 
     <QtUic Include="ProfesoresMain.ui">
+
+    <QtUic Include="menuAlumno.ui">
+ 
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

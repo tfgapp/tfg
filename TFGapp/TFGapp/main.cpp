@@ -9,7 +9,6 @@ int main(int argc, char * argv[])
 {
 	QApplication qApplication(argc, argv);
 
-
 	char pathP[] = "../datos_profesor.csv";
 	char pathD[] = "../datos_disponibilidad.csv";
 	char pathA[] = "../datos_alumno.csv";
@@ -19,8 +18,13 @@ int main(int argc, char * argv[])
 
 	Controller main(db);
 
-	int opc = 1;
-	volcarGrados(&main);
+	int opc = 0;
+	if (FIRST == 0)
+	{
+		volcarGrados(&main);
+		volcarProfesores(&main);
+		volcarAlumnos(&main);
+	}
 
 	if(FIRST == 1)
 	{
@@ -28,6 +32,7 @@ int main(int argc, char * argv[])
 		importarAlumnos(pathA, &main, main.getGrado("Grado1"));
 		importarHorarios(pathD, &main);
 	}
+
 	MainWindow inicio(&main);
 	inicio.show();
     string dummy_S;
@@ -96,6 +101,7 @@ int main(int argc, char * argv[])
 
 	}
 
-	
+	prepareR(&main, 1);
+
     return qApplication.exec();
 }
