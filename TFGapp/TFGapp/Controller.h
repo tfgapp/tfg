@@ -21,11 +21,13 @@ public:
 	vector <Profesor>* getListaProfesores();
 	vector <Grado>* getListaGrados();
 	sqlite3 * getDB();
+	int getDiaMax();
 
 	void setDB(sqlite3 *db);
 	void setListaAlumnos(vector <Alumno>* alumnos);
 	void setListaGrados(vector <Grado>* grados);
 	void setListaProfesores(vector <Profesor>* profesores);
+	void setDiaMax(int dia);
 
 	Alumno* getAlumno(string id); //Busca por ID y devulve el objeto o NULL si no lo encuentra
 	Profesor* getProfesor(string id); //Busca por ID y devulve el objeto o NULL si no lo encuentra
@@ -34,6 +36,7 @@ public:
 	int addAlumno(Alumno alumno, bool ins=true);
 	int addProfesor(Profesor profesor, bool ins = true);
 	int addGrado(Grado grado, bool ins = true);
+	void addHorario(Horario horario, bool ins = true);
 
 	void eliminarAlumno(string id);
 	void eliminarProfesor(string id);
@@ -41,8 +44,6 @@ public:
 	void enlazarTutor(Alumno *alumno, Profesor *profesor);
 	void enlazarCoTutor(Alumno *alumno, Profesor *profesor);
 
-	void meterHorario(Horario horario);
 
-	int getDiaMax();
 };
 

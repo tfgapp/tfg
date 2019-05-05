@@ -5,7 +5,6 @@ Controller::Controller(sqlite3 *db)
 {
 	if(FIRST == 1) cargarBasedeDatos(db);
 	this->db = db;
-	diaMax = 6;
 }
 
 Controller::~Controller()
@@ -106,6 +105,13 @@ int Controller::addGrado(Grado grado, bool ins)
 	return grados.size() - 1;
 }
 
+void Controller::addHorario(Horario horario, bool ins)
+{
+	if (horario.getDia() > this->diaMax) diaMax = horario.getDia();
+	if (ins) insertarDisponibilidad(db, horario);
+	horario.getProfesor()->addHorario(horario);
+}
+
 void Controller::eliminarAlumno(string id)
 {
 	for (int i = 0; i < (int)alumnos.size(); i++) {
@@ -141,14 +147,12 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 	alumno->getTFG()->setCoTutor(profesor);
 }
 
-void Controller::meterHorario(Horario horario)
-{
-	if (horario.getDia() > this->diaMax) diaMax = horario.getDia();
-	insertarDisponibilidad(db, horario);
-	horario.getProfesor()->addHorario(horario);
-}
-
 int Controller::getDiaMax()
 {
 	return this->diaMax;
+}
+
+void Controller::setDiaMax(int dia)
+{
+	this->diaMax = dia;
 }

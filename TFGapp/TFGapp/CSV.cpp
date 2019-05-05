@@ -113,7 +113,7 @@ void CSV importarHorarios(char path[], Controller * main) //Inserta en una lista
 
 			dummy_H.setProfesor(dummy_P);
 
-			main->meterHorario(dummy_H);
+			main->addHorario(dummy_H);
 		}
 
 	}

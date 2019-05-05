@@ -21,12 +21,12 @@ static int SELECT callbackProfesores(void *data, int argc, char **argv, char **a
 	Controller * main = (Controller *)data;
 	Profesor dummy_P(argv[0], argv[1]);
 	int pos = main->addProfesor(dummy_P, false);
-
+	Profesor * profesor = &(*main->getListaProfesores())[pos];
 	//Cargamos las disponibilidades de profesor
 	string sql = "SELECT * FROM disponibilidad WHERE nombreProfesor='";
 	sql += argv[0]; sql += "';";
 	char * error = NULL;
-	int resultado = sqlite3_exec(main->getDB(), sql.c_str(), callbackDisponibilidad, &(*main->getListaProfesores())[pos], &error);
+	int resultado = sqlite3_exec(main->getDB(), sql.c_str(), callbackDisponibilidad, profesor, &error);
 	checkError(resultado, error);
 	//Cargamos los grados de profesor
 	sql = "SELECT * FROM especialidades WHERE nombreProfesor='";
@@ -34,6 +34,12 @@ static int SELECT callbackProfesores(void *data, int argc, char **argv, char **a
 	error = NULL;
 	resultado = sqlite3_exec(main->getDB(), sql.c_str(), callbackEspecialidad, main, &error);
 	checkError(resultado, error);
+
+	for (int i = 0; i < profesor->getListaHorarios()->size(); i++)
+	{
+		if ((*profesor->getListaHorarios())[i].getDia() > main->getDiaMax())
+			main->setDiaMax((*profesor->getListaHorarios())[i].getDia());
+	}
 
 	return 0;
 }

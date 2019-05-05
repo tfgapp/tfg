@@ -14,11 +14,8 @@ MainWindow::MainWindow(Controller * main, QWidget *parent) :
 	sqlite3 *db = openBBDD("test.db");
 
 	Grado gradoIng;
-	Alumno pepe;
 	gradoIng.setNombre(string("Ingenieria"));
-	pepe.setNombre(string("Pepe"));
 	manager->addGrado(gradoIng);
-	manager->addAlumno(pepe);
 	connect(this, &MainWindow::enviarController, grados, &GradosMain::setController);
 	connect(this, &MainWindow::enviarController, vImport, &ImportMain::setController);
 	connect(this, &MainWindow::enviarController, alumnos, &menuAlumno::setController);
