@@ -5,6 +5,8 @@ GradosMain::GradosMain(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	ui.botonAceptar->setVisible(false);
+	ui.introducirTexto->setVisible(false);
 	
 }
 
@@ -13,9 +15,37 @@ GradosMain::~GradosMain()
 }
 
 void GradosMain::borrarGrado(){
-	//ui.listaGrados.add
+	this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
+	actualizarLista();
 }
 void GradosMain::crearGrado() {
+	QEventLoop loop;
+	Grado grado;
+	connect(this, SIGNAL(aceptar()), &loop, SLOT(quit()));
+	ocultarCasiTodo();
+	ui.botonAceptar->setVisible(true);
+	ui.introducirTexto->setVisible(true);
+	loop.exec();
+	grado.setNombre(ui.introducirTexto->text().toStdString());
+	this->manager->addGrado(grado);
+	actualizarLista();
+	ui.botonAceptar->setVisible(false);
+	ui.introducirTexto->setVisible(false);
+	mostrarCasiTodo();
+}
+void GradosMain::ocultarCasiTodo(){
+	ui.botonBorrar->setVisible(false);
+	ui.botonCrear->setVisible(false);
+	ui.botonModificar->setVisible(false);
+	ui.listaGrados->setVisible(false);
+}
+void GradosMain::mostrarCasiTodo(){
+	ui.botonBorrar->setVisible(true);
+	ui.botonCrear->setVisible(true);
+	ui.botonModificar->setVisible(true);
+	ui.listaGrados->setVisible(true);
+}
+void  GradosMain::modificarGrado() {
 	
 }
 Controller * GradosMain::getController() {
@@ -23,6 +53,20 @@ Controller * GradosMain::getController() {
 }
 void GradosMain::setController(Controller * controller) {
 	this->manager = controller;
+	this->actualizarLista();
+
+}
+void GradosMain::aceptarCambio() {
+	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
+		
+		emit aceptar();
+	}
+	else {
+		QString a("Grado no valido");
+		ui.introducirTexto->setText(a);
+	}
+}
+void GradosMain::actualizarLista() {
 	vector <Grado> * grados = new vector <Grado>;
 	grados = manager->getListaGrados();
 	QStringList lista;
@@ -34,4 +78,5 @@ void GradosMain::setController(Controller * controller) {
 	}
 	ui.listaGrados->clear();
 	ui.listaGrados->addItems(lista);
+
 }

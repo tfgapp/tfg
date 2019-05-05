@@ -16,7 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(Controller * main , QWidget *parent = nullptr);
     ~MainWindow();
 	Controller * getController();
 	void setController(Controller * controller);

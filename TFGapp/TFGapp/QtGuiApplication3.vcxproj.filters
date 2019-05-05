@@ -89,6 +89,11 @@
     </ClCompile>
     <ClCompile Include="menuAlumno.cpp">
       <Filter>Source Forms</Filter>
+    <ClCompile Include="Select.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Recursive.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

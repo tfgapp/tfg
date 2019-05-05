@@ -1,5 +1,14 @@
 #include "Presentacion.h"
 
+Presentacion::Presentacion()
+{
+	this->hora = 0;
+	this->dia = 0;
+	this->aula = 0;
+	this->slot = 0;
+	this->convocatoria = 0;
+}
+
 void Presentacion::addTribunal(Profesor* tribunal)
 {
 	this->tribunal.push_back(tribunal);
@@ -8,10 +17,6 @@ void Presentacion::addTribunal(Profesor* tribunal)
 vector<Profesor*> * Presentacion::getTribunal()
 {
 	return &this->tribunal;
-}
-
-void Presentacion::setID(string id) {
-	this->ID = id;
 }
 
 void Presentacion::setHora(int hor) {
@@ -32,10 +37,6 @@ void Presentacion::setSlot(int slo) {
 
 void Presentacion::setConvocatoria(int conv) {
 	this->convocatoria = conv;
-}
-
-string Presentacion::getID() {
-	return this->ID;
 }
 
 int Presentacion::getHora() {

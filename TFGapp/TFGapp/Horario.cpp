@@ -10,10 +10,16 @@ void Horario::setProfesor(Profesor *profesor) {
 	this->profesor = profesor;
 }
 
+Horario::Horario(int dia, bool *sloots, Profesor * profesor)
+{
+	this->dia = dia;
+	for (int i = 0; i < 7; i++)this->sloots[i] = sloots[i];
+	this->profesor = profesor;
+}
+
 Horario::Horario(int dia, bool *sloots) {
 
 	this->dia = dia;
-	for (int i = 0; i < 7; i++)this->sloots[i] = 0;
 	for (int i = 0; i < 7; i++)this->sloots[i] = sloots[i];
 }
 
