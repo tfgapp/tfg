@@ -35,50 +35,61 @@
     <number>0</number>
    </property>
   </widget>
-  <widget class="QPushButton" name="aceptarDias">
+  <widget class="QPushButton" name="aceptarAulas">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>40</y>
+     <x>590</x>
+     <y>80</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
-    <string>CambiarDias</string>
+    <string>Aceptar Aulas</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="aceptarSlots">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>90</y>
+     <x>220</x>
+     <y>155</y>
+     <width>831</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Introduce las aulas en los slots de cada día</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listaAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>100</y>
+     <width>311</width>
+     <height>751</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="aceptarAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>380</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
-    <string>CabiarSlots</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="textoDias">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>40</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="textoSlots">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>90</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
+    <string>Aceptar Alumnos</string>
    </property>
   </widget>
  </widget>
@@ -86,34 +97,34 @@
  <resources/>
  <connections>
   <connection>
-   <sender>aceptarDias</sender>
+   <sender>aceptarAlumnos</sender>
    <signal>clicked()</signal>
    <receiver>PreBack</receiver>
-   <slot>cambiarDias()</slot>
+   <slot>enviarAlumnos()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>422</x>
-     <y>61</y>
+     <x>923</x>
+     <y>380</y>
     </hint>
     <hint type="destinationlabel">
-     <x>713</x>
-     <y>20</y>
+     <x>950</x>
+     <y>118</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>aceptarSlots</sender>
+   <sender>aceptarAulas</sender>
    <signal>clicked()</signal>
    <receiver>PreBack</receiver>
-   <slot>cambiarSlots()</slot>
+   <slot>enviarAulas()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>383</x>
-     <y>104</y>
+     <x>610</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
-     <x>715</x>
-     <y>137</y>
+     <x>859</x>
+     <y>28</y>
     </hint>
    </hints>
   </connection>
@@ -121,5 +132,7 @@
  <slots>
   <slot>cambiarDias()</slot>
   <slot>cambiarSlots()</slot>
+  <slot>enviarAlumnos()</slot>
+  <slot>enviarAulas()</slot>
  </slots>
 </ui>

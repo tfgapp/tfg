@@ -14,13 +14,13 @@ GradosMain::~GradosMain()
 {
 }
 
-void GradosMain::borrarGrado()
-{
-	auto a = ui.listaGrados->currentItem();
-	if(a != NULL)
-		this->manager->eliminarGrado(a->text().toStdString());
-	actualizarLista();
-}
+
+void GradosMain::borrarGrado(){
+	if (this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
+		this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
+		actualizarLista();
+	}
+
 
 void GradosMain::crearGrado() 
 {
@@ -67,16 +67,13 @@ void GradosMain::setController(Controller * controller) {
 
 }
 
-void GradosMain::aceptarCambio() 
-{
-	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
-		
+void GradosMain::aceptarCambio() {
+	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL && ui.introducirTexto->text() != QString("Grado no valido")) {
 		emit aceptar();
 	}
 	else 
 	{
 		QString a("Grado no valido");
-		ui.introducirTexto->setText(a);
 	}
 }
 

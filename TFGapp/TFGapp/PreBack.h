@@ -16,8 +16,8 @@ public:
 	void setController(Controller * controller);
 	void setTam();
 private slots:
-	void cambiarDias();
-	void cambiarSlots();
+	void enviarAulas();
+	void enviarAlumnos();
 
 private:
 	
