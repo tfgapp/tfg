@@ -7,6 +7,7 @@ MainWindow::MainWindow(Controller * main, QWidget *parent) :
 {	
     ui->setupUi(this);
 	grados = new GradosMain();
+	profesores = new ProfesoresMain();
 	vImport = new ImportMain();
 	alumnos = new menuAlumno();
 	Grado * gradoIng = new Grado();
@@ -45,6 +46,13 @@ void MainWindow::botonGrados() {
 	grados->show();
 	grados->setWindowModality(Qt::WindowModal);
 	
+}
+
+void MainWindow::botonProfesores() {
+	emit enviarController(this->getController());
+	profesores->show();
+	profesores->setWindowModality(Qt::WindowModal);
+
 }
 void MainWindow::botonImportar() {
 	emit enviarController(this->getController());
