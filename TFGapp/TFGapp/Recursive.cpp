@@ -20,7 +20,17 @@ bool prepareR(Controller * main, int convocatoria)
 	{
 		convocados.push_back(&(*main->getListaAlumnos())[i]);
 	}
-	return backtracking(main, &convocados, convocatoria, 0, aulas, 1, 0);
+	if (backtracking(main, &convocados, convocatoria, 0, aulas, 1, 0))
+	{
+		for (int i = 0; i < convocados.size(); i++)
+		{
+			insertarPresentacion(main->getDB(), *convocados[i]);
+			insertarTribunales(main->getDB(), *convocados[i]);
+		}
+		return true;
+	}
+	
+	return false;
 }
 
 bool RECURSIVE backtracking(Controller * main, vector<Alumno *> *convocados, int convocatoria, int slot, int ** aulas, int dia, int pos)

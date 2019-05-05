@@ -140,11 +140,25 @@ void Controller::eliminarGrado(string id) {
 void Controller::enlazarTutor(Alumno *alumno, Profesor *profesor)
 {
 	alumno->getTFG()->setTutor(profesor);
+	string sql = "UPDATE TFG SET tutor = '";
+	sql += profesor->getNombre(); sql += "' WHERE alumno='";
+	sql += alumno->getID(); sql += "';";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(this->db, sql.c_str(), callbackGrados, this, &error);
+	checkError(resultado, error);
 }
 
 void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 {
 	alumno->getTFG()->setCoTutor(profesor);
+	string sql = "UPDATE TFG SET cotutor = '";
+	sql += profesor->getNombre(); sql += "' WHERE alumno='";
+	sql += alumno->getID(); sql += "';";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(this->db, sql.c_str(), callbackGrados, this, &error);
+	checkError(resultado, error);
 }
 
 int Controller::getDiaMax()
