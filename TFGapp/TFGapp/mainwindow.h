@@ -7,6 +7,8 @@
 #include "GradosMain.h"
 #include "ImportMain.h"
 #include "PreBack.h"
+#include "ProfesoresMain.h"
+#include "menuAlumno.h"
 namespace Ui {
 class MainWindow;
 }
@@ -26,6 +28,8 @@ public:
 private slots:
 
 	void botonGrados();
+	void botonProfesores();
+	void botonAlumnos();
 	void botonImportar();
 	void ocultarImportar();
 	void botonOrganizar();
@@ -36,7 +40,12 @@ private:
     Ui::MainWindow *ui;
 	GradosMain *grados;
 	ImportMain *vImport;
+
 	PreBack *preBack;
+
+	ProfesoresMain *profesores;
+	menuAlumno *alumnos;
+
 };
 
 #endif // MAINWINDOW_H

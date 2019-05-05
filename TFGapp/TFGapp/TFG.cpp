@@ -1,10 +1,12 @@
 #include "TFG.h"
 
-TFG::TFG() {
-
+TFG::TFG() 
+{
 	this->titulo = "  ";
 	this->presentado = false;
-} //Constructor por defecto
+	this->tutor = NULL;
+	this->coTutor = NULL;
+}
 
 TFG::TFG(string titulo, bool pres) {
 
@@ -13,11 +15,13 @@ TFG::TFG(string titulo, bool pres) {
 
 } //Constructor con parametros
 
-void TFG::setString(string tit) { //Recibe el valor que queremos dar a Titulo (en este obj.TFG)
-	this->titulo = tit; //Setea el valor de presentado
+void TFG::setTitulo(string tit) 
+{ 
+	this->titulo = tit;
 }
 
-string TFG::getString() {
+string TFG::getTitulo() 
+{
 	return titulo;
 }
 
@@ -47,7 +51,6 @@ void TFG::setCoTutor(Profesor * prof) {
 
 void TFG::modificarPresentacion(Presentacion presentacion)
 {
-	this->presentacion.setID(presentacion.getID());
 	this->presentacion.setHora(presentacion.getHora());
 	this->presentacion.setDia(presentacion.getDia());
 	this->presentacion.setAula(presentacion.getAula());
@@ -58,8 +61,6 @@ void TFG::modificarPresentacion(Presentacion presentacion)
 
 void TFG::borrarPresentacion(Presentacion presentacion)
 {
-	
-	this->presentacion.setID(NULL);
 	this->presentacion.setHora(NULL);
 	this->presentacion.setDia(NULL);
 	this->presentacion.setAula(NULL);

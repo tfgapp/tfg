@@ -1,18 +1,16 @@
 #include "Controller.h"
 #include "Header.h"
 
-Controller::Controller()
-{
-}
-
 Controller::Controller(sqlite3 *db)
 {
 	if(FIRST == 1) cargarBasedeDatos(db);
 	this->db = db;
+	diaMax = 6;
 }
 
 Controller::~Controller()
 {
+	sqlite3_close(db);
 }
 
 vector <Alumno>* Controller::getListaAlumnos() {
@@ -80,7 +78,13 @@ Grado* Controller::getGrado(string id)
 int Controller::addAlumno(Alumno alumno, bool ins)
 {
 	alumnos.push_back(alumno);
-	if (ins) insertarAlumno(db, alumno);
+	if (ins)
+	{
+		insertarAlumno(db, alumno);
+		insertarTFG(db, alumno);
+		insertarPresentacion(db, alumno);
+		insertarTribunales(db, alumno);
+	}
 	return alumnos.size() - 1;
 }
 
@@ -139,6 +143,12 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 
 void Controller::meterHorario(Horario horario)
 {
-	insertarHorario(db, horario);
+	if (horario.getDia() > this->diaMax) diaMax = horario.getDia();
+	insertarDisponibilidad(db, horario);
 	horario.getProfesor()->addHorario(horario);
+}
+
+int Controller::getDiaMax()
+{
+	return this->diaMax;
 }

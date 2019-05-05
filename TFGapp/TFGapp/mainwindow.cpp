@@ -7,17 +7,22 @@ MainWindow::MainWindow(Controller * main, QWidget *parent) :
 {	
     ui->setupUi(this);
 	grados = new GradosMain();
+	profesores = new ProfesoresMain();
 	vImport = new ImportMain();
+	alumnos = new menuAlumno();
 	this->manager = main;
 	sqlite3 *db = openBBDD("test.db");
 	Grado gradoIng;
+	Alumno pepe;
 	gradoIng.setNombre(string("Ingenieria"));
+	pepe.setNombre(string("Pepe"));
 	manager->addGrado(gradoIng);
+	manager->addAlumno(pepe);
 	connect(this, &MainWindow::enviarController, grados, &GradosMain::setController);
 	connect(this, &MainWindow::enviarController, vImport, &ImportMain::setController);
+	connect(this, &MainWindow::enviarController, alumnos, &menuAlumno::setController);
 	connect(vImport, &ImportMain::ocultar, this, &MainWindow::ocultarImportar);
 	emit enviarController(this->getController());
-	
 }
 
 MainWindow::~MainWindow()
@@ -37,12 +42,25 @@ void MainWindow::botonGrados() {
 	grados->setWindowModality(Qt::WindowModal);
 	
 }
+
+void MainWindow::botonProfesores() {
+	emit enviarController(this->getController());
+	profesores->show();
+	profesores->setWindowModality(Qt::WindowModal);
+
+}
 void MainWindow::botonImportar() {
 	emit enviarController(this->getController());
 	vImport->show();
 	vImport->setWindowModality(Qt::WindowModal);
 	
 	
+}
+
+void MainWindow::botonAlumnos() {
+	emit enviarController(this->getController());
+	alumnos->show();
+	alumnos->setWindowModality(Qt::WindowModal);
 }
 void MainWindow::ocultarImportar() {
 	vImport->hide();

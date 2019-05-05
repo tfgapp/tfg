@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>menuAlumno</class>
+ <widget class="QWidget" name="menuAlumno">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>537</width>
+    <height>443</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>menuAlumno</string>
+  </property>
+  <widget class="QPushButton" name="botonCrearAlummno">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>340</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Crear Nuevo Alumno</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="listaAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>341</width>
+     <height>271</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="botonBorrarAlumno">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>210</y>
+     <width>111</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Borrar Alumno</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="botonModificarAlumno">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>100</y>
+     <width>111</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Modificar Alumno</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>botonCrearAlummno</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>crearAlumno()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>botonModificarAlumno</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>modificarAlumno()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>455</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>148</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>botonBorrarAlumno</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>borrarAlumno()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>457</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>462</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>crearAlumno()</slot>
+  <slot>modificarAlumno()</slot>
+  <slot>borrarAlumno()</slot>
+ </slots>
+</ui>
