@@ -125,14 +125,18 @@ void Controller::eliminarProfesor(string id) {
 	for (int i = 0; i < (int)profesores.size(); i++) {
 		if (id == profesores[i].getNombre()) {
 			profesores.erase(profesores.begin() + i);
+			break;
 		}
 	}
 }
 
-void Controller::eliminarGrado(string id) {
+void Controller::eliminarGrado(string id) 
+{
 	for (int i = 0; i < (int)grados.size(); i++) {
 		if (id == grados[i].getNombre()) {
 			grados.erase(grados.begin() + i);
+			borrarGrado(db, id);
+			break;
 		}
 	}
 }
@@ -145,7 +149,7 @@ void Controller::enlazarTutor(Alumno *alumno, Profesor *profesor)
 	sql += alumno->getID(); sql += "';";
 
 	char * error = NULL;
-	int resultado = sqlite3_exec(this->db, sql.c_str(), callbackGrados, this, &error);
+	int resultado = sqlite3_exec(this->db, sql.c_str(), 0, this, &error);
 	checkError(resultado, error);
 }
 
@@ -157,7 +161,7 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 	sql += alumno->getID(); sql += "';";
 
 	char * error = NULL;
-	int resultado = sqlite3_exec(this->db, sql.c_str(), callbackGrados, this, &error);
+	int resultado = sqlite3_exec(this->db, sql.c_str(), 0, this, &error);
 	checkError(resultado, error);
 }
 

@@ -14,11 +14,16 @@ GradosMain::~GradosMain()
 {
 }
 
-void GradosMain::borrarGrado(){
-	this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
+void GradosMain::borrarGrado()
+{
+	auto a = ui.listaGrados->currentItem();
+	if(a != NULL)
+		this->manager->eliminarGrado(a->text().toStdString());
 	actualizarLista();
 }
-void GradosMain::crearGrado() {
+
+void GradosMain::crearGrado() 
+{
 	QEventLoop loop;
 	Grado grado;
 	connect(this, SIGNAL(aceptar()), &loop, SLOT(quit()));
@@ -33,39 +38,48 @@ void GradosMain::crearGrado() {
 	ui.introducirTexto->setVisible(false);
 	mostrarCasiTodo();
 }
+
 void GradosMain::ocultarCasiTodo(){
 	ui.botonBorrar->setVisible(false);
 	ui.botonCrear->setVisible(false);
 	ui.botonModificar->setVisible(false);
 	ui.listaGrados->setVisible(false);
 }
+
 void GradosMain::mostrarCasiTodo(){
 	ui.botonBorrar->setVisible(true);
 	ui.botonCrear->setVisible(true);
 	ui.botonModificar->setVisible(true);
 	ui.listaGrados->setVisible(true);
 }
+
 void  GradosMain::modificarGrado() {
 	
 }
+
 Controller * GradosMain::getController() {
 	return this->manager;
 }
+
 void GradosMain::setController(Controller * controller) {
 	this->manager = controller;
 	this->actualizarLista();
 
 }
-void GradosMain::aceptarCambio() {
+
+void GradosMain::aceptarCambio() 
+{
 	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
 		
 		emit aceptar();
 	}
-	else {
+	else 
+	{
 		QString a("Grado no valido");
 		ui.introducirTexto->setText(a);
 	}
 }
+
 void GradosMain::actualizarLista() {
 	vector <Grado> * grados = new vector <Grado>;
 	grados = manager->getListaGrados();
