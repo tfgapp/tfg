@@ -21,9 +21,7 @@ void ProfesoresMain::setController(Controller * controller) {
 	QStringList lista;
 	for (int i = 0; i < profesores->size(); i++) {
 		QString * nombre = new QString((*profesores)[i].getNombre().c_str());
-		if (!lista.contains(*nombre)) {
-			lista.append(*nombre);
-		}
+		lista.append(*nombre);
 	}
 	//ui.listaProfesores->clear();
 	//ui.listaProfesores->addItems(lista);

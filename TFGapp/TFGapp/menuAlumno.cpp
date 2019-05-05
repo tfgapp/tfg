@@ -9,8 +9,10 @@ menuAlumno::menuAlumno(QWidget *parent)
 menuAlumno::~menuAlumno()
 {
 }
+void menuAlumno::modificarAlumno() {
 
-void menuAlumno::CrearAlummno() {
+}
+void menuAlumno::crearAlummno() {
 
 }
 

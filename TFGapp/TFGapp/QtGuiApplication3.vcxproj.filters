@@ -123,7 +123,7 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="menuAlumno.h">
-      <Filter>Header Forms</Filter> 
+      <Filter>Header Forms</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -139,12 +139,13 @@
     <QtUic Include="mainImport.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="PreBack.ui">
-    </QtUic>
     <QtUic Include="ProfesoresMain.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-     <QtUic Include="menuAlumno.ui">
+    <QtUic Include="menuAlumno.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="PreBack.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

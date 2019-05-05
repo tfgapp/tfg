@@ -15,12 +15,11 @@ MainWindow::MainWindow(Controller * main, QWidget *parent) :
 	Grado gradoIng;
 	Alumno pepe;
 	gradoIng.setNombre(string("Ingenieria"));
-	pepe.setNombre(string("Pepe"));
 	manager->addGrado(gradoIng);
-	manager->addAlumno(pepe);
 	connect(this, &MainWindow::enviarController, grados, &GradosMain::setController);
 	connect(this, &MainWindow::enviarController, vImport, &ImportMain::setController);
 	connect(this, &MainWindow::enviarController, alumnos, &menuAlumno::setController);
+	connect(this, &MainWindow::enviarController, profesores, &ProfesoresMain::setController);
 	connect(vImport, &ImportMain::ocultar, this, &MainWindow::ocultarImportar);
 	emit enviarController(this->getController());
 }
@@ -72,6 +71,7 @@ void MainWindow::botonOrganizar() {
 	preBack->setWindowModality(Qt::WindowModal);
 	
 }
+
 //void Mainwindow::on_botonpath_clicked()
 //{
 //   qstringlist filenames = qfiledialog::getopenfilenames(this, tr("open file"), "/path/to/file/", tr("all (*.*)"));

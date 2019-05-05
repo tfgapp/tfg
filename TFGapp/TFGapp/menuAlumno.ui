@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>537</width>
-    <height>443</height>
+    <width>900</width>
+    <height>856</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="botonCrearAlummno">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>340</y>
+     <x>640</x>
+     <y>150</y>
      <width>141</width>
      <height>28</height>
     </rect>
@@ -31,16 +31,16 @@
     <rect>
      <x>30</x>
      <y>40</y>
-     <width>341</width>
-     <height>271</height>
+     <width>391</width>
+     <height>721</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="botonBorrarAlumno">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>210</y>
+     <x>650</x>
+     <y>330</y>
      <width>111</width>
      <height>28</height>
     </rect>
@@ -52,8 +52,8 @@
   <widget class="QPushButton" name="botonModificarAlumno">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>100</y>
+     <x>650</x>
+     <y>230</y>
      <width>111</width>
      <height>28</height>
     </rect>
@@ -67,30 +67,14 @@
  <resources/>
  <connections>
   <connection>
-   <sender>botonCrearAlummno</sender>
-   <signal>clicked()</signal>
-   <receiver>menuAlumno</receiver>
-   <slot>crearAlumno()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>238</x>
-     <y>350</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>360</x>
-     <y>353</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>botonModificarAlumno</sender>
    <signal>clicked()</signal>
    <receiver>menuAlumno</receiver>
    <slot>modificarAlumno()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>455</x>
-     <y>115</y>
+     <x>650</x>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
      <x>453</x>
@@ -105,8 +89,8 @@
    <slot>borrarAlumno()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>457</x>
-     <y>228</y>
+     <x>650</x>
+     <y>330</y>
     </hint>
     <hint type="destinationlabel">
      <x>462</x>
@@ -114,10 +98,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>botonCrearAlummno</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>crearAlumno()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>701</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>537</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>crearAlumno()</slot>
   <slot>modificarAlumno()</slot>
   <slot>borrarAlumno()</slot>
+  <slot>crearAlumno()</slot>
  </slots>
 </ui>
