@@ -18,6 +18,7 @@ MainWindow::MainWindow(Controller * main, QWidget *parent) :
 	connect(this, &MainWindow::enviarController, grados, &GradosMain::setController);
 	connect(this, &MainWindow::enviarController, vImport, &ImportMain::setController);
 	connect(this, &MainWindow::enviarController, alumnos, &menuAlumno::setController);
+	connect(this, &MainWindow::enviarController, alumnos, &menuAlumno::setController);
 	connect(this, &MainWindow::enviarController, profesores, &ProfesoresMain::setController);
 	connect(vImport, &ImportMain::ocultar, this, &MainWindow::ocultarImportar);
 	emit enviarController(this->getController());
@@ -66,6 +67,7 @@ void MainWindow::ocultarImportar() {
 void MainWindow::botonOrganizar() {
 	preBack = new PreBack();
 	connect(this, &MainWindow::enviarController, preBack, &PreBack::setController);
+	emit enviarController(this->getController());
 	preBack->show();
 	preBack->setWindowModality(Qt::WindowModal);
 	

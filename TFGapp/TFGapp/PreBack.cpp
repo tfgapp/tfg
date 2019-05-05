@@ -8,7 +8,9 @@ PreBack::PreBack(QWidget *parent)
 	ui.setupUi(this);
 	ui.listaAlumnos->setHidden(true);
 	ui.aceptarAlumnos->setHidden(true);
-
+	dias = manager->getDiaMax();
+	slotsPorDia = 7;
+	setTam();
 }
 
 PreBack::~PreBack()
@@ -43,5 +45,22 @@ void PreBack::enviarAlumnos() {
 	
 }
 void PreBack::enviarAulas() {
-
+	ui.convocatorias->setHidden(false);
+	ui.listaAlumnos->setHidden(false);
+	ui.aceptarAlumnos->setHidden(false);
+	ui.aceptarAulas->setHidden(true);
+	ui.tablaDias->setHidden(true);
+	ui.label->setHidden(true);
+	vector <Alumno> * alumnos;
+	alumnos = manager->getListaAlumnos();
+	QStringList lista;
+	for (int i = 0; i < alumnos->size(); i++) {
+		QString * nombre = new QString((*alumnos)[i].getNombre().c_str());
+		if (!lista.contains(*nombre)) {
+			lista.append(*nombre);
+		}
+	}
+	ui.listaAlumnos->clear();
+	ui.listaAlumnos->addItems(lista);
+	ui.listaAlumnos->setSelectionMode(QListWidget::MultiSelection);
 }
