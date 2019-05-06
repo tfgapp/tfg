@@ -8,9 +8,6 @@ PreBack::PreBack(QWidget *parent)
 	ui.setupUi(this);
 	ui.listaAlumnos->setHidden(true);
 	ui.aceptarAlumnos->setHidden(true);
-	dias = manager->getDiaMax();
-	slotsPorDia = 7;
-	setTam();
 }
 
 PreBack::~PreBack()
@@ -21,6 +18,9 @@ Controller * PreBack::getController() {
 }
 void PreBack::setController(Controller * controller) {
 	this->manager = controller;
+	dias = manager->getDiaMax();
+	slotsPorDia = 7;
+	setTam();
 }
 void PreBack::setTam() {
 	ui.tablaDias->setRowCount(slotsPorDia);
@@ -42,25 +42,40 @@ void PreBack::setTam() {
 		ui.tablaDias->setRowHeight(x, (ui.tablaDias->height() - ui.tablaDias->horizontalHeader()->height()) /( ui.tablaDias->rowCount()+1));
 }
 void PreBack::enviarAlumnos() {
+	vector <Alumno> alumnos;
+	for (int i = 0; i < ui.listaAlumnos->selectedItems().count(); i++) {
+		string nombre = ui.listaAlumnos->selectedItems()[i]->text().toStdString();
+		alumnos.push_back(*manager->getAlumno("nombre"));
+	}
+	BackTrackingMain vBack(&alumnos, this->manager, aulas, ui.convocatorias->text().toInt());
 	
 }
 void PreBack::enviarAulas() {
 	ui.convocatorias->setHidden(false);
 	ui.listaAlumnos->setHidden(false);
 	ui.aceptarAlumnos->setHidden(false);
-	ui.aceptarAulas->setHidden(true);
-	ui.tablaDias->setHidden(true);
-	ui.label->setHidden(true);
-	vector <Alumno> * alumnos;
-	alumnos = manager->getListaAlumnos();
-	QStringList lista;
-	for (int i = 0; i < alumnos->size(); i++) {
-		QString * nombre = new QString((*alumnos)[i].getNombre().c_str());
-		if (!lista.contains(*nombre)) {
-			lista.append(*nombre);
+	aulas = new int*[dias];
+	for (int i = 0; i < dias; i++) {
+		aulas[i] = new int[slotsPorDia];
+		for (int j = 0; j < slotsPorDia; j++) {
+			aulas[i][j] = ui.tablaDias->item(j,i)->text().toInt();
 		}
 	}
-	ui.listaAlumnos->clear();
-	ui.listaAlumnos->addItems(lista);
-	ui.listaAlumnos->setSelectionMode(QListWidget::MultiSelection);
+	if (!(ui.convocatorias->text().isEmpty())) {
+		ui.aceptarAulas->setHidden(true);
+		ui.tablaDias->setHidden(true);
+		ui.label->setHidden(true);
+		vector <Alumno> * alumnos;
+		alumnos = manager->getListaAlumnos();
+		QStringList lista;
+		for (int i = 0; i < alumnos->size(); i++) {
+			QString * nombre = new QString((*alumnos)[i].getNombre().c_str());
+			if (!lista.contains(*nombre)) {
+				lista.append(*nombre);
+			}
+		}
+		ui.listaAlumnos->clear();
+		ui.listaAlumnos->addItems(lista);
+		ui.listaAlumnos->setSelectionMode(QListWidget::MultiSelection);
+	}
 }

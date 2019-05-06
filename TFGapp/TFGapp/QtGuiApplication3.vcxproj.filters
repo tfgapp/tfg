@@ -102,6 +102,9 @@
     <ClCompile Include="Recursive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BackTrackingMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
@@ -125,6 +128,9 @@
     <QtMoc Include="menuAlumno.h">
       <Filter>Header Forms</Filter>
     </QtMoc>
+    <QtMoc Include="BackTrackingMain.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="mainwindow.ui">
@@ -146,6 +152,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="PreBack.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="BackTrackingMain.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
