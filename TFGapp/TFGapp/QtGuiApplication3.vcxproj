@@ -122,7 +122,6 @@
     <ClCompile Include="Grado.cpp" />
     <ClCompile Include="GradosMain.cpp" />
     <ClCompile Include="Horario.cpp" />
-    <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ImportMain.cpp" />
     <ClCompile Include="mainwindow.cpp" />

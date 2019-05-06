@@ -40,6 +40,7 @@ void ProfesoresMain::crearProfesor()
 {
 
 }
+
 void ProfesoresMain::borrarProfesor() 
 {
 	auto a = ui.listaProfesores->item(ui.listaProfesores->currentRow(), 0);
@@ -60,10 +61,12 @@ void ProfesoresMain::borrarProfesor()
 		}
 	}
 }
+
 void ProfesoresMain::modificarProfesor() 
 {
 
 }
+
 void ProfesoresMain::asignarHorario() 
 {
 
