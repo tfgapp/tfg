@@ -29,8 +29,9 @@ void PreBack::setTam() {
 	QStringList slotsLab;
 	for (int x = 0; x <= ui.tablaDias->columnCount(); x++) {
 		for (int y = 0; y <= ui.tablaDias->rowCount(); y++) {
-			ui.tablaDias->setCellWidget(y, x, new QTextEdit());
+			if(x ==  0)
 			slotsLab << QString("S") + QString::number(y + 1);
+			ui.tablaDias->setItem(y, x, new QTableWidgetItem(*(new QString)));
 		}
 		diasLab << QString("D")+QString::number(x + 1);
 	}
@@ -43,12 +44,14 @@ void PreBack::setTam() {
 }
 void PreBack::enviarAlumnos() {
 	vector <Alumno> alumnos;
-	for (int i = 0; i < ui.listaAlumnos->selectedItems().count(); i++) {
-		string nombre = ui.listaAlumnos->selectedItems()[i]->text().toStdString();
-		alumnos.push_back(*manager->getAlumno("nombre"));
+	int numSelect = ui.listaAlumnos->selectedItems().size();
+	for (int i = 0; i < numSelect; i++) {
+		QString nombre = ui.listaAlumnos->selectedItems()[i]->text();
+		alumnos.push_back(*manager->getAlumno(nombre.toStdString()));
 	}
-	BackTrackingMain vBack(&alumnos, this->manager, aulas, ui.convocatorias->text().toInt());
-	
+	BackTrackingMain *vBack = new BackTrackingMain(&alumnos, this->manager, aulas, ui.convocatorias->text().toInt());
+	vBack->show();
+	vBack->setWindowModality(Qt::WindowModal);
 }
 void PreBack::enviarAulas() {
 	ui.convocatorias->setHidden(false);
@@ -69,7 +72,7 @@ void PreBack::enviarAulas() {
 		alumnos = manager->getListaAlumnos();
 		QStringList lista;
 		for (int i = 0; i < alumnos->size(); i++) {
-			QString * nombre = new QString((*alumnos)[i].getNombre().c_str());
+			QString * nombre = new QString((*alumnos)[i].getID().c_str());
 			if (!lista.contains(*nombre)) {
 				lista.append(*nombre);
 			}
@@ -77,5 +80,12 @@ void PreBack::enviarAulas() {
 		ui.listaAlumnos->clear();
 		ui.listaAlumnos->addItems(lista);
 		ui.listaAlumnos->setSelectionMode(QListWidget::MultiSelection);
+	}
+}
+void PreBack::cambiarTodos() {
+	for (int i = 0; i < dias; i++) {
+		for (int j = 0; j < slotsPorDia; j++) {
+			 ui.tablaDias->item(j,i)->setText(ui.valor->text());
+		}
 	}
 }

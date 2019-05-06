@@ -19,6 +19,7 @@ public:
 private slots:
 	void enviarAulas();
 	void enviarAlumnos();
+	void cambiarTodos();
 
 private:
 	
@@ -26,3 +27,6 @@ private:
 	Controller *manager;
 	int ** aulas;
 };
+
+
+//

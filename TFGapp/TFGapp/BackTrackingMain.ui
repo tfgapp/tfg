@@ -6,22 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>999</width>
-    <height>906</height>
+    <width>1530</width>
+    <height>901</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>BackTrackingMain</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>30</y>
-     <width>941</width>
+     <x>50</x>
+     <y>10</y>
+     <width>1311</width>
      <height>851</height>
     </rect>
    </property>
+   <layout class="QGridLayout" name="gridLayout"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

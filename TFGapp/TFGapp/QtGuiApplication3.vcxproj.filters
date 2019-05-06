@@ -103,7 +103,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BackTrackingMain.cpp">
-      <Filter>Source Forms</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,7 +129,7 @@
       <Filter>Header Forms</Filter>
     </QtMoc>
     <QtMoc Include="BackTrackingMain.h">
-      <Filter>Header Forms</Filter>
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
