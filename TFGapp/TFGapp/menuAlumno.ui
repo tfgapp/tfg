@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>menuAlumno</class>
+ <widget class="QWidget" name="menuAlumno">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>965</width>
+    <height>856</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>menuAlumno</string>
+  </property>
+  <widget class="QPushButton" name="botonCrearAlummno">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>40</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Crear Alumno</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="listaAlumnos">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>761</width>
+     <height>721</height>
+    </rect>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="showGrid">
+    <bool>false</bool>
+   </property>
+   <property name="columnCount">
+    <number>4</number>
+   </property>
+   <column/>
+   <column/>
+   <column/>
+   <column/>
+  </widget>
+  <widget class="QPushButton" name="botonBorrarAlumno">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>120</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Borrar Alumno</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="botonModificarAlumno">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>80</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Modificar Alumno</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>160</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Asignar Tutor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>200</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Asignar Co-tutor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>240</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Borrar Tutor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>280</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Borrar Co-tutor</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>botonModificarAlumno</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>modificarAlumno()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>800</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>148</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>botonBorrarAlumno</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>borrarAlumno()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>800</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>462</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>botonCrearAlummno</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>crearAlumno()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>701</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>537</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>asignarTutor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>877</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>879</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>asignarCoTutor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>865</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>815</x>
+     <y>328</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>quitarTutor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>842</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>817</x>
+     <y>376</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>menuAlumno</receiver>
+   <slot>quitarCoTutor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>893</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>813</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>modificarAlumno()</slot>
+  <slot>borrarAlumno()</slot>
+  <slot>crearAlumno()</slot>
+  <slot>asignarTutor()</slot>
+  <slot>asignarCoTutor()</slot>
+  <slot>quitarTutor()</slot>
+  <slot>quitarCoTutor()</slot>
+ </slots>
+</ui>

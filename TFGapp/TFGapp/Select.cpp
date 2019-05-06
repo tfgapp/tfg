@@ -21,12 +21,12 @@ static int SELECT callbackProfesores(void *data, int argc, char **argv, char **a
 	Controller * main = (Controller *)data;
 	Profesor dummy_P(argv[0], argv[1]);
 	int pos = main->addProfesor(dummy_P, false);
-
+	Profesor * profesor = &(*main->getListaProfesores())[pos];
 	//Cargamos las disponibilidades de profesor
 	string sql = "SELECT * FROM disponibilidad WHERE nombreProfesor='";
 	sql += argv[0]; sql += "';";
 	char * error = NULL;
-	int resultado = sqlite3_exec(main->getDB(), sql.c_str(), callbackDisponibilidad, &(*main->getListaProfesores())[pos], &error);
+	int resultado = sqlite3_exec(main->getDB(), sql.c_str(), callbackDisponibilidad, profesor, &error);
 	checkError(resultado, error);
 	//Cargamos los grados de profesor
 	sql = "SELECT * FROM especialidades WHERE nombreProfesor='";
@@ -34,6 +34,12 @@ static int SELECT callbackProfesores(void *data, int argc, char **argv, char **a
 	error = NULL;
 	resultado = sqlite3_exec(main->getDB(), sql.c_str(), callbackEspecialidad, main, &error);
 	checkError(resultado, error);
+
+	for (int i = 0; i < profesor->getListaHorarios()->size(); i++)
+	{
+		if ((*profesor->getListaHorarios())[i].getDia() > main->getDiaMax())
+			main->setDiaMax((*profesor->getListaHorarios())[i].getDia());
+	}
 
 	return 0;
 }
@@ -70,9 +76,26 @@ static int SELECT callbackAlumnos(void *data, int argc, char **argv, char **azCo
 {
 	Controller * main = (Controller *)data;
 	Alumno dummy_A(argv[0], argv[1], argv[2], main->getGrado(argv[3]));
-	main->addAlumno(dummy_A, false);
+	int pos = main->addAlumno(dummy_A, false);
+	Alumno * alumno = &(*main->getListaAlumnos())[pos];
 	//TODO TFG
+	string sql = "SELECT * FROM TFG WHERE alumno='";
+	sql += argv[2]; sql += "';";
+	char * error = NULL;
+	int resultado = sqlite3_exec(main->getDB(), sql.c_str(), callbackTFG, main, &error);
+	checkError(resultado, error);
 
+	return 0;
+}
+
+static int SELECT callbackTFG(void *data, int argc, char **argv, char **azColName)
+{
+	Controller * main = (Controller *)data;
+	Alumno * alumno = main->getAlumno(argv[4]);
+	TFG dumm_t(argv[0], stoi(argv[1]));
+	dumm_t.setTutor(main->getProfesor(argv[2]));
+	dumm_t.setCoTutor(main->getProfesor(argv[3]));
+	alumno->setTFG(dumm_t);
 	return 0;
 }
 

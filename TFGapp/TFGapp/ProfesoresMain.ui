@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProfesoresMain</class>
+ <widget class="QWidget" name="ProfesoresMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>987</width>
+    <height>870</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ProfesoresMain</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>150</y>
+     <width>121</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Crear Profesor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>220</y>
+     <width>121</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Modificar Profesor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>290</y>
+     <width>121</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Borrar Profesor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>360</y>
+     <width>121</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Asignar Horarios</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="listaProfesores">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>21</y>
+     <width>471</width>
+     <height>831</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="columnCount">
+    <number>2</number>
+   </property>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <column/>
+   <column/>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ProfesoresMain</receiver>
+   <slot>crearProfesor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>553</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>ProfesoresMain</receiver>
+   <slot>modificarProfesor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>681</x>
+     <y>238</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>ProfesoresMain</receiver>
+   <slot>borrarProfesor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>618</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>676</x>
+     <y>306</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>ProfesoresMain</receiver>
+   <slot>asignarHorario()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>570</x>
+     <y>375</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>566</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>crearProfesor()</slot>
+  <slot>modificarProfesor()</slot>
+  <slot>borrarProfesor()</slot>
+  <slot>asignarHorario()</slot>
+ </slots>
+</ui>

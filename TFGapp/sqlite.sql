@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS disponibilidad(
 );
 
 CREATE TABLE IF NOT EXISTS tfg(
-	titulo TEXT PRIMARY KEY,
+	titulo TEXT,
 	presentado INT,
 	tutor TEXT,
 	cotutor TEXT,
@@ -56,27 +56,31 @@ CREATE TABLE IF NOT EXISTS tfg(
 	FOREIGN KEY(cotutor) REFERENCES profesores(nombreCompleto)
 	ON UPDATE CASCADE ON DELETE SET NULL,
 	FOREIGN KEY(alumno) REFERENCES alumnos(ID)
-	ON UPDATE CASCADE ON DELETE CASCADE
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	PRIMARY KEY(titulo, alumno)
 );
 
 CREATE TABLE IF NOT EXISTS presentaciones(
-	tfg TEXT,
+	ID TEXT,
 	hora INT,
 	dia INT,
 	aula INT,
 	slot INT,
 	convocatoria INT,
-	FOREIGN KEY(tfg) REFERENCES tfg(titulo)
+	FOREIGN KEY(alumno) REFERENCES alumnos(ID)
 	ON UPDATE CASCADE ON DELETE CASCADE,
-	PRIMARY KEY(tfg, convocatoria)
+	PRIMARY KEY(alumno, convocatoria)
 );
 
 CREATE TABLE IF NOT EXISTS tribunales(
 	presentacion TEXT,
 	profesor TEXT,
-	FOREIGN KEY(presentacion) REFERENCES presentacion(idPresentacion)
+	convocatoria INT, 
+	FOREIGN KEY(presentacion) REFERENCES presentaciones(ID)
 	ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY(profesor) REFERENCES profesores(nombreCompleto)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(convocatoria) REFERENCES presentaciones(convocatoria)
 	ON UPDATE CASCADE ON DELETE CASCADE,
 	PRIMARY KEY(presentacion, profesor)
 );

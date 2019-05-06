@@ -115,20 +115,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Alumno.cpp" />
+    <ClCompile Include="BackTrackingMain.cpp" />
     <ClCompile Include="BBDD.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CSV.cpp" />
     <ClCompile Include="Grado.cpp" />
     <ClCompile Include="GradosMain.cpp" />
     <ClCompile Include="Horario.cpp" />
-    <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ImportMain.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="PreBack.cpp" />
+    <ClCompile Include="menuAlumno.cpp" />
     <ClCompile Include="Presentacion.cpp" />
     <ClCompile Include="Profesor.cpp" />
+    <ClCompile Include="ProfesoresMain.cpp" />
+    <ClCompile Include="Recursive.cpp" />
     <ClCompile Include="Select.cpp" />
+    <ClCompile Include="selectProfesorMain.cpp" />
     <ClCompile Include="sqlite3\sqlite3.c" />
     <ClCompile Include="TFG.cpp" />
     <ClCompile Include="Utility.cpp" />
@@ -142,13 +147,34 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
     </QtMoc>
+    <QtMoc Include="PreBack.h">
+    </QtMoc>
+    <QtMoc Include="ProfesoresMain.h">
+    </QtMoc>
+    <QtMoc Include="menuAlumno.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="BackTrackingMain.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="selectProfesorMain.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
     <ClInclude Include="sqlite3\sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="BackTrackingMain.ui" />
     <QtUic Include="gradosMain.ui" />
     <QtUic Include="mainImport.ui" />
     <QtUic Include="mainwindow.ui" />
     <QtUic Include="menu.ui" />
+    <QtUic Include="PreBack.ui" />
+    <QtUic Include="ProfesoresMain.ui" />
+    <QtUic Include="menuAlumno.ui" />
+    <QtUic Include="selectProfesorMain.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtGuiApplication3.qrc" />

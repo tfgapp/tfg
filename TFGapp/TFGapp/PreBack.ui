@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PreBack</class>
+ <widget class="QWidget" name="PreBack">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1150</width>
+    <height>855</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PreBack</string>
+  </property>
+  <widget class="QTableWidget" name="tablaDias">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>220</y>
+     <width>841</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="aceptarAulas">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>80</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Aceptar Aulas</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>155</y>
+     <width>831</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Introduce las aulas en los slots de cada día</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listaAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>100</y>
+     <width>311</width>
+     <height>751</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="aceptarAlumnos">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>380</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Aceptar Alumnos</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="convocatorias">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>140</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="text">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>140</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Convocatoria:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cabiar">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>130</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>cambiar todos</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="valor">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>130</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>aceptarAlumnos</sender>
+   <signal>clicked()</signal>
+   <receiver>PreBack</receiver>
+   <slot>enviarAlumnos()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>923</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>950</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aceptarAulas</sender>
+   <signal>clicked()</signal>
+   <receiver>PreBack</receiver>
+   <slot>enviarAulas()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>610</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>859</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cabiar</sender>
+   <signal>clicked()</signal>
+   <receiver>PreBack</receiver>
+   <slot>cambiarTodos()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1070</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1004</x>
+     <y>84</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>cambiarDias()</slot>
+  <slot>cambiarSlots()</slot>
+  <slot>enviarAlumnos()</slot>
+  <slot>enviarAulas()</slot>
+  <slot>cambiarTodos()</slot>
+ </slots>
+</ui>

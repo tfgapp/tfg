@@ -1,18 +1,16 @@
 #include "Controller.h"
 #include "Header.h"
 
-Controller::Controller()
-{
-}
-
 Controller::Controller(sqlite3 *db)
 {
 	if(FIRST == 1) cargarBasedeDatos(db);
 	this->db = db;
+	diaMax = 0;
 }
 
 Controller::~Controller()
 {
+	sqlite3_close(db);
 }
 
 vector <Alumno>* Controller::getListaAlumnos() {
@@ -80,7 +78,13 @@ Grado* Controller::getGrado(string id)
 int Controller::addAlumno(Alumno alumno, bool ins)
 {
 	alumnos.push_back(alumno);
-	if (ins) insertarAlumno(db, alumno);
+	if (ins)
+	{
+		insertarAlumno(db, alumno);
+		insertarTFG(db, alumno);
+		insertarPresentacion(db, alumno);
+		insertarTribunales(db, alumno);
+	}
 	return alumnos.size() - 1;
 }
 
@@ -102,11 +106,19 @@ int Controller::addGrado(Grado grado, bool ins)
 	return grados.size() - 1;
 }
 
+void Controller::addHorario(Horario horario, bool ins)
+{
+	if (horario.getDia() > this->diaMax) diaMax = horario.getDia();
+	if (ins) insertarDisponibilidad(db, horario);
+	horario.getProfesor()->addHorario(horario);
+}
+
 void Controller::eliminarAlumno(string id)
 {
 	for (int i = 0; i < (int)alumnos.size(); i++) {
 		if (id == alumnos[i].getID()) {
 			alumnos.erase(alumnos.begin() + i);
+			break;
 		}
 	}
 }
@@ -115,14 +127,18 @@ void Controller::eliminarProfesor(string id) {
 	for (int i = 0; i < (int)profesores.size(); i++) {
 		if (id == profesores[i].getNombre()) {
 			profesores.erase(profesores.begin() + i);
+			break;
 		}
 	}
 }
 
-void Controller::eliminarGrado(string id) {
+void Controller::eliminarGrado(string id) 
+{
 	for (int i = 0; i < (int)grados.size(); i++) {
 		if (id == grados[i].getNombre()) {
 			grados.erase(grados.begin() + i);
+			borrarGrado(db, id);
+			break;
 		}
 	}
 }
@@ -130,15 +146,49 @@ void Controller::eliminarGrado(string id) {
 void Controller::enlazarTutor(Alumno *alumno, Profesor *profesor)
 {
 	alumno->getTFG()->setTutor(profesor);
+	string sql = "UPDATE TFG SET tutor = '";
+	sql += profesor->getNombre(); sql += "' WHERE alumno='";
+	sql += alumno->getID(); sql += "';";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(this->db, sql.c_str(), 0, this, &error);
+	checkError(resultado, error);
 }
 
 void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 {
 	alumno->getTFG()->setCoTutor(profesor);
+	string sql = "UPDATE TFG SET cotutor = '";
+	sql += profesor->getNombre(); sql += "' WHERE alumno='";
+	sql += alumno->getID(); sql += "';";
+
+	char * error = NULL;
+
+	int resultado = sqlite3_exec(this->db, sql.c_str(), 0, this, &error);
+
+	checkError(resultado, error);
 }
 
-void Controller::meterHorario(Horario horario)
+int Controller::getDiaMax()
 {
-	insertarHorario(db, horario);
-	horario.getProfesor()->addHorario(horario);
+	return diaMax;
+}
+
+void Controller::setDiaMax(int dia)
+{
+	this->diaMax = dia;
+}
+
+void Controller::modificarGrado(Grado * actual, Grado cambio)
+{
+	string sql = "UPDATE grados SET nombre='";
+	sql += cambio.getNombre(); sql += "' WHERE nombre='";
+	sql += actual->getNombre(); sql += "';";
+
+	char * error = NULL;
+	int resultado = sqlite3_exec(db, sql.c_str(), 0, 0, &error);
+	checkError(resultado, error);
+
+	actual->setNombre(cambio.getNombre());
+	insertarGrado(db, (*actual));
 }
