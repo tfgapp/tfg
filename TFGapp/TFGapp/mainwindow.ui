@@ -167,6 +167,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>organizadorBoton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>botonOrganizar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>523</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>733</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>botonGrados()</slot>

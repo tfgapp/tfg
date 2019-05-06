@@ -11,7 +11,7 @@ class Controller
 	vector <Profesor> profesores;
 	vector <Grado> grados;
 	sqlite3 *db;
-	int diaMax;
+	int diaMax = 7;
 
 public:
 	Controller(sqlite3 *db);

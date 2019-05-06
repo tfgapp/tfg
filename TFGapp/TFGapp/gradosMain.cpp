@@ -16,7 +16,8 @@ GradosMain::~GradosMain()
 
 void GradosMain::borrarGrado()
 {
-	if (this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
+	if (this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) 
+  {
 		this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
 		actualizarLista();
 	}
@@ -78,7 +79,7 @@ void GradosMain::aceptarCambio() {
 }
 
 void GradosMain::actualizarLista() {
-	vector <Grado> * grados = new vector <Grado>;
+	vector <Grado> * grados;
 	grados = manager->getListaGrados();
 	QStringList lista;
 	for (int i = 0; i < grados->size(); i++) {
