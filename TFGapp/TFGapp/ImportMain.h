@@ -10,7 +10,7 @@ class ImportMain : public QWidget
 	Q_OBJECT
 
 public:
-	ImportMain(QWidget *parent = Q_NULLPTR);
+	ImportMain(Controller * msin, QWidget *parent = Q_NULLPTR);
 	~ImportMain();
 	Controller * getController();
 	void setController(Controller * controller);

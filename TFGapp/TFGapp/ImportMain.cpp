@@ -4,35 +4,38 @@
 #include "qerrormessage.h"
 #include "qcombobox.h"
 
-ImportMain::ImportMain(QWidget *parent)
-	: QWidget(parent)
+ImportMain::ImportMain(Controller * main, QWidget *parent): QWidget(parent)
 {
+	this->manager = main;
 	ui.setupUi(this);
 	ui.selectGrado->setHidden(true);
 	ui.confirmarGrado->setHidden(true);
 	ui.path->setHidden(true);
-	
-
 }
 
 ImportMain::~ImportMain()
 {
 }
-void ImportMain::pathAlumnos(){
-	
+
+void ImportMain::pathAlumnos()
+{
 	QStringList filenames = QFileDialog::getOpenFileNames(this, tr("open file"), "/path/to/file/", tr("all (*.csv)"));
 	ui.listPathAlumnos->clear();
 	ui.listPathAlumnos->addItems(filenames);
-		
-	
 }
-void ImportMain::pathProfesores(){
+
+void ImportMain::pathProfesores()
+{
 	ui.direccionProfesores->setText(QFileDialog::getOpenFileName(this, tr("open file"), "/path/to/file/", tr("all (*.csv)")));
 }
-void ImportMain::pathDisponibilidad(){
+
+void ImportMain::pathDisponibilidad()
+{
 	ui.direccionDisponibilidad->setText(QFileDialog::getOpenFileName(this, tr("open file"), "/path/to/file/", tr("all (*.csv)")));
 }
-void ImportMain::cerrar(){
+
+void ImportMain::cerrar()
+{
 	ocultarCasiTodo();
 	ui.Aceptar->setDisabled(true);
 	ui.Aceptar->setHidden(true);
@@ -66,14 +69,16 @@ void ImportMain::cerrar(){
 	}
 	mostrarCasiTodo();
 	emit ocultar();
-	
 }
+
 Controller * ImportMain::getController() {
 	return this->manager;
 }
+
 void ImportMain::setController(Controller * controller) {
 	this->manager = controller;
 }
+
 void ImportMain::confirmarGrado() {
 	importarAlumnos((char*)ui.path->text().toStdString().c_str(), manager, this->manager->getGrado(ui.selectGrado->currentText().toStdString()));
 	ui.selectGrado->setHidden(true);
@@ -81,6 +86,7 @@ void ImportMain::confirmarGrado() {
 	ui.path->setHidden(true);
 	emit aceptarGrado();
 }
+
 void ImportMain::ocultarCasiTodo() {
 	ui.Aceptar->setHidden(true);
 	ui.Aceptar->setDisabled(true);
@@ -98,6 +104,7 @@ void ImportMain::ocultarCasiTodo() {
 	ui.listPathAlumnos->setDisabled(true);
 
 }
+
 void ImportMain::mostrarCasiTodo() {
 	ui.Aceptar->setHidden(false);
 	ui.Aceptar->setDisabled(false);

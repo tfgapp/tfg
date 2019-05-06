@@ -35,8 +35,8 @@ void BBDD insertarPresentacion(sqlite3 * bd, Alumno alumno);
 void BBDD insertarTribunales(sqlite3 * bd, Alumno alumno);
 
 void BBDD borrarDisponibilidad(sqlite3 * bd, Horario horario);
-void BBDD borrarAlumno(sqlite3 * bd, Alumno alumno);
-void BBDD borrarProfesor(sqlite3 * bd, Profesor profesor);
+void BBDD borrarAlumno(sqlite3 * bd, string id);
+void BBDD borrarProfesor(sqlite3 * bd, string id);
 void BBDD borrarGrado(sqlite3 * bd, string id);
 void BBDD borrarEspecialidad(sqlite3 * bd, Profesor profesor);
 void BBDD borrarTFG(sqlite3 * bd, Alumno alumno);
@@ -55,15 +55,6 @@ void CSV importarHorarios(char path[], Controller * main); //Inserta en una list
 
 #define INTERFAZ
 
-Alumno INTERFAZ crearAlumno(Controller * main);
-Grado INTERFAZ crearGrado();
-Profesor INTERFAZ crearProfesor(Controller * main);
-
-void INTERFAZ borrarAlumno(Controller * main, string id);
-void INTERFAZ borrarGrado(Controller * main, string id);
-void INTERFAZ borrarProfesor(Controller * main, string id);
-int INTERFAZ menu();
-
 #define SELECT
 
 static int SELECT callbackGrados(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
@@ -75,6 +66,7 @@ static int SELECT callbackEspecialidad(void *data, int argc, char **argv, char *
 static int SELECT callbackEspecialidad(void *data, int argc, char **argv, char **azColName); //Funcion para recoger el resultado de la operación SELECT
 void SELECT volcarProfesores(Controller * main);
 void SELECT volcarAlumnos(Controller * main);
+static int SELECT callbackTFG(void *data, int argc, char **argv, char **azColName);
 
 #define RECURSIVE
 
