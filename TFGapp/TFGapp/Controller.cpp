@@ -3,7 +3,7 @@
 
 Controller::Controller(sqlite3 *db)
 {
-	if(FIRST == 1) cargarBasedeDatos(db);
+	cargarBasedeDatos(db);
 	this->db = db;
 	diaMax = 0;
 }

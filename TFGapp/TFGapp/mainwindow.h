@@ -35,6 +35,7 @@ private slots:
 	void botonOrganizar();
 signals:
     void enviarController(Controller *controller);
+	void actualizar();
 private:
 	Controller * manager;
     Ui::MainWindow *ui;

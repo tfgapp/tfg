@@ -14,7 +14,10 @@ MainWindow::MainWindow(Controller * main, QWidget *parent) :
 	sqlite3 *db = openBBDD("test.db");
 	Grado gradoIng;
 	gradoIng.setNombre(string("Ingenieria"));
-	manager->addGrado(gradoIng);
+	manager->addGrado(gradoIng); 
+	connect(this, &MainWindow::actualizar, profesores, &ProfesoresMain::actualizarLista);
+	connect(this, &MainWindow::actualizar, alumnos, &menuAlumno::actualizarLista);
+	connect(this, &MainWindow::actualizar, grados, &GradosMain::actualizarLista);
 	connect(vImport, &ImportMain::ocultar, this, &MainWindow::ocultarImportar);
 	emit enviarController(this->getController());
 }
@@ -35,12 +38,14 @@ void MainWindow::setController(Controller * controller) {
 
 void MainWindow::botonGrados()
 {
+	emit actualizar();
 	grados->show();
 	grados->setWindowModality(Qt::WindowModal);
 }
 
 void MainWindow::botonProfesores()
 {
+	emit actualizar();
 	profesores->show();
 	profesores->setWindowModality(Qt::WindowModal);
 }
@@ -53,6 +58,7 @@ void MainWindow::botonImportar()
 
 void MainWindow::botonAlumnos()
 {
+	emit actualizar();
 	alumnos->show();
 	alumnos->setWindowModality(Qt::WindowModal);
 }
