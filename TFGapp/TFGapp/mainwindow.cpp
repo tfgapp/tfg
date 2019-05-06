@@ -69,5 +69,4 @@ void MainWindow::botonOrganizar()
 	emit enviarController(this->getController());
 	preBack->show();
 	preBack->setWindowModality(Qt::WindowModal);
-	
 }

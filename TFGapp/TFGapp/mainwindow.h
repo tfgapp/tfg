@@ -40,9 +40,7 @@ private:
     Ui::MainWindow *ui;
 	GradosMain *grados;
 	ImportMain *vImport;
-
 	PreBack *preBack;
-
 	ProfesoresMain *profesores;
 	menuAlumno *alumnos;
 

@@ -70,12 +70,15 @@ void ImportMain::cerrar()
 	mostrarCasiTodo();
 	emit ocultar();
 }
+
 Controller * ImportMain::getController() {
 	return this->manager;
 }
+
 void ImportMain::setController(Controller * controller) {
 	this->manager = controller;
 }
+
 void ImportMain::confirmarGrado() {
 	importarAlumnos((char*)ui.path->text().toStdString().c_str(), manager, this->manager->getGrado(ui.selectGrado->currentText().toStdString()));
 	ui.selectGrado->setHidden(true);
@@ -83,6 +86,7 @@ void ImportMain::confirmarGrado() {
 	ui.path->setHidden(true);
 	emit aceptarGrado();
 }
+
 void ImportMain::ocultarCasiTodo() {
 	ui.Aceptar->setHidden(true);
 	ui.Aceptar->setDisabled(true);
@@ -100,6 +104,7 @@ void ImportMain::ocultarCasiTodo() {
 	ui.listPathAlumnos->setDisabled(true);
 
 }
+
 void ImportMain::mostrarCasiTodo() {
 	ui.Aceptar->setHidden(false);
 	ui.Aceptar->setDisabled(false);

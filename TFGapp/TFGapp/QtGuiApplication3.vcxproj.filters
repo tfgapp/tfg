@@ -102,6 +102,9 @@
     <ClCompile Include="BackTrackingMain.cpp">
       <Filter>Source Forms</Filter>
     </ClCompile>
+    <ClCompile Include="selectProfesorMain.cpp">
+      <Filter>Source Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
@@ -128,6 +131,9 @@
     <QtMoc Include="ProfesoresMain.h">
       <Filter>Header Forms</Filter>
     </QtMoc>
+    <QtMoc Include="selectProfesorMain.h">
+      <Filter>Header Forms</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="mainwindow.ui">
@@ -152,6 +158,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="BackTrackingMain.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="selectProfesorMain.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
