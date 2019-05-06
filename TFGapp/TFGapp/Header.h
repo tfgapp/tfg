@@ -35,10 +35,10 @@ void BBDD insertarPresentacion(sqlite3 * bd, Alumno alumno);
 void BBDD insertarTribunales(sqlite3 * bd, Alumno alumno);
 
 void BBDD borrarDisponibilidad(sqlite3 * bd, Horario horario);
-void BBDD borrarAlumno(sqlite3 * bd, Alumno alumno);
+void BBDD borrarAlumno(sqlite3 * bd, string id);
 void BBDD borrarProfesor(sqlite3 * bd, Profesor profesor);
 void BBDD borrarGrado(sqlite3 * bd, string id);
-void BBDD borrarEspecialidad(sqlite3 * bd, Profesor profesor);
+void BBDD borrarEspecialidad(sqlite3 * bd, string id);
 void BBDD borrarTFG(sqlite3 * bd, Alumno alumno);
 void BBDD borrarPresentacion(sqlite3 * bd, Alumno alumno);
 void BBDD borrarTribunales(sqlite3 * bd, Alumno alumno);

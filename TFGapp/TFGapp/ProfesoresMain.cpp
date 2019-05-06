@@ -42,7 +42,23 @@ void ProfesoresMain::crearProfesor()
 }
 void ProfesoresMain::borrarProfesor() 
 {
-
+	auto a = ui.listaProfesores->item(ui.listaProfesores->currentRow(), 0);
+	if (a != NULL)
+	{
+		QMessageBox msgBox;
+		msgBox.setIcon(QMessageBox::Warning);
+		msgBox.setText("Seguro que quieres borrar este profesor?");
+		QPushButton botonAceptar("Aceptar");
+		msgBox.addButton(&botonAceptar, QMessageBox::AcceptRole);
+		msgBox.setStandardButtons(QMessageBox::Cancel);
+		msgBox.setDefaultButton(QMessageBox::Cancel);
+		int ret = msgBox.exec();
+		if (msgBox.clickedButton() == &botonAceptar)
+		{
+			this->manager->eliminarProfesor(a->text().toStdString());
+			actualizarLista();
+		}
+	}
 }
 void ProfesoresMain::modificarProfesor() 
 {

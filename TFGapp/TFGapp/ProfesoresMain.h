@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QWidget>
+#include <QMessageBox>
 #include "ui_ProfesoresMain.h"
 #include "header.h"
 

@@ -1,11 +1,13 @@
 #include "ui_gradosMain.h"
 #include "GradosMain.h"
 
-GradosMain::GradosMain(QWidget *parent): QWidget(parent)
+GradosMain::GradosMain(Controller * main, QWidget *parent): QWidget(parent)
 {
+	this->manager = main;
 	ui.setupUi(this);
 	ui.botonAceptar->setVisible(false);
 	ui.introducirTexto->setVisible(false);
+	ui.labelNombre->setVisible(false);
 	
 }
 
@@ -18,8 +20,19 @@ void GradosMain::borrarGrado()
 	auto a = ui.listaGrados->currentItem();
 	if (a != NULL) 
 	{
-		this->manager->eliminarGrado(a->text().toStdString());
-		actualizarLista();
+		QMessageBox msgBox;
+		msgBox.setIcon(QMessageBox::Warning);
+		msgBox.setText("Seguro que quieres borrar este grado?");
+		QPushButton botonAceptar("Aceptar");
+		msgBox.addButton(&botonAceptar, QMessageBox::AcceptRole);
+		msgBox.setStandardButtons(QMessageBox::Cancel);
+		msgBox.setDefaultButton(QMessageBox::Cancel);
+		int ret = msgBox.exec();
+		if (msgBox.clickedButton() == &botonAceptar)
+		{
+			this->manager->eliminarGrado(a->text().toStdString());
+			actualizarLista();
+		}
 	}
 }
 
@@ -31,12 +44,14 @@ void GradosMain::crearGrado()
 	ocultarCasiTodo();
 	ui.botonAceptar->setVisible(true);
 	ui.introducirTexto->setVisible(true);
+	ui.labelNombre->setVisible(true);
 	loop.exec();
 	grado.setNombre(ui.introducirTexto->text().toStdString());
 	this->manager->addGrado(grado);
 	actualizarLista();
 	ui.botonAceptar->setVisible(false);
 	ui.introducirTexto->setVisible(false);
+	ui.labelNombre->setVisible(false);
 	mostrarCasiTodo();
 }
 
@@ -59,11 +74,6 @@ void GradosMain::mostrarCasiTodo()
 void  GradosMain::modificarGrado() 
 {
 	
-}
-
-Controller * GradosMain::getController() 
-{
-	return this->manager;
 }
 
 void GradosMain::setController(Controller * controller) 

@@ -4,35 +4,38 @@
 #include "qerrormessage.h"
 #include "qcombobox.h"
 
-ImportMain::ImportMain(QWidget *parent)
-	: QWidget(parent)
+ImportMain::ImportMain(Controller * main, QWidget *parent): QWidget(parent)
 {
+	this->manager = main;
 	ui.setupUi(this);
 	ui.selectGrado->setHidden(true);
 	ui.confirmarGrado->setHidden(true);
 	ui.path->setHidden(true);
-	
-
 }
 
 ImportMain::~ImportMain()
 {
 }
-void ImportMain::pathAlumnos(){
-	
+
+void ImportMain::pathAlumnos()
+{
 	QStringList filenames = QFileDialog::getOpenFileNames(this, tr("open file"), "/path/to/file/", tr("all (*.csv)"));
 	ui.listPathAlumnos->clear();
 	ui.listPathAlumnos->addItems(filenames);
-		
-	
 }
-void ImportMain::pathProfesores(){
+
+void ImportMain::pathProfesores()
+{
 	ui.direccionProfesores->setText(QFileDialog::getOpenFileName(this, tr("open file"), "/path/to/file/", tr("all (*.csv)")));
 }
-void ImportMain::pathDisponibilidad(){
+
+void ImportMain::pathDisponibilidad()
+{
 	ui.direccionDisponibilidad->setText(QFileDialog::getOpenFileName(this, tr("open file"), "/path/to/file/", tr("all (*.csv)")));
 }
-void ImportMain::cerrar(){
+
+void ImportMain::cerrar()
+{
 	ocultarCasiTodo();
 	ui.Aceptar->setDisabled(true);
 	ui.Aceptar->setHidden(true);
@@ -66,7 +69,6 @@ void ImportMain::cerrar(){
 	}
 	mostrarCasiTodo();
 	emit ocultar();
-	
 }
 Controller * ImportMain::getController() {
 	return this->manager;
