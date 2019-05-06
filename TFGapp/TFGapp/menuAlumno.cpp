@@ -4,6 +4,8 @@ menuAlumno::menuAlumno(Controller* main, QWidget *parent): QWidget(parent)
 {
 	ui.setupUi(this);
 	ui.listaAlumnos->setEditTriggers(QAbstractItemView::NoEditTriggers);
+	ui.listaAlumnos->setSelectionBehavior(QAbstractItemView::SelectRows);
+	ui.listaAlumnos->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 	this->manager = main;
 	actualizarLista();
 }
@@ -18,7 +20,7 @@ void menuAlumno::actualizarLista()
 	QString nombre;
 
 	ui.listaAlumnos->clear();
-	ui.listaAlumnos->setColumnCount(3);
+	ui.listaAlumnos->setColumnCount(4);
 	ui.listaAlumnos->setRowCount(alumnos->size());
 	for (int i = 0; i < alumnos->size(); i++) 
 	{
@@ -28,6 +30,8 @@ void menuAlumno::actualizarLista()
 		ui.listaAlumnos->setItem(i, 1, new QTableWidgetItem(nombre));
 		nombre = (*alumnos)[i].getID().c_str();
 		ui.listaAlumnos->setItem(i, 2, new QTableWidgetItem(nombre));
+		nombre = (*alumnos)[i].getGrado()->getNombre().c_str();
+		ui.listaAlumnos->setItem(i, 3, new QTableWidgetItem(nombre));
 	}
 }
 

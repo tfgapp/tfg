@@ -1,8 +1,7 @@
 #include "ui_gradosMain.h"
 #include "GradosMain.h"
 
-GradosMain::GradosMain(QWidget *parent)
-	: QWidget(parent)
+GradosMain::GradosMain(QWidget *parent): QWidget(parent)
 {
 	ui.setupUi(this);
 	ui.botonAceptar->setVisible(false);
@@ -16,9 +15,10 @@ GradosMain::~GradosMain()
 
 void GradosMain::borrarGrado()
 {
-	if (this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) 
-  {
-		this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
+	auto a = ui.listaGrados->currentItem();
+	if (a != NULL) 
+	{
+		this->manager->eliminarGrado(a->text().toStdString());
 		actualizarLista();
 	}
 }

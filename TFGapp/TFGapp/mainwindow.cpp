@@ -44,10 +44,8 @@ void MainWindow::botonGrados()
 
 void MainWindow::botonProfesores()
 {
-	this->hide();
 	profesores->show();
 	profesores->setWindowModality(Qt::WindowModal);
-	this->show();
 }
 
 void MainWindow::botonImportar() 
@@ -59,7 +57,6 @@ void MainWindow::botonImportar()
 
 void MainWindow::botonAlumnos()
 {
-	emit enviarController(this->getController());
 	alumnos->show();
 	alumnos->setWindowModality(Qt::WindowModal);
 }
