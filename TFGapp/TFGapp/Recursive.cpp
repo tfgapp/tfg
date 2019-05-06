@@ -1,25 +1,7 @@
 #include "Header.h"
 
-bool prepareR(Controller * main, int convocatoria)
+bool RECURSIVE prepareR(Controller * main, int convocatoria, vector<Alumno *> convocados, int ** aulas)
 {
-	//Seleccionar que alumnos van a ir en esta convocatoria
-	int numAulas = 1;
-	int slots = 7;
-	int dias = main->getDiaMax();
-	int **aulas;
-	aulas = new int*[dias];
-	for (int i = 0; i < dias; i++) {
-		aulas[i] = new int[slots];
-		for (int j = 0; j < slots; j++) {
-			aulas[i][j] = numAulas;
-		}
-	}
-	vector<Alumno *> convocados;
-
-	for (int i = 0; i < (numAulas * slots * dias) - 1; i++) //Utilizo la lista completa de manager para test
-	{
-		convocados.push_back(&(*main->getListaAlumnos())[i]);
-	}
 	if (backtracking(main, &convocados, convocatoria, 0, aulas, 1, 0))
 	{
 		for (int i = 0; i < convocados.size(); i++)
@@ -29,7 +11,6 @@ bool prepareR(Controller * main, int convocatoria)
 		}
 		return true;
 	}
-	
 	return false;
 }
 

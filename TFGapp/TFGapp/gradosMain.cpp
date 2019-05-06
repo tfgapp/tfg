@@ -14,9 +14,10 @@ GradosMain::~GradosMain()
 {
 }
 
-
-void GradosMain::borrarGrado() {
-	if (this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) {
+void GradosMain::borrarGrado()
+{
+	if (this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL) 
+  {
 		this->manager->eliminarGrado(ui.listaGrados->currentItem()->text().toStdString());
 		actualizarLista();
 	}
