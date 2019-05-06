@@ -3,6 +3,7 @@
 #include <QWidget>
 #include "ui_PreBack.h"
 #include "qtextedit.h"
+#include "BackTrackingMain.h"
 class PreBack : public QWidget
 {
 	Q_OBJECT
