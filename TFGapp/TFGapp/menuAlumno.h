@@ -8,10 +8,14 @@ class menuAlumno : public QWidget
 {
 	Q_OBJECT
 
+private:
+	Controller *manager;
+	Ui::menuAlumno ui;
+
 public:
-	menuAlumno(QWidget *parent = Q_NULLPTR);
+	menuAlumno(Controller* main, QWidget *parent = Q_NULLPTR);
 	~menuAlumno();
-	Controller * getController();
+	void actualizarLista();
 	void setController(Controller * controller);
 	vector <Alumno> *alumnos;
 
@@ -19,8 +23,4 @@ private slots:
 	void crearAlummno();
 	void borrarAlumno();
 	void modificarAlumno();
-
-private:
-	Controller *manager;
-	Ui::menuAlumno ui;
 };

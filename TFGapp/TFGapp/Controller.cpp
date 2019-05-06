@@ -170,7 +170,7 @@ void Controller::enlazarCoTutor(Alumno *alumno, Profesor *profesor)
 
 int Controller::getDiaMax()
 {
-	return 7;
+	return diaMax;
 }
 
 void Controller::setDiaMax(int dia)

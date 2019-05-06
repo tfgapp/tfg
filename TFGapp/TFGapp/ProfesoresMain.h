@@ -8,18 +8,19 @@ class ProfesoresMain : public QWidget
 {
 	Q_OBJECT
 
+private:
+	Controller *manager;
+	Ui::ProfesoresMain ui;
+
 public:
-	ProfesoresMain(QWidget *parent = Q_NULLPTR);
+	ProfesoresMain(Controller* main, QWidget *parent = Q_NULLPTR);
 	~ProfesoresMain();
-	Controller * getController();
+	void actualizarLista();
 	void setController(Controller * controller);
-	vector  <Profesor>  *profesores;
+
 private slots:
 	void crearProfesor();
 	void borrarProfesor();
 	void modificarProfesor();
 	void asignarHorario();
-private:
-	Controller *manager;
-	Ui::ProfesoresMain ui;
 };

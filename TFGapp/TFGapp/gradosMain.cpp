@@ -40,42 +40,43 @@ void GradosMain::crearGrado()
 	mostrarCasiTodo();
 }
 
-void GradosMain::ocultarCasiTodo(){
+void GradosMain::ocultarCasiTodo()
+{
 	ui.botonBorrar->setVisible(false);
 	ui.botonCrear->setVisible(false);
 	ui.botonModificar->setVisible(false);
 	ui.listaGrados->setVisible(false);
 }
 
-void GradosMain::mostrarCasiTodo(){
+void GradosMain::mostrarCasiTodo()
+{
 	ui.botonBorrar->setVisible(true);
 	ui.botonCrear->setVisible(true);
 	ui.botonModificar->setVisible(true);
 	ui.listaGrados->setVisible(true);
 }
 
-void  GradosMain::modificarGrado() {
+void  GradosMain::modificarGrado() 
+{
 	
 }
 
-Controller * GradosMain::getController() {
+Controller * GradosMain::getController() 
+{
 	return this->manager;
 }
 
-void GradosMain::setController(Controller * controller) {
+void GradosMain::setController(Controller * controller) 
+{
 	this->manager = controller;
 	this->actualizarLista();
-
 }
 
 void GradosMain::aceptarCambio() {
-	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL && ui.introducirTexto->text() != QString("Grado no valido")) {
+	if (!ui.introducirTexto->text().isEmpty() && this->manager->getGrado(ui.introducirTexto->text().toStdString()) == NULL && ui.introducirTexto->text() != QString("Grado no valido"))
 		emit aceptar();
-	}
 	else 
-	{
 		QString a("Grado no valido");
-	}
 }
 
 void GradosMain::actualizarLista() {

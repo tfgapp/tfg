@@ -65,13 +65,13 @@
     <string>Asignar Horarios</string>
    </property>
   </widget>
-  <widget class="QListView" name="listaProfesores">
+  <widget class="QListWidget" name="listaProfesores">
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>131</y>
+     <y>21</y>
      <width>361</width>
-     <height>301</height>
+     <height>611</height>
     </rect>
    </property>
   </widget>

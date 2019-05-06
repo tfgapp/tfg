@@ -26,12 +26,12 @@
     <string>Crear Nuevo Alumno</string>
    </property>
   </widget>
-  <widget class="QListView" name="listaAlumnos">
+  <widget class="QTableWidget" name="listaAlumnos">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>40</y>
-     <width>391</width>
+     <width>581</width>
      <height>721</height>
     </rect>
    </property>

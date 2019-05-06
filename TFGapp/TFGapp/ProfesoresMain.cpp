@@ -1,41 +1,47 @@
 #include "ProfesoresMain.h"
-#include "ui_ProfesoresMain.h"
 
-ProfesoresMain::ProfesoresMain(QWidget *parent)
-	: QWidget(parent)
+ProfesoresMain::ProfesoresMain(Controller* main, QWidget *parent): QWidget(parent)
 {
+	this->manager = main;
 	ui.setupUi(this);
+	actualizarLista();
 }
 
 ProfesoresMain::~ProfesoresMain()
 {
 }
 
-Controller * ProfesoresMain::getController() {
-	return this->manager;
-}
-void ProfesoresMain::setController(Controller * controller) {
-	this->manager = controller;
-	vector <Profesor> * profesores = new vector <Profesor>;
-	profesores = manager->getListaProfesores();
-	QStringList lista;
-	for (int i = 0; i < profesores->size(); i++) {
-		QString * nombre = new QString((*profesores)[i].getNombre().c_str());
-		lista.append(*nombre);
+void ProfesoresMain::actualizarLista()
+{
+	ui.listaProfesores->clear();
+	vector <Profesor> * profesores = manager->getListaProfesores();
+	QString nombre;
+	for (int i = 0; i < profesores->size(); i++) 
+	{
+		nombre = (*profesores)[i].getNombre().c_str();
+		ui.listaProfesores->addItem(nombre);
 	}
-	//ui.listaProfesores->clear();
-	//ui.listaProfesores->addItems(lista);
 }
 
-void ProfesoresMain::crearProfesor() {
+void ProfesoresMain::setController(Controller * controller) 
+{
+	this->manager = controller;
+	actualizarLista();
+}
+
+void ProfesoresMain::crearProfesor()
+{
 
 }
-void ProfesoresMain::borrarProfesor() {
+void ProfesoresMain::borrarProfesor() 
+{
 
 }
-void ProfesoresMain::modificarProfesor() {
+void ProfesoresMain::modificarProfesor() 
+{
 
 }
-void ProfesoresMain::asignarHorario() {
+void ProfesoresMain::asignarHorario() 
+{
 
 }
