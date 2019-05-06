@@ -1,13 +1,13 @@
 #include "Header.h"
 
-bool RECURSIVE prepareR(Controller * main, int convocatoria, vector<Alumno *> convocados, int ** aulas)
+bool RECURSIVE prepareR(Controller * main, int convocatoria, vector<Alumno *> *convocados, int ** aulas)
 {
-	if (backtracking(main, &convocados, convocatoria, 0, aulas, 1, 0))
+	if (backtracking(main, convocados, convocatoria, 0, aulas, 1, 0))
 	{
-		for (int i = 0; i < convocados.size(); i++)
+		for (int i = 0; i < convocados->size(); i++)
 		{
-			insertarPresentacion(main->getDB(), *convocados[i]);
-			insertarTribunales(main->getDB(), *convocados[i]);
+			insertarPresentacion(main->getDB(), *(*convocados)[i]);
+			insertarTribunales(main->getDB(), *(*convocados)[i]);
 		}
 		return true;
 	}
