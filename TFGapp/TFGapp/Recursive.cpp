@@ -39,7 +39,7 @@ bool RECURSIVE backtracking(Controller * main, vector<Alumno *> *convocados, int
 			if (j == i) continue; //Para no coger dos veces el mismo profesor
 
 			profesor = &(*main->getListaProfesores())[j];
-			if (!profesor->estaEspecializado(alumno->getGrado()) || !profesor->estaDisponible(dia, slot)) continue;//Comprobamos disponibilidad + grado
+			if (!profesor->estaEspecializado(alumno->getGrado()) || !profesor->estaDisponible(dia, slot)|| alumno->getTFG()->getTutor() == profesor || alumno->getTFG()->getCotutor() == profesor) continue;//Comprobamos disponibilidad + grado
 
 			//Pareja Viable
 			presentacion->setAll(dia, slot, convocatoria);

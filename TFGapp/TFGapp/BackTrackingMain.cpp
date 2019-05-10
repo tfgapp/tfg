@@ -64,8 +64,11 @@ void BackTrackingMain::iniciarBack() {
 								QString dia(QString::number(diaP));
 								QString slot(QString::number(slotP));
 								QLabel *b = new QLabel();
+								vector <Profesor*> *tribunal= (*alum)[n]->getTFG()->getPresentacion()->getTribunal();
+								QString nom1((*tribunal)[0]->getNombre().c_str());
+								QString nom2((*tribunal)[1]->getNombre().c_str());
 								//b->setSizePolicy(QSizePolicy::Expanding);
-								b->setText(dia + QString(" ") + slot + QString(" ") + a);
+								b->setText(dia + QString(" ") + slot + QString(" ") + a + QString("\n") + nom1 + QString("\n") + nom2);
 								lays[cont].addWidget(b);
 								b->sizePolicy().setHorizontalStretch(1);
 								introducirAlum = true;
