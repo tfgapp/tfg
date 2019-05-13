@@ -37,20 +37,14 @@ bool RECURSIVE backtracking(Controller * main, vector<Alumno *> *convocados, int
 		for (int j = 0; j < main->getListaProfesores()->size(); j++)
 		{
 			if (j == i) continue; //Para no coger dos veces el mismo profesor
-
 			profesor = &(*main->getListaProfesores())[j];
 			if (!profesor->estaEspecializado(alumno->getGrado()) || !profesor->estaDisponible(dia, slot)|| alumno->getTFG()->getTutor() == profesor || alumno->getTFG()->getCotutor() == profesor) continue;//Comprobamos disponibilidad + grado
-
 			//Pareja Viable
 			presentacion->setAll(dia, slot, convocatoria);
 			aulas[dia - 1][slot]--;
 			presentacion->addTribunal(&(*main->getListaProfesores())[i]);
 			presentacion->addTribunal(profesor);
-			//if (!(dia > main->getDiaMax())) cout << "Conv: " << convocatoria << " Slot: " << slot << " Aula: " << aulas[dia - 1][slot] << " Dia: " << dia << " Pos: " << pos << "\n";
-			if (backtrackingManage(main, convocados, convocatoria, 0, aulas, 1, pos + 1))
-			{
-				return true;
-			}
+			if (backtrackingManage(main, convocados, convocatoria, 0, aulas, 1, pos + 1)) return true;
 			else
 			{
 				aulas[dia - 1][slot]++;

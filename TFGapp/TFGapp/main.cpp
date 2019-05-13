@@ -25,7 +25,7 @@ int main(int argc, char * argv[])
 		volcarAlumnos(&main);
 	}
 
-	/*if(FIRST == 1)
+	if(FIRST == 1)
 	{
 		importarProfesores(pathP, &main);
 		importarAlumnos("../Alumnos.csv", &main, main.getGrado("Grado1"));
@@ -33,7 +33,7 @@ int main(int argc, char * argv[])
 		importarAlumnos("../Alumnos3.csv", &main, main.getGrado("Grado3"));
 		importarAlumnos("../Alumnos2.csv", &main, main.getGrado("Grado4"));
 		importarHorarios(pathD, &main);
-	}*/
+	}
 
 	MainWindow inicio(&main);
 	inicio.show();
