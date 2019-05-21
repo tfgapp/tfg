@@ -97,22 +97,6 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>ProfesoresMain</receiver>
-   <slot>crearProfesor()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>553</x>
-     <y>160</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>555</x>
-     <y>94</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_2</sender>
    <signal>clicked()</signal>
    <receiver>ProfesoresMain</receiver>
@@ -160,11 +144,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ProfesoresMain</receiver>
+   <slot>crearProf()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>577</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>572</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>crearProfesor()</slot>
   <slot>modificarProfesor()</slot>
   <slot>borrarProfesor()</slot>
   <slot>asignarHorario()</slot>
+  <slot>crearProf()</slot>
  </slots>
 </ui>

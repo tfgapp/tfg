@@ -101,5 +101,4 @@ void GradosMain::actualizarLista() {
 	}
 	ui.listaGrados->clear();
 	ui.listaGrados->addItems(lista);
-
 }

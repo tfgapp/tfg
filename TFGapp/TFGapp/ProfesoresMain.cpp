@@ -36,9 +36,11 @@ void ProfesoresMain::setController(Controller * controller)
 	actualizarLista();
 }
 
-void ProfesoresMain::crearProfesor()
+void ProfesoresMain::crearProf()
 {
-
+		ventanaCrear = new crearProfesor(manager);
+		ventanaCrear->show();
+		ventanaCrear->setWindowModality(Qt::WindowModal);
 }
 
 void ProfesoresMain::borrarProfesor() 
